@@ -1,0 +1,826 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 12 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;}
+@page Section1
+	{size:612.1pt 792.1pt;
+	margin:36.0pt 36.0pt 36.0pt 36.0pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=ES>
+
+<div class=Section1>
+
+<p class=MsoNormal><span lang=ES-SV>Video :</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Crear CRUD en MVC Net con C, Entity
+Framework y Sql Server</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Crear Proyecto MVC en .NET 2017</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Aplication web ASP.NET (.NET Framework)</span></p>
+
+<p class=MsoNormal>Nombre: MVCCrud.sln</p>
+
+<p class=MsoNormal>Seleccionar solo MVC -&gt; Aceptar</p>
+
+<p class=MsoNormal>Crear Entity Framework</p>
+
+<p class=MsoNormal>Ir a la carpeta: Models -&gt; Click Derecho</p>
+
+<p class=MsoNormal>Agregar -&gt; Nuevo Elemento -&gt; Datos -&gt; ADO.NET
+Entity Data Model</p>
+
+<p class=MsoNormal>Nombre:  DB  </p>
+
+<p class=MsoNormal> -&gt; Agregar</p>
+
+<p class=MsoNormal>EF Designer desde base de datos -&gt; Nueva Conexion ...
+-&gt;</p>
+
+<p class=MsoNormal>LLenar :nombre del servidor: Localhost , Nombre de usuario:
+sa </p>
+
+<p class=MsoNormal>,Contraseña: ddd    , nombre de la base de datos : Crud</p>
+
+<p class=MsoNormal>-&gt; Probar Conexion -&gt; Aceptar</p>
+
+<p class=MsoNormal>Chequear Guardar configuracion de conexion Web.Config:</p>
+
+<p class=MsoNormal>Entity Data Model : CrudEntities  </p>
+
+<p class=MsoNormal>Seleccionar Si, incluir datos confidenciales en la cadena de
+conexion</p>
+
+<p class=MsoNormal> -&gt; Siguiente -&gt; Entity Framework 6.x</p>
+
+<p class=MsoNormal>-&gt; Siguiente -&gt; Selecionar la tabla : tabla</p>
+
+<p class=MsoNormal>Espacio de nombres del modelo: CrudModel</p>
+
+<p class=MsoNormal>-&gt; Finalizar</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Crear controlador en carpeta Controller:</p>
+
+<p class=MsoNormal>Controlador de MVC5: en blanco -&gt; TablaController</p>
+
+<p class=MsoNormal>Crear vista del metodo index.</p>
+
+<p class=MsoNormal>En la carpeta Models Crear la carpeta: ViewModels</p>
+
+<p class=MsoNormal>Crear la clase: ListTablaViewModel</p>
+
+<p class=MsoNormal>Par amostrar los elemntso del listado:</p>
+
+<p class=MsoNormal><span lang=EN-US>Por ejemplo :  public  int Id { get; set; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>public  string Nombre { get; set; }</span></p>
+
+<p class=MsoNormal>En TablaController usar el contexto: CrudEntities</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>public ActionResult Index()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>        {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                List &lt; ListTablaViewModel &gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                using (CrudEntities db = new CrudEntities())</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               lst = (from d in db.tabla</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               select new ListTablaViewModel</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               Id= d.id,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               </span>Nombre = d.nombre,</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               Fecha_Nacimiento
+= d.fecha_nacimiento,</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               <span
+lang=EN-US>Correo = d.correo</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               }).ToList();</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                }</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>            return View(lst);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>        }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal>En Index.cshtml</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>@model
+List&lt;MVCCrud.Models.ViewModels.ListTablaViewModel&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>@{</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>    <span
+lang=EN-US>ViewBag.Title = &quot;Mis Datos&quot;;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&lt;h2&gt;@ViewBag.Title&lt;/h2&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&lt;div class = &quot;row&quot; style=&quot;text-align:right; &quot;
+&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                </span>&lt;a href=&quot;~/Tabla/Nuevo&quot;
+class=&quot;btn btn-primary&quot; &gt;Nuevo&lt;/a&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&lt;/div&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&lt;div class = &quot;row&quot;&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&lt;div class = &quot;col-md-12&quot;&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&lt;table class=&quot;table&quot;&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    &lt;tr&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>        &lt;th&gt; #ID  &lt;/th&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               &lt;th&gt; Nombre  &lt;/th&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               &lt;th&gt; Correo  &lt;/th&gt;       
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    &lt;/tr&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                @foreach (var oElemento in Model) </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    &lt;tr&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>        &lt;td&gt; @oElemento.Id&lt;/td&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               &lt;td&gt;
+@oElemento.Nombre&lt;/td&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               &lt;td&gt;
+@oElemento.Correo&lt;/td&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               &lt;td&gt; </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                                               &lt;a class=&quot;btn
+btn-default&quot; href=&quot;~/Tabla/Editar/@oElemento.Id&quot;&gt;Editar
+&lt;/a&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                                               &lt;a class=&quot;btn
+btn-danger&quot; href=&quot;~/Tabla/Eliminar/@oElemento.Id&quot;&gt;Eliminar
+&lt;/a&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               &lt;/td&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    &lt;/tr&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                }</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&lt;/table&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&lt;/div&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&lt;/div&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal>Crear clase TablaViewModel en la carpeta ViewModels: </p>
+
+<p class=MsoNormal><span lang=EN-US>Incluir  : </span></p>
+
+<p class=MsoNormal><span lang=EN-US>[DisplayFormat(DataFormatString =
+&quot;{0:yyyy-MM-dd}&quot;,ApplyFormatInEditMode= true)]</span></p>
+
+<p class=MsoNormal><span lang=EN-US>public  DateTime  Fecha_Creacion { get;
+set; }</span></p>
+
+<p class=MsoNormal>Con data anotations .</p>
+
+<p class=MsoNormal>El codigo para Nuevo :</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>public ActionResult Nuevo()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>        {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>            return View();</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>        }</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>[HttpPost]                          </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>public ActionResult Nuevo(TablaViewModel model)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                try {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                if (ModelState.IsValid)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                using (CrudEntities db = new CrudEntities())</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                </span>{</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               var
+otabla = new tabla();                             </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               otabla.nombre
+= model.nombre;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               otabla.fecha_nacimiento
+= model.fecha_nacimiento;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               otabla.correo
+= model.correo;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               db.tabla.Add(oTabla)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               <span
+lang=EN-US>db.SaveChanges();</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                }</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                return Redirect(&quot;/&quot;);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                }</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                return View(model);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                }</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                catch (Exception ex) {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               throw new Exception(ex.Message);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                </span>}</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>           
+return View(lst);</p>
+
+<p class=MsoNormal>}</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>El codigo de Nuevo.cshtml :</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>@model
+MVCCrud.Models.ViewModels.TablaViewModel</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>@{</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>    <span
+lang=EN-US>ViewBag.Title = &quot;Nuevo&quot;;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&lt;h2&gt;@ViewBag.Title&lt;/h2&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>@using (Html.BeginForm(&quot;Nuevo&quot;, &quot;Tabla&quot;, FormMethod.Post))</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>{    </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    &lt;div class = &quot;row&quot;&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                &lt;div class = &quot;col-md-12&quot;&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                &lt;div&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>        </span>@Html.LabelFor(d =&gt; d.Nombre)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>        <span
+lang=EN-US>@Html.TextBoxFor(d =&gt; d.Nombre, &quot;&quot;,  new { @class =
+&quot;form-control&quot; })</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               @Html.ValidationMessageFor(d =&gt;
+d.Nombre, null,  new { @class = &quot;danger&quot; })</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                </span>&lt;/div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                &lt;div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               @Html.LabelFor(d
+=&gt; d.Correo)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>        <span
+lang=EN-US>@Html.TextBoxFor(d =&gt; d.Correo, &quot;&quot;,  new { @class =
+&quot;form-control&quot; })</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                </span>&lt;/div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               @Html.LabelFor(d
+=&gt; d.Fecha_Nacimiento)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>       
+@Html.EditFor(d =&gt; d.Fecha_Nacimiento, &quot;&quot;,  new { @class =
+&quot;form-control&quot; })</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               <span
+lang=EN-US>&lt;br /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               &lt;div style =
+&quot;text-align:right&quot;&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                                               &lt;input
+type=&quot;submit&quot; value=&quot;Guardar&quot; class=&quot;btn
+btn-primary&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               &lt;/div&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    &lt;/div&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>        @Html.ActionLink(&quot;Add Product&quot;,
+&quot;AddProduct&quot;, new {  } , new { @class=&quot;btn btn-primary&quot;} ) </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>        </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>            </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    </span>&lt;/div&gt;</p>
+
+<p class=MsoNormal>}</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=EN-US>Para Editar :</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>public ActionResult Editar(int Id)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    TablaViewModel model = new TablaViewModel();        </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                using (CrudEntities db = new CrudEntities())</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                </span>{</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               var
+otabla = db.tabla.Find(Id);</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               model.nombre
+= otabla.nombre;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               model.fecha_nacimiento
+= otabla.fecha_nacimiento;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               model.correo
+= otabla.correo;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               model.Id
+= otabla.id;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                                                               </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                <span
+lang=EN-US>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                return View(model);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>[HttpPost]                          </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>public ActionResult Editar(TablaViewModel model)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                try {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                if (ModelState.IsValid)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                using (CrudEntities db = new CrudEntities())</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                </span>{</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               var
+otabla = db.tabla.Find(Id);                  </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               otabla.nombre
+= model.nombre;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               otabla.fecha_nacimiento
+= model.fecha_nacimiento;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               <span
+lang=EN-US>otabla.correo = model.correo;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               db.Entry(otabla).State = System.Data.Entity.EntityState.Modified;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               db.SaveChanges();</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                }</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                return Redirect(&quot;~/Tabla/&quot;);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                }</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                return View(model);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                }</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                catch (Exception ex) {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               throw new Exception(ex.Message);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                </span>}</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>           
+return View(lst);</p>
+
+<p class=MsoNormal>}</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Para Editar.cshtml</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>@model
+MVCCrud.Models.ViewModels.TablaViewModel</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>@{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    ViewBag.Title = &quot;Editar&quot;;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&lt;h2&gt;@ViewBag.Title&lt;/h2&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>@using (Html.BeginForm(&quot;Editar&quot;, &quot;Tabla&quot;,
+FormMethod.Post))</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>{    </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    &lt;div class = &quot;row&quot;&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                &lt;div class = &quot;col-md-12&quot;&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                </span>&lt;div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>       
+@Html.LabelFor(d =&gt; d.Nombre)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>        <span
+lang=EN-US>@Html.TextBoxFor(d =&gt; d.Nombre, &quot;&quot;,  new { @class =
+&quot;form-control&quot; })</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               @Html.ValidationMessageFor(d =&gt;
+d.Nombre, null,  new { @class = &quot;danger&quot; })</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                </span>&lt;/div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                &lt;div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               @Html.LabelFor(d
+=&gt; d.Correo)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>        <span
+lang=EN-US>@Html.TextBoxFor(d =&gt; d.Correo, &quot;&quot;,  new { @class =
+&quot;form-control&quot; })</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                </span>&lt;/div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               @Html.LabelFor(d
+=&gt; d.Fecha_Nacimiento)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>       
+@Html.EditFor(d =&gt; d.Fecha_Nacimiento, &quot;&quot;,  new { @class =
+&quot;form-control&quot; })</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               <span
+lang=EN-US>&lt;br /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               &lt;div style =
+&quot;text-align:right&quot;&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                                               &lt;input
+type=&quot;submit&quot; value=&quot;Guardar&quot; class=&quot;btn
+btn-primary&quot; /&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                               &lt;/div&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    &lt;/div&gt;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>        @Html.ActionLink(&quot;Add Product&quot;,
+&quot;AddProduct&quot;, new {  } , new { @class=&quot;btn btn-primary&quot;} ) </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>        </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>            </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>    </span>&lt;/div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>}</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>&nbsp;</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>Para
+Eliminar:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>[HttpGet]</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>public ActionResult Eliminar(int Id)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>{    </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                using (CrudEntities db = new CrudEntities())</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                </span>{</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               var
+otabla = db.tabla.Find(Id);</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               db.tabla.Remove(otabla);</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                               db.SaveChanges();                        </p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                }</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>                return
+Redirect(&quot;~/Tabla/&quot;);</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>}</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
