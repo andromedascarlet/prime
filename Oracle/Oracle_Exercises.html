@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+
+<xmp>
+
+USE TestSQL
+GO
+-------
+
+CREATE TABLE EMPLEADO_T 
+(
+  CODIGO_C VARCHAR2(30 BYTE) NOT NULL 
+, NOMBRE VARCHAR2(50 BYTE) 
+, EDAD NUMBER(*, 0) 
+, OFICIO VARCHAR2(50 BYTE) 
+, DIR VARCHAR2(50 BYTE) 
+, FECHA_ALT DATE 
+, SALARIO FLOAT(126) 
+, COMISION FLOAT(126) 
+, DEPTO_NO NUMBER(*, 0) 
+, CONSTRAINT EMPLEADO_T_PK PRIMARY KEY 
+  (
+    CODIGO_C 
+  )
+)
+
+CREATE TABLE DEPARTAMENTO_T 
+(
+  DEPTO_NO NUMBER(*, 0) NOT NULL 
+, NOMBRE_DEPTO VARCHAR2(50 BYTE) 
+, LOCALIZACION VARCHAR2(50 BYTE) 
+, CONSTRAINT DEPARTAMENTO_T_PK PRIMARY KEY 
+  (
+    DEPTO_NO 
+  )
+)
+
+-------
+
+Select * from DEPARTAMENTO_T
+
+/****** Object:  Table Departamento_t    Script Date: 02/27/2019 07:44:44 ******/
+INSERT INTO Departamento_t (depto_no, nombre_depto, localizacion) VALUES (10, 'Desarrollo Software', 'El Coyolar');
+INSERT INTO Departamento_t (depto_no, nombre_depto, localizacion) VALUES (20, 'Analisis Sistema', 'Guadalupe');
+INSERT INTO Departamento_t (depto_no, nombre_depto, localizacion) VALUES (30, 'Contabilidad', 'Subtiava');
+INSERT INTO Departamento_t (depto_no, nombre_depto, localizacion) VALUES (40, 'Ventas', 'San Felipe');
+/****** Object:  Table Empleado_t    Script Date: 02/27/2019 07:44:44 ******/
+
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('081-130678-0004S', 'Esquivel jose', 31, 'Director', 'Juigalpa',TO_DATE('1981/03/26', 'yyyy/mm/dd') , 16700 , 1200 , 30);
+
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-0404062-0057P', 'Hungria Julia Sonia', 35, 'Analista', 'Trifinio', TO_DATE('1984/02/11', 'yyyy/mm/dd'), 16000.00 , 25000.00, 20);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-0404267-0068P', 'Soriano Gertrudiz Billa', 24, 'Analista', 'Veracruz', TO_DATE('1979/10/05', 'yyyy/mm/dd'), 17000.00 , 9000.00 , 20);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-0404352-0058P', 'Copinol Edmiton Thomas', 29, 'Analista', 'Chinandega', TO_DATE('1975/05/26', 'yyyy/mm/dd'), 13000.00 , 15000.00 , 20);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-0404483-0056P', 'Lopez Hernandez Julio', 29, 'Analista', 'Chinandega', TO_DATE('1988/04/14', 'yyyy/mm/dd'), 13000.00 , 15000.00 , 20);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-160473-0009Q', 'Delgado Carmen', 37, 'Vendedor', 'Leon', TO_DATE('1992/07/05', 'yyyy/mm/dd'), 13400.00 , 0.00 , 40);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-160483-0005F', 'Rocha Vargas Hector', 27, 'Vendedor', 'Leon', TO_DATE('1980/04/16', 'yyyy/mm/dd'), 12000.00 , 0.00 , 40);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-160493-0005F', 'Castillo Monte Luis', 17, 'Vendedor', 'Masaya', TO_DATE('1982/07/21', 'yyyy/mm/dd'), 16309.00 , 1000.00 , 40);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-160493-0049B', 'Rodas Alas Lemon', 49, 'Empleado', 'Niagara', TO_DATE('1994/11/08', 'yyyy/mm/dd'), 17800.00 , 50.00 , 10);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-160493-0053H', 'Jilton Raider Scott', 46, 'Empleado', 'Praga', TO_DATE('1998/01/27', 'yyyy/mm/dd'), 14750.00 , 50.00 , 10);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-161277-0008R', 'Perez Luis', 32, 'Empleado', 'Managua', TO_DATE('2000/09/12', 'yyyy/mm/dd'), 16890.00 , 0.00 , 10);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-240784-0004Y', 'Esquivel Leonel Alfonso', 26, 'Presidente', 'Niagara', TO_DATE('2002/10/22', 'yyyy/mm/dd'), 15000.00 , 0.00 , 30);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-240784-0005Y', 'Squirell Midstone Graig', 45, 'Presidente', 'Praga', TO_DATE('1972/06/19', 'yyyy/mm/dd'), 21500.00 , 0.00 , 40);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-240784-0012Y', 'Lombardo Wilson Montreal', 38, 'Presidente', 'Niagara', TO_DATE('1997/08/04', 'yyyy/mm/dd'), 17500.00 , 150.00 , 10);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-240784-0024Y', 'Irland Ryan Orland', 19, 'Presidente', 'Tampico', TO_DATE('1994/01/17', 'yyyy/mm/dd'), 20500.00 , 200.00 , 20);
+INSERT INTO Empleado_t (codigo_c, nombre, edad, oficio, dir, fecha_alt, salario, comision, depto_no) VALUES ('281-240784-0089B', 'Estruano Londrop', 41, 'Vendedor', 'Masaya',  TO_DATE('1986/09/03', 'yyyy/mm/dd') , 18000.00 , 150.00 , 10);
+
+//****** File
+
+
+
+
+Select * from Empleado_t
+order by nombre desc;
+--
+
+Select nombre, oficio, localizacion from Empleado_t e
+inner join Departamento_t d on e.depto_no = d.depto_no
+where oficio= 'Vendedor'  ; 
+
+-- 3
+
+Select nombre from Empleado_t 
+Where nombre like '%o' ;
+
+-- 4
+Select nombre, oficio , salario , dir from Empleado_t 
+Where dir like '%Leon' ;
+
+-- 5
+Select nombre, salario, localizacion from Empleado_t  e  
+inner join Departamento_t d on e.depto_no = d.depto_no 
+where salario between 10000 and  13000 ;
+
+-- 6 
+-- Visualizar los departamentos con mas de 2 empleados
+Select  nombre_depto from  Departamento_t  
+where depto_no IN (  Select depto_no  from Empleado_t  
+group by  depto_no having COUNT(depto_no) > 2 ) ; 
+
+-- 7 
+-- Mostrar : nombre, salario, nombre_depto , nombre del departamento
+-- de los empleados que tengan el mismo oficio que "Leonel" 
+Select nombre, salario, nombre_depto from Empleado_t e
+inner join Departamento_t d on e.depto_no = d.depto_no 
+where  oficio in ( select oficio from Empleado_t where nombre like '%Leonel%' );
+
+-- 8 
+-- Mostrar : nombre, salario, nombre_depto , nombre del departamento
+-- de los empleados que tengan el mismo oficio que "Castillo"
+-- y que no tengan comision  
+Select nombre, salario, nombre_depto , comision from Empleado_t e
+inner join Departamento_t d on e.depto_no = d.depto_no 
+where  oficio in ( select oficio from Empleado_t where nombre like '%Castillo%' )
+and comision = 0 ;
+
+-- 9 
+-- Mostrar los datos de los empleados que trabajan en el departamneto de conatbilidad
+-- ordenados por nombre
+Select * from Empleado_t  
+where  depto_no = 30  
+order by nombre;
+
+-- 11
+-- Calcular el salario medio de todos los empleados
+Select AVG(salario) from Empleado_t ;
+
+-- 18  
+--  Mostrar cuantos nombres de empleados empiezan por la letra 'C'
+Select count(nombre) from Empleado_t 
+where  nombre like 'C%' ;
+
+-- 19  
+-- Visualizar el numero de empleados de cada departamento
+Select e.depto_no, nombre_depto , count( e.depto_no ) Cantidad from Empleado_t e
+inner join Departamento_t d on e.depto_no = d.depto_no 
+group by e.depto_no  , nombre_depto ;
+
+-- 20   
+--  Para cada oficio obtener la suma de salarios 
+Select oficio , Sum( salario ) Salario from Empleado_t 
+group by oficio  ;
+
+--21
+-- Mostrar los datos de losempleados cuyo salario sea mayor
+-- que la media de  todos los salarios
+Select *   from Empleado_t 
+where  salario > ( Select AVG(salario) from Empleado_t ) ;
+
+--25   
+--  Visualizar el depto con mas empleados
+
+Select  nombre,salario  from Empleado_t 
+where salario IN (
+Select  MAX(salario) As MxSal  from Empleado_t ) ;
+
+Select  nombre,salario  from Empleado e
+inner join ( 
+Select  MAX(salario) As MxSal  from Empleado ) mm
+on e.salario = mm.MxSal ;
+ 
+select nombre,salario
+from
+(
+  select nombre,salario,
+    row_number() over(order by salario desc) rn
+  from Empleado
+) src
+where rn = 1 ; 
+
+
+Select  depto_no, COUNT(depto_no) ContEmp  from Empleado  e 
+group by  e.depto_no  ;
+
+Select   MAX( y.Conteo )  From (
+Select depto_no, COUNT(depto_no) Conteo  from Empleado_t 
+ group by  depto_no  ) y ; 
+
+
+Select e.* From (   
+Select  e1.depto_no, d1.nombre_depto , COUNT(e1.depto_no) ContEmp  from Empleado_t e1 
+inner join Departamento_t d1 on e1.depto_no = d1.depto_no 
+group by  e1.depto_no ,d1.nombre_depto  ) e
+inner join ( 
+Select   MAX( y.Conteo )  ContMax From ( 
+Select depto_no, COUNT(depto_no) Conteo  from Empleado_t 
+ group by  depto_no  ) y   ) mm 
+on e.ContEmp = mm.ContMax ; 
+
+Select   MAX( y.Conteo )  ContMax From ( 
+Select depto_no, COUNT(depto_no) Conteo  from Empleado_t 
+ group by  depto_no  ) y ;  
+
+-- 25
+-- Variante : Cantidad de empleados por departamento
+
+Select e.depto_no , d.nombre_depto  , COUNT(codigo_c) mayor  from Empleado_t e  
+inner join Departamento_t d on e.depto_no = d.depto_no 
+ group by  e.depto_no ,d.nombre_depto  ;  
+
+-- Variante : El mayor sueldo por departamento   
+Select  mm.depto_no , nombre , mm.nombre_depto  , mm.smayor from Empleado_t e 
+inner join (
+Select e.depto_no , d.nombre_depto  , MAX(salario) smayor  from Empleado_t e  
+inner join Departamento_t d on e.depto_no = d.depto_no 
+ group by  e.depto_no ,d.nombre_depto  ) mm
+ on e.salario = mm.smayor ;
+
+-- 26  
+-- Visualizar el numero de depto que tenga mas empleados 
+-- cuyo oficio sea empleado  
+Select e.* From (   
+Select  e1.depto_no, d1.nombre_depto , COUNT(e1.depto_no) ContEmp  from Empleado_t e1 
+inner join Departamento_t d1 on e1.depto_no = d1.depto_no 
+where oficio like 'Vendedor'
+group by  e1.depto_no ,d1.nombre_depto  ) e
+inner join ( 
+Select   MAX( y.Conteo )  ContMax From ( 
+Select depto_no, COUNT(depto_no) Conteo  from Empleado_t 
+where oficio like 'Vendedor'
+ group by  depto_no  ) y   
+ ) mm 
+on e.ContEmp = mm.ContMax ;   
+
+-- 27  
+-- Mostrar el numero de oficios distintos de cada departamento
+Select  ee.depto_no , count(ee.depto_no) from (
+Select depto_no ,  oficio  from Empleado_t
+group by depto_no ,oficio 
+) ee
+group by ee.depto_no  ;  
+
+-- 28
+--Mostrar los departamentos que tengasn mas de dos personas
+-- trabajando en la misma profesion
+Select depto_no ,  oficio , COUNT(depto_no)  from Empleado_t
+group by depto_no ,oficio  
+having COUNT(depto_no) > 2  ;
+
+-- 29 
+-- Primer y Segundo vendedor con mas salario
+
+SELECT * FROM (
+  SELECT
+    ROW_NUMBER() OVER (ORDER BY salario DESC) AS rownumber,
+    nombre ,
+    salario
+  FROM Empleado_t 
+)  foo  
+WHERE rownumber <= 2  ;  
+ 
+-- Otra Forma. Solo Segundo Vendedor  con mayor salario
+ SELECT  MAX(salario) AS salary
+ FROM Empleado_t  
+ WHERE salario < ( SELECT MAX(salario)
+ FROM Empleado_t  ) ; 
+ 
+ Select nombre, salario from Empleado_t ee
+ inner join (
+ SELECT  MAX(salario) AS salary
+ FROM Empleado_t  
+ WHERE salario < (SELECT MAX(salario)
+ FROM Empleado_t ) 
+ ) mm on  ee.salario = mm.salary  ; 
+ 
+ --  Otra Forma.  Solo segundo vendedor con mayor salario
+ 
+SELECT  MAX(salario) AS salary 
+FROM Empleado_t 
+WHERE salario IN 
+(  SELECT salario FROM Empleado_t MINUS  SELECT MAX(salario) Salario
+FROM Empleado_t  )  ; 
+
+SELECT  MAX(salario) AS salary 
+FROM Empleado_t 
+WHERE salario NOT IN 
+(  SELECT MAX(salario) Salario FROM Empleado_t  )  ; 
+
+-- Otra forma .  Solo segundo vendedor con mayor salario
+
+WITH T AS
+(   
+SELECT 
+   RANK() OVER ( order by Salario Desc) AS Rnk ,
+   depto_no ,
+   salario
+FROM Empleado_t    
+)
+SELECT Rnk,  depto_no ,   salario
+FROM T
+WHERE Rnk=2;  
+
+-- Otra forma
+
+select top 1 salario 
+from (
+    select top 2 salario 
+    from Empleado_t
+    order by salario desc ) topTwo
+order by salario asc ;
+
+-- Otra Forma 
+
+SELECT MIN(salario) AS [column]
+FROM (
+    SELECT TOP 2 salario 
+    FROM Empleado_t 
+    GROUP BY salario 
+    ORDER BY salario DESC   
+) a  ; 
+
+-- Segundo vendedor con mas salario X Depto
+  
+  WITH T AS
+(   
+SELECT 
+   RANK() OVER (partition by depto_no  order by Salario Desc) AS Rnk ,
+   depto_no ,
+   salario
+FROM Empleado_t    
+)
+SELECT Rnk,  depto_no ,   salario
+FROM T
+WHERE Rnk=2;  
+
+SELECT Rnk,  depto_no ,   salario FROM
+(   
+SELECT 
+   RANK() OVER (partition by depto_no  order by Salario Desc) AS Rnk ,
+   depto_no ,
+   salario
+FROM Empleado_t    
+) tt
+WHERE Rnk=2; 
+
+-- Otra Forma .  Segundo vendedor con mas salario X Depto .
+     
+DECLARE @depto_no int 
+DECLARE @TestTable TABLE (depto_no INT, nombre varchar(50), Salario Float ) 
+        
+DECLARE db_cursor CURSOR FOR 
+SELECT depto_no FROM Departamento 
+
+OPEN db_cursor   
+FETCH NEXT FROM db_cursor INTO @depto_no 
+
+WHILE @@FETCH_STATUS = 0   
+BEGIN  
+
+INSERT INTO @TestTable ( depto_no, nombre, Salario )               
+Select depto_no ,nombre , Salario  From Empleado_t ee
+Inner join (
+SELECT  MAX(salario)  AS salarySec 
+FROM Empleado_t 
+WHERE salario NOT IN 
+  (  SELECT MAX(salario) Salario FROM Empleado_t where depto_no = @depto_no ) 
+     And  depto_no = @depto_no 
+  ) mm
+  on ee.salario = mm.salarySec and ee.depto_no = @depto_no
+
+FETCH NEXT FROM db_cursor INTO @depto_no   
+END   
+
+CLOSE db_cursor   
+DEALLOCATE db_cursor
+
+Select * From @TestTable 
+
+-- Cursor
+
+DECLARE 
+ EmpIDVar NUMBER := 42; 
+CURSOR guru99_det IS SELECT nombre FROM EMPLEADO_T;
+lv_emp_name EMPLEADO_T.nombre%type;
+
+BEGIN
+OPEN guru99_det;
+
+LOOP
+FETCH guru99_det INTO lv_emp_name;
+IF guru99_det%NOTFOUND THEN
+  EXIT;
+END IF;
+EmpIDVar := EmpIDVar + 50;
+Dbms_output.put_line('Employee Fetched:  '|| lv_emp_name || '  --  ' || EmpIDVar);
+END LOOP;
+--Dbms_output.put_line('Total rows fetched is '||guru99_det%R0WCOUNT);
+CLOSE guru99_det;
+END;
+
+
+---- PIVOT
+
+CREATE TABLE CUSTOMERS 
+(
+  CUST_ID NUMBER(10) NOT NULL 
+, CUST_NAME VARCHAR2(20) 
+, STATE_CODE VARCHAR2(2) 
+, TIMES_PURCHASED NUMBER(3) 
+, CONSTRAINT CUSTOMERS_PK PRIMARY KEY 
+  (
+    CUST_ID 
+  )
+  ENABLE 
+);
+
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (1 ,'Sundar Ande' , 'CT' , 13 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (2 ,'Mozhe Atkinson' , 'CT' , 5 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (3 ,'Shelli Baida' , 'CT' , 21 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (4 ,'Harrison Bloom' , 'CT' , 44 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (5 ,'Curtis Davies' , 'CT' , 5 );
+
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (6 ,'Bruce Ernst' , 'FL' , 35 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (7 ,'Britney Everett' , 'FL' , 5 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (8 ,'Pat Fay' , 'FL' , 15 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (9 ,'Tayler Fox' , 'FL' , 29 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (10 ,'Timothy Gates' , 'FL' , 43 );
+
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (11 ,'Nancy Greenberg' , 'NY' , 8 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (12 ,'Alyssa Hutton' , 'NY' , 28 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (13 ,'Payam Kaufling' , 'NY' , 32 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (14 ,'Neena Kochhar' , 'NY' , 17 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (15 ,'James Landry' , 'NY' , 25 );
+
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (16 ,'Susan Mavris' , 'TX' , 41 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (17 ,'Irene Mikkilineni' , 'TX' , 37 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (18 ,'Christopher Olsen' , 'TX' , 22 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (19 ,'Donald OConnell' , 'TX' , 19 );
+Insert into CUSTOMERS(CUST_ID, CUST_NAME, state_code, times_purchased ) values (20 ,'Nandita Sarchand' , 'TX' , 27 );
+
+Commit;
+
+
+select * from (
+   select times_purchased as "Puchase Frequency", state_code
+   from customers t
+)
+pivot 
+(
+   count(state_code)
+   for state_code in ('NY' as "New York",'CT' "Connecticut",
+   'NJ' "New Jersey",'FL' "Florida",'MO' as "Missouri" ,'TX' as "Texas")
+)
+order by 1 ;
+
+
+
+
+
+
+
+
+
+</xmp>
+
+
+</body>
+</html>

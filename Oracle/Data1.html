@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+
+<xmp>
+
+CREATE TABLE login (
+usuario varchar2(200) NOT NULL,
+password varchar2(200) DEFAULT NULL,
+nombre varchar2(200) DEFAULT NULL,
+edad number DEFAULT NULL,
+fecha date DEFAULT NULL,
+archivo blob,
+url varchar2(100) DEFAULT NULL,
+PRIMARY KEY (usuario)
+);
+
+CREATE TABLE alumnos (
+matricula number NOT NULL,
+nombre varchar2(100) NOT NULL,
+app varchar2(100) NOT NULL,
+apm varchar2(100) NOT NULL,
+edad number NOT NULL,
+sexo varchar2(50) NOT NULL,
+fecha_registro date NOT NULL,
+usuario varchar2(200) NOT NULL,
+PRIMARY KEY (matricula),
+FOREIGN KEY (usuario)
+REFERENCES login (usuario)
+);
+
+CREATE TABLE articulos (
+id_articulo number NOT NULL,
+nombre varchar2(200) NOT NULL,
+descripcion varchar2(200) DEFAULT NULL,
+costo float NOT NULL,
+precio float NOT NULL,
+PRIMARY KEY (id_articulo)
+
+);
+
+
+//**** File
+
+
+CREATE SEQUENCE seq_paciente --nombre de la secuencia
+START WITH 1 --la secuencia empieza por 1
+INCREMENT BY 1 --se incrementa de uno en uno
+NOMAXVALUE; --no tiene valor maximo
+
+-------------***-------------
+
+CREATE TRIGGER trig_pacientes_seq
+  BEFORE INSERT ON registro_pacientes
+  FOR EACH ROW
+  BEGIN
+    SELECT seq_paciente.nextval INTO :new.id FROM dual;
+  END
+;
+
+----------------***---------
+
+SELECT seq_paciente.nextval FROM dual;
+
+SELECT seq_paciente.currval  FROM dual;
+
+INSERT INTO "JR"."REGISTRO_PACIENTES" (CEDULA,NOMBRE, APELLLIDO, EDAD, DIAGNOSTICO, CIUDAD) 
+VALUES (215,'Artemisia', 'Varsovia',12, 'Java Revolutions', 'MilkTown')
+
+
+//**** File
+
+
+INSERT INTO "JR"."LOGIN" (USUARIO, PASSWORD, NOMBRE, EDAD, FECHA, URL) VALUES ('artemis', '12', 'Java Revolutions', '31', TO_DATE('21/12/16', 'DD/MM/RR'), 'none')
+
+
+//******  File
+
+select sysdate from dual where sysdate = to_date('14-jun-2016','dd-mon-yyyy');
+
+date -> date + TIME
+select sysdate from dual;
+
+alter session set nls_date_format = 'dd-mon-yyyy hh24:mi:ss';
+
+select sysdate + 1/24/60/60 from dual;
+
+select trunc(sysdate,'YYYY') from dual;
+select trunc(sysdate,'MON') from dual;
+
+select sysdate - 3040 from dual
+
+select * from oe.orders where order_date > (sysdate - 3040) ;
+
+select * from oe.orders where order_date > to_date('14-ene-2008','dd-mon-yyyy') ;
+
+select * from oe.orders 
+where order_date between to_date('05-ene-2008','dd-mon-yyyy') and to_date('31-ene-2008','dd-mon-yyyy');
+
+select add_months(sysdate, 2*12)   from dual;
+
+select sysdate, sysdate + numtodsinterval(5,'HOUR') 
+from dual;
+select sysdate, sysdate + numtodsinterval(5,'DAY') 
+from dual;
+select sysdate, sysdate + numtoyminterval(8,'MONTH') 
+from dual;
+select sysdate, sysdate + numtoyminterval(8,'YEAR') 
+from dual;
+
+select trunc(order_date,'YYYY') ,  to_char(trunc(order_date,'YYYY'),'YYYY'),
+sum(order_total) from orders  
+group by trunc(order_date,'YYYY')  
+order by trunc(order_date,'YYYY') desc;
+
+select sysdate , trunc(add_months(sysdate, -1),'MM') AS fecha2, 
+trunc(sysdate,'MM')-1 AS Fecha3,
+trunc(sysdate) AS Fecha3_Nrml,
+last_day(trunc(add_months(sysdate, -1),'MM')) AS fecha4
+from dual;
+
+select substr(order_date, 0, 8) , order_date from oe.orders 
+select to_date(substr(order_date, 0, 8),'dd-mm-yyyy') , order_date from orders;
+select to_date('24-may-2008','dd-mm-yyyy')   from dual;
+
+select order_date from oe.orders 
+where  to_date(substr(order_date, 0, 8),'dd-mm-yyyy') = to_date('24-may-0008','dd-mm-yyyy') ;
+
+
+
+
+
+</xmp>
+
+
+</body>
+</html>
