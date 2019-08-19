@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//clConeccion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace KWebStore.Models
+{
+    public class clConeccion
+    {
+
+        string server = @"PCNAVIGATOR";
+        string db = "KWebStore";
+        string usu = "marketuser";
+        string pw = "shine35";
+        SqlConnection con;
+
+        public clConeccion()
+        {
+            string strcad = "";
+            //strcad = "Data Source=" + server + ";Initial Catalog=" + db + ";Persist Security Info=True;User ID=" + usu + ";Password=" + pw;
+            strcad = "Data Source=" + server + ";Initial Catalog=" + db + ";Persist Security Info=True;User ID=" + usu + ";Password=" + pw;
+            this.con = new SqlConnection(strcad);
+            this.con.Open();
+        }
+
+        public clConeccion(string _srv, string _db, string _usu, string _pw)
+        {
+            string strcad = "";
+            server = _srv; db = _db; usu = _usu; pw = _pw;
+            strcad = "Data Source=" + server + ";Initial Catalog=" + db + ";Persist Security Info=True;User ID=" + usu + ";Password=" + pw;
+            this.con = new SqlConnection(strcad);
+            this.con.Open();
+        }
+
+        ~clConeccion()
+        {
+            try
+            {
+                this.con.Close();
+            }
+            catch { }
+        }
+
+        public bool conn()
+        {
+            try
+            {
+                string strcad = "";
+                strcad = "Data Source=" + server + ";Initial Catalog=" + db + ";Persist Security Info=True;User ID=" + usu + ";Password=" + pw;
+                this.con = new SqlConnection(strcad);
+                this.con.Open();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public DataTable fnGetDT(string _sql)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataSet dataset = new DataSet();
+
+            try
+            {
+                using (adapter.SelectCommand = new SqlCommand(_sql, this.con))
+                {
+                    adapter.Fill(dataset, "tbl");
+                    return dataset.Tables[0];
+                }
+            }
+
+            catch (Exception ex)
+            {
+                DataTable oDT = new DataTable();
+                DataRow oDR = oDT.NewRow();
+
+                oDT.Columns.Add("error");
+                oDR[0] = ex.Message.ToString();
+                oDT.Rows.Add(oDR);
+                return oDT;
+            }
+
+            /*
+            try
+            {
+                adapter.SelectCommand = new SqlCommand(_sql, this.con);
+                adapter.Fill(dataset, "tbl");
+                return dataset.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                DataTable oDT = new DataTable();
+                DataRow oDR = oDT.NewRow();
+
+                oDT.Columns.Add("error");
+                oDR[0] = ex.Message.ToString();
+                oDT.Rows.Add(oDR);
+                return oDT;
+            }             
+             */
+
+        }
+
+        //Ejemplo de Using :
+        /*
+        try
+            {
+                using (DC_ADMINVITALDataContext dcAdmin = new DC_ADMINVITALDataContext())
+                {
+                    if (DDTipo.SelectedValue.ToString() != "1".ToString())
+                        dcAdmin.SP_Gestion_Usuarios( nombre, apellido, "", usuario, encriptado, municipio, esjefe, 1);  //Usuario Alcaldias
+                    else
+                        dcAdmin.SP_Gestion_Usuarios( nombre, apellido, dui,usuario, encriptado, municipio, esjefe, 2);  //Usuario Digestyc
+                    h_idMuni.Value = "";
+                }
+}
+             
+            catch (Exception ex)
+            {
+                h_idMuni.Value = "";
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + " Warning:  " +  ex.Message+  "');", true);
+}
+
+    */
+
+        public string fnExec(string _sql)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand();
+                command.CommandText = _sql;
+                command.Connection = this.con;
+                command.ExecuteNonQuery();
+                return true.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message.ToString());
+                return ex.Message.ToString();
+            }
+        }
+    }
+}
+
+</xmp>
+
+</body>
+</html>

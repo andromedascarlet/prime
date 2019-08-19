@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//ProductOrder
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace ZMarket.Models
+{
+    public class ProductOrder : Product
+    {
+
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
+        [Required(ErrorMessage = "El Campo {0} es obligatorio")]
+        public float Quantity { get; set; }
+
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
+        public decimal Value { get { return Price * (decimal)Quantity; }  }
+
+    }
+}
+
+</xmp>
+
+</body>
+</html>

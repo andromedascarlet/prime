@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//UsersController
+
+using KWebStore.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
+namespace KWebStore.Controllers
+{
+    public class GranjaController : ApiController
+    {
+        // GET: api/Data/2017-06-15
+        public List<Product> Get()
+        {
+            //Models.clDATA oDAT = new Models.clDATA();
+            clData oDAT = new clData();
+            return oDAT.GetProduct();
+        }
+
+        public System.Data.DataTable GetProducto(string material)
+        {
+            clData oDAT = new clData();
+
+            return oDAT.fnDatosVitales(material);
+        }
+
+        public List<Product> GetDos(string producto, string medio)
+        {
+            //Models.clDATA oDAT = new Models.clDATA();
+            clData oDAT = new clData();
+            return oDAT.GetProduct();
+        }
+
+    }
+}
+
+</xmp>
+
+</body>
+</html>

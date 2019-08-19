@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//ZMarketContext
+
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
+namespace KWebStore.Models
+{
+    public class KWebStoreContext : DbContext
+    {
+        // You can add custom code to this file. Changes will not be overwritten.
+        // 
+        // If you want Entity Framework to drop and regenerate your database
+        // automatically whenever you change your model schema, please use data migrations.
+        // For more information refer to the documentation:
+        // http://msdn.microsoft.com/en-us/data/jj591621.aspx
+
+        //Eliminar el borrado en cascada de tipo de documento y empleado
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+        }
+
+        public KWebStoreContext() : base("name=KWebStoreContext")
+        {
+        }
+
+        public System.Data.Entity.DbSet<KWebStore.Models.Product> Products { get; set; }
+
+        public System.Data.Entity.DbSet<KWebStore.Models.Employee> Employees { get; set; }
+
+        public System.Data.Entity.DbSet<KWebStore.Models.DocumentType> DocumentTypes { get; set; }
+
+        public System.Data.Entity.DbSet<KWebStore.Models.Customer> Customers { get; set; }
+
+        public System.Data.Entity.DbSet<KWebStore.Models.Supplier> Suppliers { get; set; }
+
+        public System.Data.Entity.DbSet<KWebStore.Models.Order> Orders { get; set; }
+
+        public System.Data.Entity.DbSet<KWebStore.Models.OrderDetail> OrderDetails { get; set; }
+
+        public System.Data.Entity.DbSet<KWebStore.Models.Category> Categories { get; set; }
+    }
+}
+
+</xmp>
+
+</body>
+</html>

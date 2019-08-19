@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//Global.Asax
+using KWebStore.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+using System.Web.Security;
+using System.Web.SessionState;
+
+namespace KWebStore
+{
+    public class MvcApplication : System.Web.HttpApplication
+    {
+        protected void Application_Start()
+        {
+            Database.SetInitializer(
+                new MigrateDatabaseToLatestVersion
+                <Models.KWebStoreContext,
+                Migrations.Configuration>());
+
+            // Seccion Codigo Roles
+            //KWebStoreContext dbc = new KWebStoreContext();
+
+            //Contexto Generico
+            ApplicationDbContext db = new ApplicationDbContext();
+
+            CreateRoles(db);
+            CreateSuperUser(db);
+            AddPermisionsToSuperUser(db);
+            db.Dispose();
+
+
+            AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+                
+        private void CreateSuperUser(ApplicationDbContext db)
+        {
+            var userManager = new UserManager<ApplicationUser>( new UserStore<ApplicationUser>(db) ) ;
+
+            var user = userManager.FindByName("mapleadmin@delta.arb");
+            if (user == null)
+            {
+                user = new ApplicationUser
+                {
+                    UserName = "mapleadmin@delta.arb",
+                    Email = "mapleadmin@delta.arb"
+                };
+                userManager.Create( user , "Zulu123&" );
+            }
+
+        }
+
+        private void AddPermisionsToSuperUser(ApplicationDbContext db)
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
+
+            var user = userManager.FindByName("mapleadmin@delta.arb");
+
+            if ( !userManager.IsInRole(user.Id, "View") )
+            {
+                userManager.AddToRole(user.Id, "View");
+            }
+
+            if (!userManager.IsInRole(user.Id, "Create"))
+            {
+                userManager.AddToRole(user.Id, "Create");
+            }
+            if (!userManager.IsInRole(user.Id, "Edit"))
+            {
+                userManager.AddToRole(user.Id, "Edit");
+            }
+            if (!userManager.IsInRole(user.Id, "Delete"))
+            {
+                userManager.AddToRole(user.Id, "Delete");
+            }
+            
+        }
+
+        private void CreateRoles(ApplicationDbContext db)
+        {
+            // roleManager va a permitir manipular los roles
+            var roleManager = new RoleManager<IdentityRole>( new RoleStore<IdentityRole>(db) );
+
+            //Crea los roles en la base de datos
+            if ( !roleManager.RoleExists("View") )
+            {
+                roleManager.Create(new IdentityRole("View"));
+            }
+            if (!roleManager.RoleExists("Create"))
+            {
+                roleManager.Create(new IdentityRole("Create"));
+            }
+            if (!roleManager.RoleExists("Edit"))
+            {
+                roleManager.Create(new IdentityRole("Edit"));
+            }
+            if (!roleManager.RoleExists("Delete"))
+            {
+                roleManager.Create(new IdentityRole("Delete"));
+            }
+            
+        }
+
+
+    }
+}
+
+</xmp>
+
+</body>
+</html>

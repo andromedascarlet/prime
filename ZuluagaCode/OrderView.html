@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using ZMarket.Models;
+
+namespace ZMarket.ViewModels
+{
+    public class OrderView
+    {
+
+        public Customer Customer { get; set; }
+
+        //Solo es para mostrar los titulos del formulario 
+        public ProductOrder Product { get; set; }
+        //Aqui estan los datos
+        public List<ProductOrder> Products { get; set; }
+
+    }
+}
+</xmp>
+
+</body>
+</html>

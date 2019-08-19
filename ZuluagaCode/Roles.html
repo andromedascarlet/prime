@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//UsersController
+
+@model KWebStore.ModelView.UserView
+
+@{
+    ViewBag.Title = "Roles";
+}
+
+<h2>Roles for user : @Model.Name </h2>
+
+<p>
+    @Html.ActionLink("Add Role", "AddRole" ,  new { userID = Model.UserID } , new { @class = "btn btn-primary" } )
+    @Html.ActionLink("Back To List", "Index", new { }, new { @class = "btn btn-info" })
+</p>
+<table class="table">
+    
+    @for (int i = 0; i < Model.Roles.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Roles[i].Name )
+            </td>
+            
+            <td>                
+                @Html.ActionLink("Delete", "Delete", new { userID = Model.UserID , roleID = Model.Roles[i].RoleID })
+            </td>
+        </tr>
+    }
+
+    
+
+</table>
+
+</xmp>
+
+</body>
+</html>

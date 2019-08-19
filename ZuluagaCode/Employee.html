@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+// Employee
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
+
+namespace ZMarket.Models
+{
+    // Nombre Fisco Tabla [Table("TablaEmpleado")]
+    public class Employee
+    {
+        
+        [Key]
+        public int EmployeeID { get; set; }
+
+        //Fisicamente en DB [Column("PrimerNombre")]
+        [Display(Name ="First Name")]
+        [Required(ErrorMessage = "You must enter {0}")]
+        [StringLength(30, ErrorMessage ="The field {0} must be between {1} and {2} characters ", MinimumLength =3)]
+        public string Firstname { get; set; }
+
+        [Display(Name = "Last Name")]
+        [Required(ErrorMessage = "You must enter {0}")]
+        [StringLength(30, ErrorMessage = "The field {0} must be between {1} and {2} characters ", MinimumLength = 3)]
+        public string Lasttname { get; set; }
+
+        [Required(ErrorMessage = "You must enter {0}")]  //{0:C2} Currency 2 decimales
+        [DisplayFormat(DataFormatString ="{0:C2}", ApplyFormatInEditMode =false)]
+        public decimal Salary { get; set; }
+
+        [Display(Name = "Bonus Percent")]  //{0:P2} valor Porcentual 2 decimales
+        [DisplayFormat(DataFormatString = "{0:P2}", ApplyFormatInEditMode = false)]
+        public float BonusPercent { get; set; }
+
+        [Display(Name = "Date Of Birth")]
+        [Required(ErrorMessage = "You must enter the field {0}")]
+        [DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat( ApplyFormatInEditMode = false)]
+        public DateTime DateOfBirth { get; set; }
+
+        [Display(Name = "Start Time")]
+        [Required(ErrorMessage = "You must enter {0}")]
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:hh:mm}", ApplyFormatInEditMode = true)]
+        public DateTime StartTime { get; set; }
+
+        [DataType(DataType.EmailAddress)]
+        public string EMail { get; set; }
+
+        [DataType(DataType.Url)]
+        public string URL { get; set; }
+
+        // LLave Foranea  [ForeignKey("FKDocTypeID")]
+        [Display(Name = "Document")]
+        public int DocumentTypeID { get; set; }
+
+        [NotMapped]
+        public int Age { get { return DateTime.Now.Year - DateOfBirth.Year; }  }
+        // NotMapped para campo calcuolado y no mapear
+
+        public virtual DocumentType DocumentType { get; set; }
+
+    }
+}
+</xmp>
+
+</body>
+</html>

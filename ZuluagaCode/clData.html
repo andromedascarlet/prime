@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//UsersController
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data;
+
+namespace KWebStore.Models
+{
+    public class clData
+    {
+
+        string _sql;
+        clConeccion objConeccion = new clConeccion();
+
+
+        public List<Product> GetProduct()
+        {
+            List<Product> productos = new List<Product>();
+            productos.Add(new Product { ProductID = 1, Description = "Avena Miel", Price = Convert.ToDecimal(35.2), LastBuy = Convert.ToDateTime("2019/03/07"), Stock = 12, Remarks = "Notas 1" });
+            productos.Add(new Product { ProductID = 2, Description = "Trigo Maple", Price = Convert.ToDecimal(73.4), LastBuy = Convert.ToDateTime("2019/02/06"), Stock = 33, Remarks = "Notas 2" });
+            productos.Add(new Product { ProductID = 3, Description = "Oliva Nuez", Price = Convert.ToDecimal(82.8), LastBuy = Convert.ToDateTime("2019/05/09"), Stock = 55, Remarks = "Notas 3" });
+            return productos;
+        }
+
+        public DataTable fnDatosVitales(string material)
+        {
+            //_sql = "select '" +  fecha + "' Fecha, * FROM vwVitalNacVivos  ";
+            _sql = "select  ProductID , Description , Price , LastBuy , Stock , Remarks  "
+
+                 + "FROM Products where  ProductID = '" + material + "'";
+            DataTable oDT = new DataTable();
+            oDT = objConeccion.fnGetDT(_sql);
+            return oDT;
+        }
+
+
+    }
+}
+
+</xmp>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//Customer
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
+
+namespace ZMarket.Models
+{
+    public class Customer
+    {
+
+        [Key]
+        public int CustomerID { get; set; }
+
+        [StringLength(30, ErrorMessage = "The field {0} must be between {1} and {2} characters ", MinimumLength = 3)]
+        [Required(ErrorMessage = "You must enter the field {0}")]
+        [Display(Name = "First Name")]
+        public string Firstname { get; set; }
+
+        [StringLength(30, ErrorMessage = "The field {0} must be between {1} and {2} characters ", MinimumLength = 3)]
+        [Required(ErrorMessage = "You must enter the field {0}")]
+        [Display(Name = "Last Name")]
+        public string Lastname { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        [StringLength(30, ErrorMessage = "The field {0} must be between {1} and {2} characters ", MinimumLength = 3)]
+        [Required(ErrorMessage = "You must enter the field {0}")]
+        public string Phone { get; set; }
+
+        [StringLength(30, ErrorMessage = "The field {0} must be between {1} and {2} characters ", MinimumLength = 3)]
+        [Required(ErrorMessage = "You must enter the field {0}")]
+        public string Address { get; set; }
+
+        [DataType(DataType.EmailAddress)]
+        public string EMail { get; set; }
+        
+        [StringLength(20, ErrorMessage = "The field {0} must be between {1} and {2} characters ", MinimumLength = 3)]
+        [Required(ErrorMessage = "You must enter the field {0}")]
+        [Display(Name = "Document")]
+        public string Document { get; set; }
+
+        // int? relacion 0 a Muchos, resuelve eliminacion en cascada pero la base no queda integral
+        // falta Anotacion tipo documento  <> de 0
+        public int DocumentTypeID { set; get; }
+
+        [NotMapped]
+        public string FullName {   get { return string.Format("{0} {1}", Firstname, Lastname); } set { } }
+
+        public virtual DocumentType DocumentType { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
+    }
+}
+
+</xmp>
+
+</body>
+</html>

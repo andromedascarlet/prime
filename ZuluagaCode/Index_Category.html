@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//Index_Category
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Categorias</h2>
+
+@using (Html.BeginForm())
+{
+    <button id="btnGetCategories" >Get Categories</button>
+    <button id="btnGetCategory">Get Category</button>
+    <button id="btnAddCategory">Add Category</button>
+    <button id="btnUpdateCategory">Update Category</button>
+    <button id="btnDeleteCategory">Delete Category</button>
+    <br /><br />
+    <input id="txtCategoyID" type="text" placeholder="Categoy ID" />
+    <input id="txtDescription" type="text" placeholder="Categoy Description" />
+    <br /><br />
+    <div id="lblMessage" ></div>
+
+}
+
+@section Scripts
+{
+    <script type="text/javascript" >
+        $(function () {
+            $('#btnGetCategories').on("click", function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/CategoriesAPI',
+                    datatype: 'json',
+                    cache: false
+                    })
+                .success(function (data) {
+                    var outPut = '';
+                    for (var i = 0; i < data.length; i++ ) {
+                        outPut += '<br/><br/>' ;
+                        outPut += '<b>Category ID:<b/> ' + data[i].CategoryID + '<br/>';
+                        outPut += '<b>Description:<b/> ' + data[i].Description + '<br/>';
+                        $('#lblMessage').html(outPut);
+                    }
+                })
+                .error(function (hxr, ajaxOptions, throwError) {
+                    $('#lblMessage').html('Error!');
+                });
+                return false;
+            });
+
+            $('#btnGetCategory').on("click", function () {
+                var categoryID = $('#txtCategoyID').val();
+                if (categoryID == "") {
+                    $('#lblMessage').html('You must enter a category ID');
+                    return false;
+                }
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/CategoriesAPI/' + categoryID,
+                    datatype: 'json',
+                    cache: false
+                })
+                .success(function (data) {
+                    if (data != null) {
+                        var outPut = '';
+                        outPut += '<br/><br/>';
+                        outPut += '<b>Category ID:<b/> ' + data.CategoryID + '<br/>';
+                        outPut += '<b>Description:<b/> ' + data.Description + '<br/>';
+                        $('#lblMessage').html(outPut);
+                    } else {
+                        $('#lblMessage').html('Not Records Found');
+                    }
+                })
+                .error(function (hxr, ajaxOptions, throwError) {
+                    $('#lblMessage').html('Error!');
+                });
+                return false;
+            });
+
+            $('#btnAddCategory').on("click", function () {
+                var description = $('#txtDescription').val();
+                if (description == "") {
+                    $('#lblMessage').html('You must enter a category description');
+                    return false;
+                }
+                var category = { Description: description };
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/CategoriesAPI',
+                    data: category,
+                    datatype: 'json',
+                    cache: false
+                })
+                .success(function (data) {
+                    
+                    var outPut = '';
+                    
+                        outPut += '<hr/>Record Added<br/>';
+                        outPut += '<b>Category ID:<b/> ' + data.CategoryID + '<br/>';
+                        outPut += '<b>Description:<b/> ' + data.Description + '<br/>';
+                        $('#lblMessage').html(outPut);
+                        
+                    //$('#lblMessage').html('HOLA TODOS');
+                   
+                })
+                .error(function (hxr, ajaxOptions, throwError) {
+                    $('#lblMessage').html('Error!');
+                });
+                return false;
+            });
+
+            $('#btnUpdateCategory').on("click", function () {
+                var categoryID = $('#txtCategoyID').val();
+                if (categoryID == "") {
+                    $('#lblMessage').html('You must enter a category ID');
+                    return false;
+                }
+
+                var description = $('#txtDescription').val();
+                if (description == "") {
+                    $('#lblMessage').html('You must enter a category description');
+                    return false;
+                }
+                var category = { CategoryID: categoryID , Description: description };
+                $.ajax({
+                    type: 'PUT',
+                    url: '/api/CategoriesAPI/' + categoryID ,
+                    data: category,
+                    datatype: 'json',
+                    cache: false
+                })
+                .success(function (data) {
+
+                    var outPut = '';
+                    outPut += '<hr/>The Record was Modified<br/>';
+                    //outPut += '<b>Category ID:<b/> ' + data.CategoryID + '<br/>';
+                    //outPut += '<b>Description:<b/> ' + data.Description + '<br/>';
+                    $('#lblMessage').html(outPut);
+
+                })
+                .error(function (hxr, ajaxOptions, throwError) {
+                    $('#lblMessage').html('Error!');
+                });
+                return false;
+            });
+
+            $('#btnDeleteCategory').on("click", function () {
+                var categoryID = $('#txtCategoyID').val();
+                if (categoryID == "") {
+                    $('#lblMessage').html('You must enter a category ID');
+                    return false;
+                }
+
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/api/CategoriesAPI/' + categoryID,
+                    datatype: 'json',
+                    cache: false
+                })
+                .success(function (data) {
+                    if (data != null) {
+                        var outPut = '';
+                        outPut += '<br/>Record Deleted<br/>';
+                        outPut += '<b>Category ID:<b/> ' + data.CategoryID + '<br/>';
+                        outPut += '<b>Description:<b/> ' + data.Description + '<br/>';
+                        $('#lblMessage').html(outPut);
+                    } else {
+                        $('#lblMessage').html('Not Records Found');
+                    }
+                })
+                .error(function (hxr, ajaxOptions, throwError) {
+                    $('#lblMessage').html('Error!');
+                });
+                return false;
+            });
+
+            $(document).ajaxStart(function () {
+                $("#loading").show();
+            });
+
+            $(document).ajaxStart(function () {
+                $("#loading").hide();
+            });
+
+        });
+    </script>
+}
+
+<style type="text/css" >
+    #loading {
+        display: none;
+        background-color: gray;
+        z-index: 999999;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height:100%;
+        text-align: center;
+        padding-top: 300px;
+        filter: alpha(opacity=75);
+        -khtml-opacity: 0.75;
+        -moz-opacity: 0.75;
+        opacity: 0.75;
+    }
+</style>
+
+<div id="loading"> <img src="~/images/loader.gif" /> </div>
+
+
+</xmp>
+
+</body>
+</html>

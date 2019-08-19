@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+
+
+---TABLES
+
+CREATE TABLE [dbo].[Customers](
+	[CustomerID] [int] IDENTITY(1,1) NOT NULL,
+	[Firstname] [nvarchar](30) NOT NULL,
+	[Lastname] [nvarchar](30) NOT NULL,
+	[Phone] [nvarchar](30) NOT NULL,
+	[Address] [nvarchar](30) NOT NULL,
+	[EMail] [nvarchar](max) NULL,
+	[Document] [nvarchar](20) NOT NULL,
+	[DocumentTypeID] [int] NOT NULL,
+ CONSTRAINT [PK_dbo.Customers] PRIMARY KEY CLUSTERED 
+(
+	[CustomerID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Customers]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Customers_dbo.DocumentTypes_DocumentTypeID] FOREIGN KEY([DocumentTypeID])
+REFERENCES [dbo].[DocumentTypes] ([DocumentTypeID])
+GO
+
+ALTER TABLE [dbo].[Customers] CHECK CONSTRAINT [FK_dbo.Customers_dbo.DocumentTypes_DocumentTypeID]
+GO
+
+----
+
+CREATE TABLE [dbo].[DocumentTypes](
+	[DocumentTypeID] [int] IDENTITY(1,1) NOT NULL,
+	[Description] [nvarchar](30) NOT NULL,
+ CONSTRAINT [PK_dbo.DocumentTypes] PRIMARY KEY CLUSTERED 
+(
+	[DocumentTypeID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+-----
+
+CREATE TABLE [dbo].[Employees](
+	[EmployeeID] [int] IDENTITY(1,1) NOT NULL,
+	[Firstname] [nvarchar](30) NOT NULL,
+	[Lasttname] [nvarchar](30) NOT NULL,
+	[Salary] [decimal](18, 2) NOT NULL,
+	[BonusPercent] [real] NOT NULL,
+	[DateOfBirth] [datetime] NOT NULL,
+	[StartTime] [datetime] NOT NULL,
+	[EMail] [nvarchar](max) NULL,
+	[URL] [nvarchar](max) NULL,
+	[DocumentTypeID] [int] NOT NULL,
+ CONSTRAINT [PK_dbo.Employees] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Employees]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Employees_dbo.DocumentTypes_DocumentTypeID] FOREIGN KEY([DocumentTypeID])
+REFERENCES [dbo].[DocumentTypes] ([DocumentTypeID])
+GO
+
+ALTER TABLE [dbo].[Employees] CHECK CONSTRAINT [FK_dbo.Employees_dbo.DocumentTypes_DocumentTypeID]
+GO
+
+
+------
+
+CREATE TABLE [dbo].[OrderDetails](
+	[OrdenDetailID] [int] IDENTITY(1,1) NOT NULL,
+	[OrderID] [int] NOT NULL,
+	[ProductID] [int] NOT NULL,
+	[Description] [nvarchar](30) NOT NULL,
+	[Price] [decimal](18, 2) NOT NULL,
+	[Quantity] [real] NOT NULL,
+ CONSTRAINT [PK_dbo.OrderDetails] PRIMARY KEY CLUSTERED 
+(
+	[OrdenDetailID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[OrderDetails]  WITH CHECK ADD  CONSTRAINT [FK_dbo.OrderDetails_dbo.Orders_OrderID] FOREIGN KEY([OrderID])
+REFERENCES [dbo].[Orders] ([OrderID])
+GO
+
+ALTER TABLE [dbo].[OrderDetails] CHECK CONSTRAINT [FK_dbo.OrderDetails_dbo.Orders_OrderID]
+GO
+
+ALTER TABLE [dbo].[OrderDetails]  WITH CHECK ADD  CONSTRAINT [FK_dbo.OrderDetails_dbo.Products_ProductID] FOREIGN KEY([ProductID])
+REFERENCES [dbo].[Products] ([ProductID])
+GO
+
+ALTER TABLE [dbo].[OrderDetails] CHECK CONSTRAINT [FK_dbo.OrderDetails_dbo.Products_ProductID]
+GO
+
+
+--------
+
+CREATE TABLE [dbo].[Orders](
+	[OrderID] [int] IDENTITY(1,1) NOT NULL,
+	[DateOrder] [datetime] NOT NULL,
+	[CustomerID] [int] NOT NULL,
+	[OrderStatus] [int] NOT NULL,
+ CONSTRAINT [PK_dbo.Orders] PRIMARY KEY CLUSTERED 
+(
+	[OrderID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Orders]  WITH CHECK ADD  CONSTRAINT [FK_dbo.Orders_dbo.Customers_CustomerID] FOREIGN KEY([CustomerID])
+REFERENCES [dbo].[Customers] ([CustomerID])
+GO
+
+ALTER TABLE [dbo].[Orders] CHECK CONSTRAINT [FK_dbo.Orders_dbo.Customers_CustomerID]
+GO
+
+-----------
+
+CREATE TABLE [dbo].[Products](
+	[ProductID] [int] IDENTITY(1,1) NOT NULL,
+	[Description] [nvarchar](30) NOT NULL,
+	[Price] [decimal](18, 2) NOT NULL,
+	[LastBuy] [datetime] NOT NULL,
+	[Stock] [real] NOT NULL,
+	[Remarks] [nvarchar](max) NULL,
+	[Quantity] [real] NULL,
+	[Discriminator] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_dbo.Products] PRIMARY KEY CLUSTERED 
+(
+	[ProductID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Products] ADD  DEFAULT ('') FOR [Discriminator]
+GO
+
+ 
+ ------------
+ 
+ CREATE TABLE [dbo].[SupplierProducts](
+	[SupplierProductID] [int] IDENTITY(1,1) NOT NULL,
+	[SupplierID] [int] NOT NULL,
+	[ProductID] [int] NOT NULL,
+ CONSTRAINT [PK_dbo.SupplierProducts] PRIMARY KEY CLUSTERED 
+(
+	[SupplierProductID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[SupplierProducts]  WITH CHECK ADD  CONSTRAINT [FK_dbo.SupplierProducts_dbo.Products_ProductID] FOREIGN KEY([ProductID])
+REFERENCES [dbo].[Products] ([ProductID])
+GO
+
+ALTER TABLE [dbo].[SupplierProducts] CHECK CONSTRAINT [FK_dbo.SupplierProducts_dbo.Products_ProductID]
+GO
+
+ALTER TABLE [dbo].[SupplierProducts]  WITH CHECK ADD  CONSTRAINT [FK_dbo.SupplierProducts_dbo.Suppliers_SupplierID] FOREIGN KEY([SupplierID])
+REFERENCES [dbo].[Suppliers] ([SupplierID])
+GO
+
+ALTER TABLE [dbo].[SupplierProducts] CHECK CONSTRAINT [FK_dbo.SupplierProducts_dbo.Suppliers_SupplierID]
+GO
+
+
+ 
+ -----------
+ 
+ 
+CREATE TABLE [dbo].[Suppliers](
+	[SupplierID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](30) NOT NULL,
+	[ContactFirstname] [nvarchar](30) NOT NULL,
+	[ContactLastname] [nvarchar](30) NOT NULL,
+	[Phone] [nvarchar](30) NOT NULL,
+	[Address] [nvarchar](30) NOT NULL,
+	[EMail] [nvarchar](max) NULL,
+ CONSTRAINT [PK_dbo.Suppliers] PRIMARY KEY CLUSTERED 
+(
+	[SupplierID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+-----------
+
+ 
+ 
+ 
+
+</xmp>
+
+</body>
+</html>

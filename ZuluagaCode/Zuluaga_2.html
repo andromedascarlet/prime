@@ -1,0 +1,1477 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 12 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+@font-face
+	{font-family:inherit;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+pre
+	{mso-style-link:"HTML con formato previo Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Texto de globo Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.HTMLconformatoprevioCar
+	{mso-style-name:"HTML con formato previo Car";
+	mso-style-link:"HTML con formato previo";
+	font-family:"Courier New";}
+span.kwd
+	{mso-style-name:kwd;}
+span.pln
+	{mso-style-name:pln;}
+span.typ
+	{mso-style-name:typ;}
+span.pun
+	{mso-style-name:pun;}
+span.TextodegloboCar
+	{mso-style-name:"Texto de globo Car";
+	mso-style-link:"Texto de globo";
+	font-family:"Tahoma","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;}
+@page Section1
+	{size:612.1pt 792.1pt;
+	margin:36.0pt 36.0pt 36.0pt 36.0pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=ES>
+
+<div class=Section1>
+
+<p class=MsoNormal style='margin-left:106.2pt;text-indent:-106.2pt'><span
+lang=ES-SV>Parte 7 </span></p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=68 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=460 height=310 src="Zuluaga_2_archivos/image001.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+<span lang=ES-SV>Crear nuevo proyecto.  Usar MVC , WebForms , WebApi  y Add
+Unit tests.</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><img width=507 height=478
+src="Zuluaga_2_archivos/image002.jpg" align=left hspace=12></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<span lang=ES-SV style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=68 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=157 height=166 src="Zuluaga_2_archivos/image003.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<p class=MsoNormal>Debe Compilarse para probar si está bien construido el
+proyecto.</p>
+
+<p class=MsoNormal>Despues de crear el primer modelo de clase, Crear
+Controllers y Views ,  Correr el Proyecto para crear el ZMarketContext en la
+carpeta Models  , despues modificar web.config , despues crear las migraciones
+automaticas.</p>
+
+<p class=MsoNormal><span lang=EN-US>Modificar  en Web.config :
+DefaultConnection . </span>Compilar proyecto.</p>
+
+<p class=MsoNormal>Crear clases en paquete Models : Product , DocumentType ,
+Employee</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=ES-SV>Crear Controladores para los anteriores
+modelos.<br clear=all style='page-break-before:always'>
+</span></p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=54 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=676 height=140 src="Zuluaga_2_archivos/image004.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+<span lang=ES-SV>Para quitar las librerias que no se usan en la clase presionar
+: Remove and Sort Usings</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<span lang=ES-SV style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Crear controlador para product :</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Crear control en la carpeta Controller..
+Agregar un nuevo data Context.</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Presionar en  </span><b><span lang=ES-SV
+style='font-size:14.0pt'>&quot; </span></b><b><span lang=ES-SV
+style='font-size:18.0pt;color:red'>+</span></b><b><span lang=ES-SV
+style='font-size:14.0pt'> &quot;</span></b><span lang=ES-SV> Para agregar un
+nuevo data Context</span></p>
+
+<p class=MsoNormal><img width=528 height=41
+src="Zuluaga_2_archivos/image005.gif" align=left hspace=12></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><img width=324 height=80
+src="Zuluaga_2_archivos/image006.jpg" align=left hspace=12></p>
+
+<p class=MsoNormal><span lang=ES-SV> </span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=159 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=250 height=258 src="Zuluaga_2_archivos/image007.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<p class=MsoNormal><span lang=ES-SV>Modificar  Web.Config</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>En Web.config . Conexion maneja los
+usuarios : DefaultConnection</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>En Web.config . Conexion maneja los datos :
+Z_MarketContext</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Parte 8 :   6:05</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Cada tabla crea un nuevo contexto en :
+Z_MarketContext.cs :</span></p>
+
+<p class=MsoNormal><span lang=EN-US>public
+System.Data.Entity.DbSet&lt;ZMarket.Models.Product&gt; Products { get; set; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Prepara proyecto para recibir migraciones
+automaticas.</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Usar  : Ir a Tools -&gt; NuGet Packge
+Manager -&gt; Package Manager.</span></p>
+
+<p class=MsoNormal>Enable-Migrations -ContextTypeName ZMarketContext
+-EnableAutomaticMigrations</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=ES-SV>En ambiente de produccion no es
+recomendable migracion automatica. En desarrollo si.</span></p>
+
+<span lang=ES-SV style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Parte 8:   13:20</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Crea la carpeta Migrations y el archivo :
+Configuration.cs</span></p>
+
+<p class=MsoNormal><span lang=EN-US>En Configuration.cs :</span></p>
+
+<p class=MsoNormal><span lang=EN-US>AutomaticMigrationsEnabled = true;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>            AutomaticMigrationDataLossAllowed
+= true;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>            ContextKey =
+&quot;ZMarket.Models.ZMarketContext&quot;;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Parte 8:   14:00  </span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Modificar : Global.asax.cs.  Es donde están
+las configuraciones de la aplicación.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>Database.SetInitializer(</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                new
+MigrateDatabaseToLatestVersion&lt;Models.ZMarketContext,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                </span><span lang=ES-SV>Migrations.Configuration&gt;() 
+);</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Quiere decir que cada vez que se arranque
+verifique si hay que hacer cambios en la database sino lo hace de forma
+automatica.</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Hacer la prueba con  la nueva propiedad
+DeleteMe en clase Product:</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>para Probar con products : http://localhost:49271/Products</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>http://localhost:50291/Products  .  Para
+que se pueda crear el nuevo campo en la base.</span></p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=371 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=258 height=182 src="Zuluaga_2_archivos/image008.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Despues se puede eliminar para que ya no
+aparezca en la tabla.</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>En la clase Employee  crear el modificador
+de acceso vi.</span></p>
+
+<p class=MsoNormal><span lang=EN-US>pubic vi DocumentType DocumentType { get;
+set; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal>En las clases  document type  (lado 1)y Employee (lado
+varios) la relacion es : 1 a varios.</p>
+
+<p class=MsoNormal>En la clase Employee se ubica la clave Foránea.</p>
+
+<p class=MsoNormal>Se compila el proyecto para generar las clases y contextos.</p>
+
+<p class=MsoNormal><span lang=ES-SV>Crear en Models las clases : DocumentType y
+Employee junto con sus contraldores y vistas. Primero compilar el proyecto.</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Para crear el controller hacer cick en l
+clase Employee . Add -&gt; Controller</span></p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=74 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=417 height=134 src="Zuluaga_2_archivos/image009.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=344 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=315 height=318 src="Zuluaga_2_archivos/image010.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<p class=MsoNormal><span style='position:relative;z-index:8;left:-3px;
+top:0px;width:318px;height:318px'><img width=318 height=318
+src="Zuluaga_2_archivos/image011.jpg"></span><br clear=ALL>
+</p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Cambiar el menu en la carpeta shared
+archivo : _Layout.cshtml</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&lt;li&gt;@html.ActionLink( &quot;Producst&quot;
+, &quot;Index&quot;  , &quot;Product&quot;  )&lt;/li&gt;</span></p>
+
+<p class=MsoNormal>&lt;li&gt;@html.ActionLink( Nombre del Link ,accion a
+ejecutar , Nombre del controlador  )&lt;/li&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=ES-SV>ApplyFormatInEditMode = false : Cuando vaya
+a editar no ponga el formato sino no lo reconoce solamente para vista.</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>0:P2 porcentaje con dos decimales.</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>ApplyFormatInEditMode = true . para que
+reconozca el formato como fecha ,  int  etc.</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Al Eliminar un DocumentType asignado a
+varioas customer .  No se debe permitir borrarlo porque hay registros  qeu
+quedarian colgados si ese document Type.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=ES-SV>Para eso se hacen e Modificaciones en la clase : DocumentTypesController</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>En el metodo : DeleteConfirmed.</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>//No permitir  borrar en cascada
+DocumentType y Employee</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>try</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>            {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>                db.SaveChanges();</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>            }</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US>            catch (Exception ex) {</span></p>
+
+<p class=MsoNormal><span lang=EN-US>            </span><span lang=ES-SV>}</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<span lang=ES-SV style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>PARTE    12</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Crear tablas : Suplier, SuplierProduct ,
+Customer</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>En Customer Controller ordenar el combo de
+DocumentType  y aparezca el mensaje &quot;Seleccione un Documento&quot;,  en la
+Opcion  Create.</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>16:40</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Para la relación muchos a muchos se
+requiere un tabla intermedia que maneje las Keys de las diferentes tablas :
+SupplierProducts</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>19:40</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>En SupplierProducts se crean dos variables 
+virtuales para las clases Suplier y Employee:</span></p>
+
+<p class=MsoNormal><span lang=EN-US>public  virtual  Supplier  Supplier  {
+get;  set;   }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>public  virtual  Product  Product  { get; 
+set;   }</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Se crean colecciones  virtuales en las
+clases Supplier y Product</span></p>
+
+<p class=MsoNormal><span lang=EN-US>public  virtual  ICollection&lt;
+SupplierProducts &gt;  SupplierProducts  { get;  set;   }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Borrar en cascada evitar. 6:50</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Se sobre escribe el método en la clase ZMarketContext.cs</span></p>
+
+<p class=MsoNormal><span lang=EN-US>OnModelCreating(DbModelBuilder
+modelBuilder).{</span></p>
+
+<p class=MsoNormal><span lang=EN-US>modelBuilder.Conventions.Remove&lt;OneToManyCascadeDeleteConvention&gt;();</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>}</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Se revienta la aplicación.</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Relacion Muchos Muchos con Modelo Supplier
+, Product  y SupplierProduct</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Compilar el Proyecto y Crear un control a
+proveedores Suppliers.</span></p>
+
+<p class=MsoNormal><img width=508 height=127
+src="Zuluaga_2_archivos/image012.jpg" align=left hspace=12></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES-SV>Codigos Varios en :  Parte 12  25:57  <br
+clear=all style='page-break-before:always'>
+</span></p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=147 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=318 height=315 src="Zuluaga_2_archivos/image013.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Modificar Menu para crear Submenus  en : Views _&gt; Shared
+-&gt; _Layout.cshtml</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=2 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=720 height=231 src="Zuluaga_2_archivos/image014.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Parte 13 Inicia Maestro Detalle.</p>
+
+<p class=MsoNormal>Un CRUD tradicional y dos no tradicionales.</p>
+
+<p class=MsoNormal>Crear modelo Customer.</p>
+
+<p class=MsoNormal>Compilar el Proyecto y Crear Controlador de Customer.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Si a parecen estos errores :</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Es porque en un modelo se ha modificado la clave principal. 
+Para arreglarlo se debe eliminar la tabla Suppliers, eliminar el control y las
+vistas de Supplier;  crear nuevament e el  control y las vistas de supplier  y
+volver a correr el proyecto, sino funciona eliminar completamente la base y
+volver a correr el proyecto.</p>
+
+<p class=MsoNormal>Ordenar los documentos por orden alfabético en el formulario
+crear customer.</p>
+
+<p class=MsoNormal>En  CustomerController.cs en el metodo:  public 
+ActioResult  create().</p>
+
+<p class=MsoNormal><span lang=EN-US>ViewBag.DocumentTypeID = new
+SelectList(db.DocumentTypes.OrderBy(c =&gt; c.Description)  ,
+&quot;DocumentTypeID&quot;, &quot;Description&quot;);</span></p>
+
+<p class=MsoNormal>El ViewBag sirve para mandar datos de los controladores a
+las vistas, . DocumentTypeID puede ser cualquier nombre,.</p>
+
+<p class=MsoNormal>Se manda un objeto SelectList que recibe 3 parametros:</p>
+
+<p class=MsoNormal>El origen de datos  db.DocumentTypes  puede ser un array,
+una lista, una consulta , etc.Cualquiera que implemente la interfaz
+ICollection.</p>
+
+<p class=MsoNormal>Campo que contiene la clave DocumentTypeID. Value Member</p>
+
+<p class=MsoNormal>Campo que muestra lo que contiene el combobox Description.
+Display Member.</p>
+
+<p class=MsoNormal>Agregar  a la lista : Seleccione un tipo de documento.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Parte 14.</p>
+
+<p class=MsoNormal>Crear Modelos de Orden Y Detalle de Orden</p>
+
+<p class=MsoNormal>Crear Enumeracion OrderStatus  usado en Orden Status.</p>
+
+<p class=MsoNormal><span lang=EN-US>Enum   OrderStatus</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Lado Uno : Order</span></p>
+
+<p class=MsoNormal><span lang=EN-US>public  virtual  Customer  Customer { get; 
+set;   }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Lado Muchos : Customer:</span></p>
+
+<p class=MsoNormal><span lang=EN-US>public  virtual  ICollection&lt; Order
+&gt;  Orders  { get;  set;   }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal>Part 15.</p>
+
+<p class=MsoNormal>Para maestro detalle  Tablas :</p>
+
+<p class=MsoNormal>Product , OrderView ,  OrderDetail , </p>
+
+<p class=MsoNormal>OrderDetail  Es el modelo a grabar en datos ( decimal  Price
+, float Quantity   ,  virtual Order, virtual  Product )</p>
+
+<p class=MsoNormal>ProductOrder : Product   (float Quantity  , decimal value
+return price * (decimal)Quantity  )</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Los ViewModels son los modelos enfocados a vistas y no a
+datos como los anteriores.</p>
+
+<p class=MsoNormal>Crear en ese folder  la clase : OrderView.</p>
+
+<p class=MsoNormal>Crear en la carpeta Models  la clase : ProductOrder.</p>
+
+<p class=MsoNormal>El nuevo modelo de view model : </p>
+
+<p class=MsoNormal>OrderView  la vista que permite manejar los datos  (Customer
+,  List&lt;ProductOrder&gt; Products).</p>
+
+<p class=MsoNormal style='margin-left:35.4pt;text-indent:-35.4pt'>&nbsp;</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=75 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=635 height=164 src="Zuluaga_2_archivos/image015.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+Crear : OrderController. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Orders Controller va a tener todos los modelos ( 
+ActionResult NewOrder()  ).</p>
+
+<p class=MsoNormal>Se guardan  en la base las clases : Order  y  OrderDetail.</p>
+
+<p class=MsoNormal>Se crean nuevas propiedades para viewbag como la propiedad Message
+:  ViewBag.Message</p>
+
+<p class=MsoNormal><span lang=EN-US>En  7:40   :</span></p>
+
+<p class=MsoNormal><span lang=EN-US>@using ( Html.beginForm(
+&quot;NewOrder&quot; , &quot;Orders&quot;   , FormMethod.Post)</span></p>
+
+<p class=MsoNormal>@using ( Html.beginForm( &quot;Boton que dispara el
+Post&quot; , &quot;Controlador &quot;, Parametros  a usar  )</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Cuando es create se manda :  @model    Z_Market.Models.Customer</p>
+
+<p class=MsoNormal>Para Maestro Detalle en un CRUD se afectan varias tablas. 
+Crear modelos personalizados</p>
+
+<p class=MsoNormal>Crear carpeta ViewModels.  Para crear modelo de las ordenes
+desde el punto de vista de como lo ve el usuario , No como se almacenan los
+datos.</p>
+
+<p class=MsoNormal><span lang=EN-US>Mover los archivos   AccountViewModels.cs
+y  manageViewModels.cs.  </span>a la nueva carpeta.</p>
+
+<p class=MsoNormal>Crear la carpeta ViewModels  la clase OrderView es la vista
+que permite manejar los datos.</p>
+
+<p class=MsoNormal>Crear otra clase basada en productos que permite agregar los
+campos que hacen falta.  La clase ProductOrder que hereda de la clase producto
+en la carpeta Models.</p>
+
+<p class=MsoNormal>Crear un controlador vacio para Orders : OrdersController</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=173 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=276 height=87 src="Zuluaga_2_archivos/image016.gif"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<p class=MsoNormal>Crear la vista del método NewOrder del controlador OrdersController.</p>
+
+<p class=MsoNormal> </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=EN-US>Agregar : public System.Data.Entity.DbSet&lt;ZMarket.Models.Order&gt;
+Orders { get; set; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>        public
+System.Data.Entity.DbSet&lt;ZMarket.Models.OrderDetail&gt; OrderDetails { get;
+set; }</span></p>
+
+<p class=MsoNormal>A la clase : ZMarketContext</p>
+
+<p class=MsoNormal>Modificar el Menú y agregar una nueva opción de Operations.</p>
+
+<p class=MsoNormal>Si se tiene una vista abierta corre en esa vista.</p>
+
+<p class=MsoNormal>El viewbag es un objeto temporal, no se mantiene en memoria.</p>
+
+<p class=MsoNormal>Probar la nueva opción.</p>
+
+<p class=MsoNormal>El error :</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Es porque  se utiliza la siguiente linea de codigo en el
+archivo NewOrder.cshtml :</p>
+
+<p class=MsoNormal><span lang=EN-US>@model IEnumerable&lt;ZMarket.ViewModels.OrderView&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Debe ser:</span></p>
+
+<p class=MsoNormal><span lang=EN-US>@model ZMarket.ViewModels.OrderView</span></p>
+
+<p class=MsoNormal>Poner un combo que muestre los clientes.</p>
+
+<p class=MsoNormal>El error:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Es porque falta el viewbag para CustomerID.</p>
+
+<p class=MsoNormal>Parte 16.</p>
+
+<p class=MsoNormal>Mandar nombre y apellido completo del cliente.</p>
+
+<p class=MsoNormal>Probar Si funciona lo anterior</p>
+
+<p class=MsoNormal>Crear Metodo Post</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Crear la acción: AddProduct en el control Control  OrdersController.</p>
+
+<p class=MsoNormal>Crear la vista de la acción AddProduct.  Parte 16    14:20</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=159 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=296 height=306 src="Zuluaga_2_archivos/image017.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=152 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=333 height=291 src="Zuluaga_2_archivos/image018.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+Probar el producto.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Guardar en el GET de la accion NewOrder el objeto  : orderView.</p>
+
+<p class=MsoNormal>Session[&quot;orderView&quot;] = orderView;</p>
+
+<p class=MsoNormal>Y se recupera en el POSt de la accion AddProduct: </p>
+
+<p class=MsoNormal><span lang=EN-US>var orderView =
+Session[&quot;orderView&quot;] as OrderView;            </span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal>Parte 18.</p>
+
+<p class=MsoNormal>Crear mensaje de error  con ViewBag.Error.</p>
+
+<p class=MsoNormal>Mandar el viewbag de ProductID a la vista de la orden. Antes
+validar que se halla digitado una cantidad. Y verificar que ese producto
+exista.</p>
+
+<p class=MsoNormal>Si existe adicionarlo a la lista orderView, para eso crear
+una variable product Order para despues agregarlo al orderView.</p>
+
+<p class=MsoNormal>La variable del productOrder  metodo   addProduct al
+principio llega vacia.</p>
+
+<p class=MsoNormal>En la clase OrderView la instruccion : public ProductOrder
+ProductOrder { get; set; }</p>
+
+<p class=MsoNormal>Solo es para pintar el titulo de formulario, es un truco.</p>
+
+<p class=MsoNormal>Pintar la tabla en la vista NewOrder.</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=28 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=671 height=197 src="Zuluaga_2_archivos/image019.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+Part 19</p>
+
+<p class=MsoNormal>Error: falta el ViewBag de Customer.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>part 20.</p>
+
+<p class=MsoNormal>Guardar todo lo que se ha ingresado.</p>
+
+<p class=MsoNormal>Part 21.</p>
+
+<p class=MsoNormal>El error :</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=55 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=588 height=205 src="Zuluaga_2_archivos/image020.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>No lo debe enviar AddProduct sino al Post de NewOrder</p>
+
+<p class=MsoNormal>Hacer el siguiente cambio en   NewOrder.cshtml.</p>
+
+<p class=MsoNormal><span lang=EN-US>@using
+(Html.BeginForm(&quot;NewOrder&quot;, &quot;Orders&quot;, FormMethod.Post))</span></p>
+
+<p class=MsoNormal>El error :</p>
+
+<p class=MsoNormal> </p>
+
+<p class=MsoNormal>Faltó agregar la variable : ProductID = item.ProductID,</p>
+
+<p class=MsoNormal>al objeto orderDetail.</p>
+
+<p class=MsoNormal>El error:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Es porque falta el viewbag.</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Este error en NewOrder.cshtml es  al recorrer la lista está
+Nula.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=93 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=437 height=208 src="Zuluaga_2_archivos/image021.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+Se debe mandar otra vez la lista limpia como en el Get de  NewOrder</p>
+
+<p class=MsoNormal>La Lista debe ir VACIA que es diferente a Nula.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Página 22</p>
+
+<p class=MsoNormal>Agregar manejo transaccional.</p>
+
+<p class=MsoNormal>Agregar viewbag  de customerID  en el catch error de la
+transaccion</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Part 23 </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>[Authorize]</p>
+
+<p class=MsoNormal>Debe aparecer en los GET de los controller.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>[AllowAnonymous] . Pude ingresar cualquier usuario.</p>
+
+<p class=MsoNormal><span lang=EN-US>[Authorize (Users = &quot; &quot; ) ]</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Errores :</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+14.0pt;background:#FFFFCC'><span lang=EN-US style='font-family:Consolas;
+color:red'>Error:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+14.0pt;background:#FFFFCC'><span lang=EN-US style='font-family:Consolas;
+color:red'>Línea 31:     public class _Page_Views_Products_Index_cshtml :
+System.Web.Mvc.WebViewPage&lt;IEnumerable&lt;KWebStore.Models.Product&gt;&gt; </span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal>Debe ser:</p>
+
+<p class=MsoNormal>En : kwebstore\views\products\index.cshtml</p>
+
+<p class=MsoNormal>@model IEnumerable&lt;KWebStore.Models.Producto&gt;</p>
+
+<p class=MsoNormal>El Error:</p>
+
+<p class=MsoNormal>Crea campos  o pregunta por campos que no existen en la
+tabla de la BD: </p>
+
+<p class=MsoNormal><span lang=EN-US>An exception of type
+'System.Data.Entity.Core.EntityCommandExecutionException' occurred in EntityFramework.SqlServer.dll
+but was not handled in user code</span></p>
+
+<p class=MsoNormal><span lang=EN-US>{&quot;Invalid column name
+'Discriminator'.\r\nInvalid column name 'Discriminator'.\r\nInvalid column name
+'Discriminator'.\r\nInvalid column name 'Quantity'.&quot;}</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Solucion :</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<pre style='background:#EFF0F1;vertical-align:baseline'><span class=pun><span
+lang=EN-US style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>[</span></span><span
+class=typ><span lang=EN-US style='font-family:"inherit","serif";color:#2B91AF;
+background:#EFF0F1'>NotMapped</span></span><span class=pun><span lang=EN-US
+style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>]</span></span></pre><pre
+style='background:#EFF0F1;vertical-align:baseline'><span class=kwd><span
+lang=EN-US style='font-family:"inherit","serif";color:#101094;background:#EFF0F1'>class</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'> </span></span><span class=typ><span lang=EN-US
+style='font-family:"inherit","serif";color:#2B91AF;background:#EFF0F1'>PersonViewModel</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'> </span></span><span class=pun><span lang=EN-US
+style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>:</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'> </span></span><span class=typ><span lang=EN-US
+style='font-family:"inherit","serif";color:#2B91AF;background:#EFF0F1'>Person</span></span></pre><pre
+style='background:#EFF0F1;vertical-align:baseline'><span class=pun><span
+lang=EN-US style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>{</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'>    </span></span><span class=kwd><span lang=EN-US
+style='font-family:"inherit","serif";color:#101094;background:#EFF0F1'>public</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'> </span></span><span class=kwd><span lang=EN-US
+style='font-family:"inherit","serif";color:#101094;background:#EFF0F1'>bool</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'> </span></span><span class=typ><span lang=EN-US
+style='font-family:"inherit","serif";color:#2B91AF;background:#EFF0F1'>UpdateProfile</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'> </span></span><span class=pun><span lang=EN-US
+style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>{</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'> </span></span><span class=kwd><span lang=EN-US
+style='font-family:"inherit","serif";color:#101094;background:#EFF0F1'>get</span></span><span
+class=pun><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'>;</span></span><span class=pln><span lang=EN-US
+style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'> </span></span><span
+class=kwd><span lang=EN-US style='font-family:"inherit","serif";color:#101094;
+background:#EFF0F1'>set</span></span><span class=pun><span lang=EN-US
+style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>;</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'> </span></span><span class=pun><span lang=EN-US
+style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>}</span></span></pre><pre
+style='background:#EFF0F1;vertical-align:baseline'><span class=pun><span
+lang=EN-US style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>}</span></span></pre>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:9.5pt;font-family:Consolas;
+color:black;background:#FAFAFA'>update-database</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:9.5pt;font-family:Consolas;
+color:black;background:#FAFAFA'>El Error :</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Either the parameter @objname is ambiguous
+or the claimed @objtype (OBJECT) is wrong.</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=2 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=314 height=43 src="Zuluaga_2_archivos/image022.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>El Error :</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>An exception of type 'System.InvalidOperationException'
+occurred in EntityFramework.dll but was not handled in user code.</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Additional information: The model backing
+the 'KWebStoreContext' context has changed since the database was created.
+Consider using Code First Migrations to update the database
+(http://go.microsoft.com/fwlink/?LinkId=238269).</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Solucion:</span></p>
+
+<pre style='background:#EFF0F1;vertical-align:baseline'><span class=kwd><span
+lang=EN-US style='font-family:"inherit","serif";color:#101094;background:#EFF0F1'>protected</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'> </span></span><span class=kwd><span lang=EN-US
+style='font-family:"inherit","serif";color:#101094;background:#EFF0F1'>override</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'> </span></span><span class=kwd><span lang=EN-US
+style='font-family:"inherit","serif";color:#101094;background:#EFF0F1'>void</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'> </span></span><span class=typ><span lang=EN-US
+style='font-family:"inherit","serif";color:#2B91AF;background:#EFF0F1'>OnModelCreating</span></span><span
+class=pun><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'>(</span></span><span class=typ><span lang=EN-US
+style='font-family:"inherit","serif";color:#2B91AF;background:#EFF0F1'>DbModelBuilder</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'> modelBuilder</span></span><span class=pun><span
+lang=EN-US style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>)</span></span></pre><pre
+style='background:#EFF0F1;vertical-align:baseline'><span class=pun><span
+lang=EN-US style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>{</span></span></pre><pre
+style='background:#EFF0F1;vertical-align:baseline'><span class=pln><span
+lang=EN-US style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>    </span></span><span
+class=typ><span lang=EN-US style='font-family:"inherit","serif";color:#2B91AF;
+background:#EFF0F1'>Database</span></span><span class=pun><span lang=EN-US
+style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>.</span></span><span
+class=typ><span lang=EN-US style='font-family:"inherit","serif";color:#2B91AF;
+background:#EFF0F1'>SetInitializer</span></span><span class=pun><span
+lang=EN-US style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>&lt;</span></span><span
+class=typ><span lang=EN-US style='font-family:"inherit","serif";color:#2B91AF;
+background:#EFF0F1'>YourDbContext</span></span><span class=pun><span
+lang=EN-US style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>&gt;(</span></span><span
+class=kwd><span lang=EN-US style='font-family:"inherit","serif";color:#101094;
+background:#EFF0F1'>null</span></span><span class=pun><span lang=EN-US
+style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>);</span></span></pre><pre
+style='background:#EFF0F1;vertical-align:baseline'><span class=pln><span
+lang=EN-US style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>    </span></span><span
+class=kwd><span lang=EN-US style='font-family:"inherit","serif";color:#101094;
+background:#EFF0F1'>base</span></span><span class=pun><span lang=EN-US
+style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>.</span></span><span
+class=typ><span lang=EN-US style='font-family:"inherit","serif";color:#2B91AF;
+background:#EFF0F1'>OnModelCreating</span></span><span class=pun><span
+lang=EN-US style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>(</span></span><span
+class=pln><span lang=EN-US style='font-family:"inherit","serif";color:#303336;
+background:#EFF0F1'>modelBuilder</span></span><span class=pun><span lang=EN-US
+style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>);</span></span></pre><pre
+style='background:#EFF0F1;vertical-align:baseline'><span class=pun><span
+lang=EN-US style='font-family:"inherit","serif";color:#303336;background:#EFF0F1'>}</span></span></pre>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>El Error :</span></p>
+
+<p class=MsoNormal><span lang=EN-US>{&quot;There is already an object named
+'Customers' in the database.&quot;} </span></p>
+
+<p class=MsoNormal><span lang=EN-US>Solucion :</span></p>
+
+<p class=MsoNormal><span lang=EN-US>En Package Manager Console </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:11.5pt;font-family:"Arial","sans-serif";
+color:#242729;background:cornsilk'>Add-Migration Initial -IgnoreChanges</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>El Error :</span></p>
+
+<p class=MsoNormal><span lang=EN-US>{&quot;ALTER TABLE DROP COLUMN failed
+because column 'Quantity' does not exist in table 'Products'.&quot;} </span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Solucion:</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:11.5pt;font-family:"Arial","sans-serif";
+color:#242729;background:white'>OK, finally I solved my problem.</span><span
+lang=EN-US style='font-size:11.5pt;font-family:"Arial","sans-serif";color:#242729'><br>
+<span style='background:white'>I added field 'xxx' to table 'yyy' manually in
+my database.</span></span></p>
+
+<p class=MsoNormal>Agregar a Producto los campos . Quantity y Discriminator.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Arbol del Proyecto: </p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=81 height=0></td>
+  <td width=275></td>
+  <td width=81></td>
+  <td width=225></td>
+ </tr>
+ <tr>
+  <td height=535></td>
+  <td align=left valign=top><img width=275 height=535
+  src="Zuluaga_2_archivos/image023.jpg"></td>
+  <td></td>
+  <td rowspan=2 align=left valign=top><img width=225 height=538
+  src="Zuluaga_2_archivos/image024.jpg"></td>
+ </tr>
+ <tr>
+  <td height=3></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=157 height=0></td>
+  <td width=202></td>
+  <td width=68></td>
+  <td width=202></td>
+ </tr>
+ <tr>
+  <td height=300></td>
+  <td rowspan=2 align=left valign=top><img width=202 height=515
+  src="Zuluaga_2_archivos/image025.jpg"></td>
+  <td></td>
+  <td align=left valign=top><img width=202 height=300
+  src="Zuluaga_2_archivos/image026.jpg"></td>
+ </tr>
+ <tr>
+  <td height=215></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=197 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=227 height=373 src="Zuluaga_2_archivos/image027.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Prueba :</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Web API.</p>
+
+<p class=MsoNormal>http://localhost:49930/api/granja/1/2</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Parametro para base de datos.</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=94 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=555 height=125 src="Zuluaga_2_archivos/image028.jpg"></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+<span lang=EN-US>http://localhost:49930/api/granja/3</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Usando IIS :</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>http://localhost/ProductWebApi/api/granja/1/2</span></p>
+
+<p class=MsoNormal><span lang=EN-US>                                                 </span></p>
+
+</div>
+
+</body>
+
+</html>

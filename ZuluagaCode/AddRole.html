@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//AddRole
+
+@model KWebStore.ModelView.UserView
+
+@{
+    ViewBag.Title = "AddRole";
+}
+
+<h2>Add Role To User : @Model.Name </h2>
+<h3> @ViewBag.Error </h3>
+
+@using (Html.BeginForm("AddRole", "UsersVw", new { userID = Model.UserID }, FormMethod.Post) )
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>New  -  Order</h4>
+        <hr />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Role.RoleID, "RoleID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("RoleID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Role.RoleID , "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.ActionLink("Return to user", "Roles", new { userID = Model.UserID }, new { @class = "btn btn-info" })
+        <input type="submit" value="Add Role"  class="btn btn-success" />
+
+    </div>
+}
+
+</xmp>
+
+</body>
+</html>

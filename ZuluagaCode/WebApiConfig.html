@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//WebApiConfig
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Http;
+
+namespace KWebStore
+{
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            // Web API configuration and services
+            config.Formatters.JsonFormatter.SupportedMediaTypes
+                .Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
+            config.Formatters.JsonFormatter.MediaTypeMappings
+                .Add(new System.Net.Http.Formatting.RequestHeaderMapping("Accept",
+                              "text/html",
+                              System.StringComparison.InvariantCultureIgnoreCase,
+                              true,
+                              "application/json"));
+
+
+            // Web API routes
+            config.MapHttpAttributeRoutes();
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+            
+            config.Routes.MapHttpRoute(
+                name: "ApiUno",
+                //routeTemplate: "api/{controller}/{material}",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "ApiDos",
+                routeTemplate: "api/{controller}/{producto}/{medio}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+            
+        }
+    }
+}
+
+
+</xmp>
+
+</body>
+</html>
