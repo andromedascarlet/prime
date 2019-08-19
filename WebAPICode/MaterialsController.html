@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//
+
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using System.Web.Http.Description;
+using ProductWebApi.Models;
+
+namespace ProductWebApi.Controllers
+{
+    public class MaterialsController : ApiController
+    {
+        private ProductosDbContext db = new ProductosDbContext();
+
+        // GET: api/Materials
+        public IQueryable<Material> GetMaterials()
+        {
+            return db.Materiales;
+        }
+
+        // GET: api/Materials/5
+        [ResponseType(typeof(Material))]
+        public IHttpActionResult GetMaterial(int id)
+        {
+            Material material = db.Materiales.Find(id);
+            if (material == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(material);
+        }
+
+        // PUT: api/Materials/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutMaterial(int id, Material material)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != material.ID)
+            {
+                return BadRequest();
+            }
+
+            db.Entry(material).State = EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!MaterialExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        // POST: api/Materials
+        [ResponseType(typeof(Material))]
+        public IHttpActionResult PostMaterial(Material material)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.Materiales.Add(material);
+            db.SaveChanges();
+
+            //return CreatedAtRoute("DefaultApi", new { id = material.ID }, material);
+            return CreatedAtRoute("Servicio", new { id = material.ID }, material);
+        }
+
+        // DELETE: api/Materials/5
+        [ResponseType(typeof(Material))]
+        public IHttpActionResult DeleteMaterial(int id)
+        {
+            Material material = db.Materiales.Find(id);
+            if (material == null)
+            {
+                return NotFound();
+            }
+
+            db.Materiales.Remove(material);
+            db.SaveChanges();
+
+            return Ok(material);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private bool MaterialExists(int id)
+        {
+            return db.Materiales.Count(e => e.ID == id) > 0;
+        }
+    }
+}
+
+</xmp>
+
+</body>
+</html>

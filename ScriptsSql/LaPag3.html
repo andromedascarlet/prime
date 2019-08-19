@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>
+
+USE [mmmmm]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_VISTA_DICCIONARIO]    Script Date: 09/19/2016 01:30:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[sp_VISTA_DICCIONARIO]	
+	@idEdicion int,
+	@idSeccion int,
+	@idPagina int
+AS
+BEGIN 
+	select * from VISTA_DICCIONARIO_V2
+	where idSeccion=@idSeccion and idPagina=@idPagina and idEdicion=@idEdicion
+	order by orden
+END
+
+------------------Otro SP
+
+USE [mmmmm]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_FECHA_HOY]    Script Date: 09/19/2016 01:31:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+/*
+	Realiza una busqueda por nombres y por dui segun criterios de busquedas
+*/
+
+
+ALTER PROCEDURE [dbo].[sp_FECHA_HOY]
+	
+AS
+BEGIN
+
+SELECT      dbo.numero_a_texto(DAY(GETDATE())) AS dia, UPPER(descripcion) AS mes, dbo.numero_a_texto(YEAR(GETDATE())) AS año
+--FROM          CLASIFICADORES.dbo.clasificador
+FROM          clasificador
+WHERE      (idTipoClasificador = 16) AND (clasificador = RIGHT('0' + CAST(MONTH(GETDATE()) AS varchar(3)), 2))
+
+
+END
+
+--------------------  Otro sp
+
+USE [VITALES]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_InsertarPartidaWord]    Script Date: 09/19/2016 01:32:50 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+ALTER PROCEDURE [dbo].[SP_InsertarPartidaWord]
+
+            @Archivo varbinary(max)
+           ,@Nombre varchar(max)           
+           ,@idHistorico int
+
+
+
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+if exists (select idhistorico from [dbo].[HistoricoPartidasWord] where idhistorico = @idhistorico )
+		begin
+		 
+		 UPDATE [dbo].[HistoricoPartidasWord]
+		   SET [Archivo] =  @Archivo 					  
+			  ,[Nombre] =  @Nombre 
+			  ,[FechaModificacion] = getdate()			
+			   where idhistorico = @idhistorico
+
+		   end
+
+	  	else
+
+			begin
+
+			   INSERT INTO [dbo].[HistoricoPartidasWord]
+					   ([Archivo]
+					   ,[Nombre]
+					   ,[Fechacreacion]
+					   ,FechaModificacion
+					   ,[idHistorico])
+				 VALUES
+				 (
+						 @Archivo 
+					   ,@Nombre 
+					   ,getdate()
+					   ,getdate()
+					   ,@idHistorico 
+					   )
+
+			end
+
+end
+
+-------------- Otro SP
+ select distinct NUE,
+MAX ("TERRENOS") AS "TERRENOS",
+MAX ("MEJORAS EN LOS TERRENOS Y ACTIVOS EXISTENTES, DIFERENTES A EDIFICACIONES.") AS "MEJORAS EN LOS TERRENOS Y ACTIVOS EXISTENTES, DIFERENTES A EDIFICACIONES.",
+MAX ("VIVIENDA") AS "VIVIENDA",
+MAX ("EDIFICIOS PARA SERVICIOS ADMINISTRATIVOS Y AUXILIARES") AS "EDIFICIOS PARA SERVICIOS ADMINISTRATIVOS Y AUXILIARES",
+MAX ("EDIFICIOS INDUSTRIALES Y/O PRODUCTIVOS") AS "EDIFICIOS INDUSTRIALES Y/O PRODUCTIVOS",
+MAX ("CONSTRUCCIONES EN PROCESO (ESPECIFIQUE)") AS "CONSTRUCCIONES EN PROCESO (ESPECIFIQUE)",
+MAX ("MOBILIARIO") AS "MOBILIARIO",
+MAX ("EQUIPO DE OFICINA Y CONTABILIDAD (INCLUYE EQUIPO DE CÓMPUTO)") AS "EQUIPO DE OFICINA Y CONTABILIDAD (INCLUYE EQUIPO DE CÓMPUTO)",
+MAX ("MAQUINARIA EXCEPTO DE OFICINA") AS "MAQUINARIA EXCEPTO DE OFICINA",
+MAX ("EQUIPO Y HERRAMIENTAS DE PRODUCCIÓN") AS "EQUIPO Y HERRAMIENTAS DE PRODUCCIÓN",
+MAX ("VEHÍCULO Y EQUIPO DE TRANSPORTE") AS "VEHÍCULO Y EQUIPO DE TRANSPORTE",
+MAX ("PROGRAMAS DE INFORMÁTICA") AS "PROGRAMAS DE INFORMÁTICA",
+MAX ("OBJETOS VALIOSOS") AS "OBJETOS VALIOSOS",
+MAX ("ACTIVOS INTANGIBLES PRODUCIDOS") AS "ACTIVOS INTANGIBLES PRODUCIDOS",
+MAX ("ACTIVOS INTANGIBLES NO PRODUCIDOS") AS "ACTIVOS INTANGIBLES NO PRODUCIDOS",
+MAX ("OTROS NO DETALLADOS ANTERIORMENTE") AS "OTROS NO DETALLADOS ANTERIORMENTE",
+MAX ("TOTAL") AS "TOTAL",
+MAX ("OTRAS CONSTRUCCIONES") AS "OTRAS CONSTRUCCIONES"
+
+
+
+ from (
+
+SELECT     DESCRIPCION,NUE,S06C01, S06C02, S06C03, S06C04, S06C05, S06C06, S06C07, S06C08, S06C09, S06C10
+
+
+FROM          F01S06
+
+	  ) as A 
+	PIVOT (max(S06C10) 
+	FOR DESCRIPCION IN ("TERRENOS",
+"MEJORAS EN LOS TERRENOS Y ACTIVOS EXISTENTES, DIFERENTES A EDIFICACIONES.",
+"VIVIENDA",
+"EDIFICIOS PARA SERVICIOS ADMINISTRATIVOS Y AUXILIARES",
+"EDIFICIOS INDUSTRIALES Y/O PRODUCTIVOS",
+"CONSTRUCCIONES EN PROCESO (ESPECIFIQUE)",
+"MOBILIARIO",
+"EQUIPO DE OFICINA Y CONTABILIDAD (INCLUYE EQUIPO DE CÓMPUTO)",
+"MAQUINARIA EXCEPTO DE OFICINA",
+"EQUIPO Y HERRAMIENTAS DE PRODUCCIÓN",
+"VEHÍCULO Y EQUIPO DE TRANSPORTE",
+"PROGRAMAS DE INFORMÁTICA",
+"OBJETOS VALIOSOS",
+"ACTIVOS INTANGIBLES PRODUCIDOS",
+"ACTIVOS INTANGIBLES NO PRODUCIDOS",
+"OTROS NO DETALLADOS ANTERIORMENTE",
+"TOTAL",
+"OTRAS CONSTRUCCIONES"
+
+)) AS pvt 
+group by NUE
+	order by NUE
+
+--------- Otro SP
+
+
+
+SELECT IDBoleta, Correlativo, Listado, Item ,  
+[305] AS 'Pregunta 305_Texto',[R305] AS 'Pregunta 305_Codigo', [306] AS 'Pregunta 306_Texto',[R306] AS 'Pregunta 306_Codigo', [317] AS 'Pregunta 317_Texto',[R317] AS 'Pregunta 317_Codigo', [318] AS 'Pregunta 318_Texto',[R318] AS 'Pregunta 318_Codigo', 
+[323] AS 'Pregunta 323_Texto',[R323] AS 'Pregunta 323_Codigo', [325] AS 'Pregunta 325_Texto', [R325] AS 'Pregunta 325_Codigo'
+FROM
+(SELECT B.IDBoleta,M.Correlativo,M.Listado,F.Item ,SUBSTRING(C.CELDA,2,LEN(C.CELDA)) AS Pregunta,C.CELDA AS Pregunta2,F.Texto ,F.Codigo FROM BOLETA B
+INNER JOIN MUESTRA M ON B.idmuestra = M.idmuestra 
+INNER JOIN [CLASIFICADORES].[dbo].[FRASE_CODIGO] F ON B.idBoleta = F.IdBoleta 
+INNER JOIN CELDA C ON C.IDCELDA = F.IdCelda 
+WHERE B.idBoleta IN (SELECT FC.IDBoleta FROM [CLASIFICADORES].[dbo].[FRASE_CODIGO] FC 
+WHERE FC.IDCELDA IN (select IdCeldaTexto  FROM [CLASIFICADORES].[dbo].[VW_CODIFICACION_ASISTIDA_CELDA] WHERE PROYECTO = 'Encuesta de Secretaria Técnica')
+AND FC.Codigo IS NOT NULL
+GROUP BY FC.IDBoleta HAVING COUNT(FC.IDBoleta) = (Select COUNT(IDCELDA) from Dato Where IDBOLETA = FC.IDBoleta 
+AND IDCELDA IN (select IdCeldaTexto  FROM [CLASIFICADORES].[dbo].[VW_CODIFICACION_ASISTIDA_CELDA] WHERE PROYECTO = 'Encuesta de Secretaria Técnica')
+) )
+) AS SourceTable
+PIVOT
+(
+MAX(Texto)
+FOR Pregunta IN ([305], [306], [317], [318], [323], [325])
+) AS Pivot1
+PIVOT
+(
+MAX(Codigo)
+FOR Pregunta2 IN ([R305], [R306], [R317], [R318], [R323], [R325])
+) AS Pivot2
+
+
+</xmp>
+
+
+</body>
+</html>

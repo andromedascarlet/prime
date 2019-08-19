@@ -1,0 +1,2289 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 12">
+<meta name=Originator content="Microsoft Word 12">
+<link rel=File-List href="CRUDMvcEntityF_archivos/filelist.xml">
+<link rel=Edit-Time-Data href="CRUDMvcEntityF_archivos/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>galileo</o:Author>
+  <o:LastAuthor>galileo</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>649</o:TotalTime>
+  <o:Created>2019-08-19T02:41:00Z</o:Created>
+  <o:LastSaved>2019-08-19T02:41:00Z</o:LastSaved>
+  <o:Pages>21</o:Pages>
+  <o:Words>1180</o:Words>
+  <o:Characters>6493</o:Characters>
+  <o:Lines>54</o:Lines>
+  <o:Paragraphs>15</o:Paragraphs>
+  <o:CharactersWithSpaces>7658</o:CharactersWithSpaces>
+  <o:Version>12.00</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<link rel=themeData href="CRUDMvcEntityF_archivos/themedata.thmx">
+<link rel=colorSchemeMapping
+href="CRUDMvcEntityF_archivos/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:HyphenationZone>21</w:HyphenationZone>
+  <w:PunctuationKerning/>
+  <w:DrawingGridHorizontalSpacing>5.5 pto</w:DrawingGridHorizontalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>2</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>ES</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="--"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520092929 1073786111 9 0 415 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+p
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Texto de globo Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-bidi-font-family:Tahoma;
+	mso-fareast-language:EN-US;}
+span.TextodegloboCar
+	{mso-style-name:"Texto de globo Car";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Texto de globo";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+.MsoPapDefault
+	{mso-style-type:export-only;
+	margin-bottom:10.0pt;}
+@page Section1
+	{size:612.1pt 792.1pt;
+	margin:36.0pt 36.0pt 36.0pt 36.0pt;
+	mso-header-margin:35.45pt;
+	mso-footer-margin:35.45pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Tabla normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin-top:0cm;
+	mso-para-margin-right:0cm;
+	mso-para-margin-bottom:10.0pt;
+	mso-para-margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="7170"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=ES style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal><span lang=ES-SV style='mso-ansi-language:ES-SV'>Video :<u><o:p></o:p></u></span></p>
+
+<p class=MsoNormal><span lang=ES-SV style='mso-ansi-language:ES-SV'>Crear CRUD
+en MVC Net con C, Entity Framework y Sql Server<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=ES-SV style='mso-ansi-language:ES-SV'>Tabla:
+Tabla<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=ES-SV style='mso-ansi-language:ES-SV'>id<span
+style='mso-spacerun:yes'>   </span>int<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=ES-SV style='mso-ansi-language:ES-SV'>nombre<span
+style='mso-spacerun:yes'>   </span>varchar<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=ES-SV style='mso-ansi-language:ES-SV'>correo<span
+style='mso-spacerun:yes'>   </span>varchar<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=ES-SV style='mso-ansi-language:ES-SV'>fecha_nacimiento<span
+style='mso-spacerun:yes'>   </span>datetime<o:p></o:p></span></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shapetype id="_x0000_t75"
+  coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+  filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="Imagen_x0020_1" o:spid="_x0000_s1052" type="#_x0000_t75"
+  style='position:absolute;margin-left:77.25pt;margin-top:16.75pt;width:292.5pt;
+  height:128.25pt;z-index:1;visibility:visible;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text' stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image001.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=102 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=392 height=173 src="CRUDMvcEntityF_archivos/image002.jpg"
+   v:shapes="Imagen_x0020_1"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+<span lang=ES-SV style='mso-ansi-language:ES-SV'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=ES-SV style='mso-ansi-language:ES-SV'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=ES-SV style='mso-ansi-language:ES-SV'>Crear
+Proyecto MVC en .NET 2017<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Aplication
+web ASP.NET (.NET Framework)<o:p></o:p></span></p>
+
+<p class=MsoNormal>Nombre: MVCCrud.sln</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="Imagen_x0020_7"
+  o:spid="_x0000_s1051" type="#_x0000_t75" style='position:absolute;
+  margin-left:114.75pt;margin-top:19.35pt;width:369pt;height:75pt;z-index:3;
+  visibility:visible;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="CRUDMvcEntityF_archivos/image003.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=153 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=492 height=100 src="CRUDMvcEntityF_archivos/image004.jpg"
+   v:shapes="Imagen_x0020_7"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'> </span></p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:ES;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="Imagen_x0020_10"
+  o:spid="_x0000_s1050" type="#_x0000_t75" style='position:absolute;
+  margin-left:129.75pt;margin-top:266.25pt;width:294.75pt;height:307.5pt;
+  z-index:4;visibility:visible;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="CRUDMvcEntityF_archivos/image005.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=173 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=393 height=410 src="CRUDMvcEntityF_archivos/image006.jpg"
+   v:shapes="Imagen_x0020_10"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="Imagen_x0020_4"
+  o:spid="_x0000_s1049" type="#_x0000_t75" style='position:absolute;
+  margin-left:64.5pt;margin-top:14.8pt;width:448.5pt;height:211.5pt;z-index:2;
+  visibility:visible;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="CRUDMvcEntityF_archivos/image007.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=86 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=598 height=282 src="CRUDMvcEntityF_archivos/image008.jpg"
+   v:shapes="Imagen_x0020_4"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Seleccionar solo MVC -&gt; Aceptar</p>
+
+<p class=MsoNormal>Crear Entity Framework</p>
+
+<p class=MsoNormal>Ir a la carpeta: Models -&gt; Click Derecho</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="Imagen_x0020_13"
+  o:spid="_x0000_s1048" type="#_x0000_t75" style='position:absolute;
+  margin-left:50.25pt;margin-top:38.25pt;width:484.5pt;height:95.25pt;
+  z-index:5;visibility:visible;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="CRUDMvcEntityF_archivos/image009.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0>
+  <tr>
+   <td width=67 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=646 height=127 src="CRUDMvcEntityF_archivos/image010.jpg"
+   v:shapes="Imagen_x0020_13"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+Agregar -&gt; Nuevo Elemento -&gt; Datos -&gt; ADO.NET Entity Data Model</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="Imagen_x0020_16"
+  o:spid="_x0000_s1047" type="#_x0000_t75" style='position:absolute;
+  margin-left:150.75pt;margin-top:10.3pt;width:340.1pt;height:252.75pt;
+  z-index:6;visibility:visible;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="CRUDMvcEntityF_archivos/image011.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=201 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=453 height=337 src="CRUDMvcEntityF_archivos/image012.jpg"
+   v:shapes="Imagen_x0020_16"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<p class=MsoNormal>Nombre:<span style='mso-spacerun:yes'>  </span>DB<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="Imagen_x0020_19"
+  o:spid="_x0000_s1046" type="#_x0000_t75" style='position:absolute;
+  margin-left:135.75pt;margin-top:41.65pt;width:272.25pt;height:165pt;
+  z-index:7;visibility:visible;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="CRUDMvcEntityF_archivos/image013.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0>
+  <tr>
+   <td width=181 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=363 height=220 src="CRUDMvcEntityF_archivos/image014.jpg"
+   v:shapes="Imagen_x0020_19"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+<span style='mso-spacerun:yes'> </span>-&gt; Agregar</p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'> </span><br clear=all
+style='mso-special-character:line-break;page-break-before:always'>
+</p>
+
+<p class=MsoNormal>BaseMuestra</p>
+
+<p class=MsoNormal>User: usermuestra</p>
+
+<p class=MsoNormal>passwd: 789</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="Imagen_x0020_22"
+  o:spid="_x0000_s1044" type="#_x0000_t75" style='position:absolute;
+  margin-left:126pt;margin-top:16.7pt;width:310.5pt;height:250.5pt;z-index:8;
+  visibility:visible;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="CRUDMvcEntityF_archivos/image015.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><v:shape id="Imagen_x0020_25" o:spid="_x0000_s1045" type="#_x0000_t75"
+  style='position:absolute;margin-left:94.5pt;margin-top:285.95pt;width:394pt;
+  height:298.5pt;z-index:9;visibility:visible;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text' stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image016.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=125 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=527 height=400 src="CRUDMvcEntityF_archivos/image017.gif"
+   v:shapes="Imagen_x0020_22 Imagen_x0020_25"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>EF Designer desde base de datos -&gt; Nueva Conexion ...
+-&gt;</p>
+
+<p class=MsoNormal>LLenar :nombre del servidor: Localhost , Nombre de usuario:
+sa </p>
+
+<p class=MsoNormal>,Contraseña: ddd<span style='mso-spacerun:yes'>    </span>, nombre
+de la base de datos : Crud</p>
+
+<p class=MsoNormal>-&gt; Probar Conexion -&gt; Aceptar</p>
+
+<p class=MsoNormal>Chequear Guardar configuracion de conexion Web.Config:</p>
+
+<p class=MsoNormal>Entity Data Model : CrudEntities<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="Imagen_x0020_31"
+  o:spid="_x0000_s1043" type="#_x0000_t75" style='position:absolute;
+  margin-left:84pt;margin-top:44.7pt;width:384pt;height:394.5pt;z-index:10;
+  visibility:visible;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text' stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image018.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0>
+  <tr>
+   <td width=111 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=514 height=528 src="CRUDMvcEntityF_archivos/image019.jpg"
+   v:shapes="Imagen_x0020_31"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+Seleccionar Si, incluir datos confidenciales en la cadena de conexion</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'> </span>-&gt; Siguiente -&gt;
+Entity Framework 6.x</p>
+
+<p class=MsoNormal>-&gt; Siguiente -&gt; Selecionar la tabla : tabla</p>
+
+<p class=MsoNormal>Espacio de nombres del modelo: CrudModel</p>
+
+<p class=MsoNormal>-&gt; Finalizar</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="Imagen_x0020_34"
+  o:spid="_x0000_s1042" type="#_x0000_t75" style='position:absolute;
+  margin-left:116.25pt;margin-top:22.5pt;width:411pt;height:150.75pt;z-index:11;
+  visibility:visible;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="CRUDMvcEntityF_archivos/image020.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=155 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=548 height=201 src="CRUDMvcEntityF_archivos/image021.jpg"
+   v:shapes="Imagen_x0020_34"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<p class=MsoNormal>Crear controlador en carpeta Controller:</p>
+
+<p class=MsoNormal>Controlador de MVC5: en blanco -&gt; TablaController</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="Imagen_x0020_37"
+  o:spid="_x0000_s1040" type="#_x0000_t75" style='position:absolute;
+  margin-left:71.25pt;margin-top:20.45pt;width:426pt;height:90pt;z-index:12;
+  visibility:visible;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text' stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image022.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><v:shape id="Imagen_x0020_40" o:spid="_x0000_s1041" type="#_x0000_t75"
+  style='position:absolute;margin-left:110.25pt;margin-top:146.3pt;width:364.5pt;
+  height:94.75pt;z-index:13;visibility:visible;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="CRUDMvcEntityF_archivos/image023.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=94 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=570 height=126 src="CRUDMvcEntityF_archivos/image024.gif"
+   v:shapes="Imagen_x0020_37 Imagen_x0020_40"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:ES;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Crear vista del metodo index. Crear la vista del metodo
+Index.</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="Imagen_x0020_43" o:spid="_x0000_s1039"
+ type="#_x0000_t75" style='position:absolute;margin-left:125.25pt;margin-top:15.55pt;
+ width:233.25pt;height:99pt;z-index:15;visibility:visible;mso-wrap-style:square;
+ mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+ mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+ mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+ mso-position-vertical-relative:text' stroked="t" strokecolor="#4f81bd">
+ <v:imagedata src="CRUDMvcEntityF_archivos/image025.png" o:title=""/>
+ <w:wrap type="square"/>
+</v:shape><![endif]--><![if !vml]><img width=313 height=134
+src="CRUDMvcEntityF_archivos/image026.jpg" align=left hspace=12 v:shapes="Imagen_x0020_43"><![endif]><span
+style='mso-spacerun:yes'> </span></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="Imagen_x0020_46"
+  o:spid="_x0000_s1038" type="#_x0000_t75" style='position:absolute;
+  margin-left:85.5pt;margin-top:132.4pt;width:321.95pt;height:227.25pt;
+  z-index:14;visibility:visible;mso-wrap-style:square;mso-wrap-distance-left:9pt;
+  mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="CRUDMvcEntityF_archivos/image027.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=114 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=429 height=303 src="CRUDMvcEntityF_archivos/image028.jpg"
+   v:shapes="Imagen_x0020_46"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>En la carpeta Models Crear la carpeta: ViewModels</p>
+
+<p class=MsoNormal>Crear la clase: ListTablaViewModel</p>
+
+<p class=MsoNormal>Par a mostrar los elementos <span
+style='mso-spacerun:yes'> </span>del listado:</p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Por ejemplo
+:<span style='mso-spacerun:yes'>  </span>public <span
+style='mso-spacerun:yes'> </span>int Id { get; set; }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>public <span
+style='mso-spacerun:yes'> </span>string Nombre { get; set; }<o:p></o:p></span></p>
+
+<p class=MsoNormal>En TablaController usar el contexto: CrudEntities.</p>
+
+<p class=MsoNormal>El Codigo :</p>
+
+<p class=MsoNormal>using (BaseMuestraEntities db = new BaseMuestraEntities())</p>
+
+<p class=MsoNormal>Es del<span style='mso-spacerun:yes'>  </span>archivo:<span
+style='mso-spacerun:yes'>  </span>ModelDb.Context.cs</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>public ActionResult Index()<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>        </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>List
+&lt; ListTablaViewModel &gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>using
+(CrudEntities db = new CrudEntities())<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>lst
+= (from d in db.tabla<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>select
+new ListTablaViewModel<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>Id=
+d.id,<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span></span>Nombre
+= d.nombre,</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>Fecha_Nacimiento
+= d.fecha_nacimiento,</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Correo = d.correo<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>}).ToList();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>            </span>return View(lst);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>        </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif";
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>En
+Index.cshtml<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>@model
+List&lt;MVCCrud.Models.ViewModels.ListTablaViewModel&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>@{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>ViewBag.Title = &quot;Mis Datos&quot;;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>&lt;h2&gt;@ViewBag.Title&lt;/h2&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>&lt;div class = &quot;row&quot;
+style=&quot;text-align:right; &quot; &gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span></span>&lt;a
+href=&quot;~/Tabla/Nuevo&quot; class=&quot;btn btn-primary&quot;
+&gt;Nuevo&lt;/a&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>&lt;/div&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>&lt;div class = &quot;row&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>&lt;div class =
+&quot;col-md-12&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>&lt;table
+class=&quot;table&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>&lt;tr&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>        </span>&lt;th&gt; #ID<span
+style='mso-spacerun:yes'>  </span>&lt;/th&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>&lt;th&gt;
+Nombre<span style='mso-spacerun:yes'>  </span>&lt;/th&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>&lt;th&gt;
+Correo<span style='mso-spacerun:yes'>  </span>&lt;/th&gt;<span
+style='mso-spacerun:yes'>        </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>&lt;/tr&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>@foreach
+(var oElemento in Model) <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>&lt;tr&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>        </span>&lt;td&gt; @oElemento.Id&lt;/td&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>&lt;td&gt;
+@oElemento.Nombre&lt;/td&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>&lt;td&gt;
+@oElemento.Correo&lt;/td&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>&lt;td&gt;
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                                               </span>&lt;a
+class=&quot;btn btn-default&quot; href=&quot;~/Tabla/Editar/@oElemento.Id&quot;&gt;Editar
+&lt;/a&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                                               </span>&lt;a
+class=&quot;btn btn-danger&quot;
+href=&quot;~/Tabla/Eliminar/@oElemento.Id&quot;&gt;Eliminar &lt;/a&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>&lt;/td&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>&lt;/tr&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>&lt;/table&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>&lt;/div&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>&lt;/div&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif";
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal>Probar la vista, compilar.</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1037"
+  type="#_x0000_t75" style='position:absolute;margin-left:159pt;margin-top:35.8pt;
+  width:345pt;height:194.25pt;z-index:16;visibility:visible;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="CRUDMvcEntityF_archivos/image029.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0>
+  <tr>
+   <td width=212 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=460 height=259 src="CRUDMvcEntityF_archivos/image030.jpg"
+   v:shapes="_x0000_s1037"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+http://localhost:49340/Personal</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Crear clase TablaViewModel en la carpeta ViewModels: </p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Incluir<span
+style='mso-spacerun:yes'>  </span>: <o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>[DisplayFormat(DataFormatString
+= &quot;{0:yyyy-MM-dd}&quot;,ApplyFormatInEditMode= true)]<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>public <span
+style='mso-spacerun:yes'> </span>DateTime <span
+style='mso-spacerun:yes'> </span>Fecha_Creacion { get; set; }<o:p></o:p></span></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1036"
+  type="#_x0000_t75" style='position:absolute;margin-left:167.25pt;
+  margin-top:61.2pt;width:148.5pt;height:153.8pt;z-index:17;visibility:visible;
+  mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+  mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+  mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+  mso-position-vertical:absolute;mso-position-vertical-relative:text'
+  stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image031.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0>
+  <tr>
+   <td width=222 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=200 height=207 src="CRUDMvcEntityF_archivos/image032.jpg"
+   v:shapes="_x0000_s1036"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+Con data anotations .</p>
+
+<p class=MsoNormal>Para Nuevo :<span style='mso-spacerun:yes'>  </span>Video<span
+style='mso-spacerun:yes'>  </span><span style='mso-spacerun:yes'>  </span>36:32</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:ES;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>El codigo para Nuevo :</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>public ActionResult Nuevo()<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>        </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>            </span>return View();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>        </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>[HttpPost]<span style='mso-tab-count:
+2'>                          </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>public ActionResult
+Nuevo(TablaViewModel model)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>try
+{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>if
+(ModelState.IsValid)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>using
+(CrudEntities db = new CrudEntities())<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span></span>{</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>var otabla = new
+tabla();<span style='mso-tab-count:2'>                             </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>otabla.nombre =
+model.nombre;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>otabla.fecha_nacimiento
+= model.fecha_nacimiento;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>otabla.correo =
+model.correo;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>db.tabla.Add(oTabla)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>db.SaveChanges();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>return
+Redirect(&quot;/&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>return
+View(model);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>catch
+(Exception ex) {<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>throw
+new Exception(ex.Message);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span></span>}</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:1'>                </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-spacerun:yes'>            </span>return View(lst);</p>
+
+<p class=MsoNormal>}</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:ES;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>El codigo de Nuevo.cshtml :</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>@model
+MVCCrud.Models.ViewModels.TablaViewModel</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>@{</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-spacerun:yes'>    </span><span lang=EN-US style='mso-ansi-language:
+EN-US'>ViewBag.Title = &quot;Nuevo&quot;;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>&lt;h2&gt;@ViewBag.Title&lt;/h2&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>@using
+(Html.BeginForm(&quot;Nuevo&quot;, &quot;Tabla&quot;, FormMethod.Post))<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>{<span style='mso-spacerun:yes'>   
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>&lt;div class = &quot;row&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>&lt;div
+class = &quot;col-md-12&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>&lt;div&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>        </span></span>@Html.LabelFor(d =&gt; d.Nombre)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-spacerun:yes'>        </span><span lang=EN-US style='mso-ansi-language:
+EN-US'>@Html.TextBoxFor(d =&gt; d.Nombre, &quot;&quot;,<span
+style='mso-spacerun:yes'>  </span>new { @class = &quot;form-control&quot; })<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>@Html.ValidationMessageFor(d
+=&gt; d.Nombre, null,<span style='mso-spacerun:yes'>  </span>new { @class =
+&quot;danger&quot; })<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span></span>&lt;/div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:1'>                </span>&lt;div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>@Html.LabelFor(d
+=&gt; d.Correo)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-spacerun:yes'>        </span><span lang=EN-US style='mso-ansi-language:
+EN-US'>@Html.TextBoxFor(d =&gt; d.Correo, &quot;&quot;,<span
+style='mso-spacerun:yes'>  </span>new { @class = &quot;form-control&quot; })<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span></span>&lt;/div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>@Html.LabelFor(d
+=&gt; d.Fecha_Nacimiento)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-spacerun:yes'>        </span>@Html.EditFor(d =&gt;
+d.Fecha_Nacimiento, &quot;&quot;,<span style='mso-spacerun:yes'>  </span>new {
+@class = &quot;form-control&quot; })</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>&lt;br /&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>&lt;div
+style = &quot;text-align:right&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                                               </span>&lt;input
+type=&quot;submit&quot; value=&quot;Guardar&quot; class=&quot;btn
+btn-primary&quot; /&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>&lt;/div&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>&lt;/div&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>        </span>@Html.ActionLink(&quot;Add
+Product&quot;, &quot;AddProduct&quot;, new {<span style='mso-spacerun:yes'> 
+</span>} , new { @class=&quot;btn btn-primary&quot;} ) <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>        </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>            </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>&lt;/div&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif";
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1035"
+  type="#_x0000_t75" style='position:absolute;margin-left:160.5pt;margin-top:34.5pt;
+  width:277.5pt;height:174.75pt;z-index:18;visibility:visible;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text' stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image033.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0>
+  <tr>
+   <td width=213 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=372 height=235 src="CRUDMvcEntityF_archivos/image034.jpg"
+   v:shapes="_x0000_s1035"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+<span lang=EN-US style='mso-ansi-language:EN-US'>El ERROR:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>An
+exception of type 'System.Data.Entity.Infrastructure.DbUpdateException'
+occurred in EntityFramework.dll but was not handled in user code<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>{&quot;Cannot
+insert explicit value for identity column in table 'Entidad' when
+IDENTITY_INSERT is set to OFF.&quot;}<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>CAUSA:<o:p></o:p></span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:12.0pt;margin-left:
+0cm;background:white;vertical-align:baseline'><span lang=EN-US
+style='font-size:11.5pt;font-family:"Arial","sans-serif";color:#242729;
+mso-ansi-language:EN-US'>I have run into this before. This error means you are
+trying to assign a value explicitly to a column where the database
+automatically assigns it.<o:p></o:p></span></p>
+
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:12.0pt;margin-left:
+0cm;background:white;vertical-align:baseline'><span lang=EN-US
+style='font-size:11.5pt;font-family:"Arial","sans-serif";color:#242729;
+mso-ansi-language:EN-US'>Suggestion: Update your edmx file to reflect any
+changes you may have made in the database. If the database automatically
+assigns the value, you should see the &quot;IsDbGenerated=true&quot; attribute
+in your designer file under that property. </span><span style='font-size:11.5pt;
+font-family:"Arial","sans-serif";color:#242729'>If it's not there, you can add
+it manually.<o:p></o:p></span></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1034"
+  type="#_x0000_t75" style='position:absolute;margin-left:54.75pt;margin-top:17.25pt;
+  width:402pt;height:187.5pt;z-index:25;visibility:visible;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text' stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image035.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=72 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=538 height=252 src="CRUDMvcEntityF_archivos/image036.jpg"
+   v:shapes="_x0000_s1034"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'> </span><br clear=all
+style='mso-special-character:line-break;page-break-before:always'>
+</p>
+
+<p class=MsoNormal>Actualizar la entidad con Model Browser:</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1033"
+  type="#_x0000_t75" style='position:absolute;margin-left:164.25pt;
+  margin-top:16.6pt;width:216.75pt;height:236.25pt;z-index:19;visibility:visible;
+  mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+  mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+  mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+  mso-position-vertical:absolute;mso-position-vertical-relative:text'>
+  <v:imagedata src="CRUDMvcEntityF_archivos/image037.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=219 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=289 height=315 src="CRUDMvcEntityF_archivos/image038.jpg"
+   v:shapes="_x0000_s1033"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:ES;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1032"
+  type="#_x0000_t75" style='position:absolute;margin-left:162pt;margin-top:44.7pt;
+  width:248.2pt;height:73.3pt;z-index:20;visibility:visible;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text' stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image039.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0>
+  <tr>
+   <td width=215 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=333 height=99 src="CRUDMvcEntityF_archivos/image040.jpg"
+   v:shapes="_x0000_s1032"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+Actualizar modelo de la base de datos.</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1031"
+  type="#_x0000_t75" style='position:absolute;margin-left:189pt;margin-top:114.55pt;
+  width:226.5pt;height:241.5pt;z-index:21;visibility:visible;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text' stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image041.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=251 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=304 height=324 src="CRUDMvcEntityF_archivos/image042.jpg"
+   v:shapes="_x0000_s1031"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:ES;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Eliminar los archivos Entidad.cs del archivo ModelDb.tt.</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1030"
+  type="#_x0000_t75" style='position:absolute;margin-left:154.5pt;margin-top:21.55pt;
+  width:177pt;height:135.75pt;z-index:23;visibility:visible;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text' stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image043.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=205 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=238 height=183 src="CRUDMvcEntityF_archivos/image044.jpg"
+   v:shapes="_x0000_s1030"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1029"
+  type="#_x0000_t75" style='position:absolute;margin-left:194.25pt;
+  margin-top:45pt;width:210.75pt;height:225.75pt;z-index:22;visibility:visible;
+  mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+  mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+  mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+  mso-position-vertical:absolute;mso-position-vertical-relative:text'
+  stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image045.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0>
+  <tr>
+   <td width=258 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=283 height=303 src="CRUDMvcEntityF_archivos/image046.jpg"
+   v:shapes="_x0000_s1029"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+El archivo ModelDb.Context.tt. Seleccionar Debug T4 Template.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:ES;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Vuelve a crear el archivo : ModelDb.Context</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1028"
+  type="#_x0000_t75" style='position:absolute;margin-left:116.25pt;
+  margin-top:17.8pt;width:354pt;height:242.25pt;z-index:24;visibility:visible;
+  mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+  mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+  mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+  mso-position-vertical:absolute;mso-position-vertical-relative:text'
+  stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image047.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=154 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=474 height=325 src="CRUDMvcEntityF_archivos/image048.jpg"
+   v:shapes="_x0000_s1028"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:ES;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Ahora si Funciona:</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1027"
+  type="#_x0000_t75" style='position:absolute;margin-left:91.9pt;margin-top:10.85pt;
+  width:322.15pt;height:306.4pt;z-index:27;visibility:visible;mso-wrap-style:square;
+  mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text' stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image049.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=122 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=431 height=411 src="CRUDMvcEntityF_archivos/image050.jpg"
+   v:shapes="_x0000_s1027"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1026"
+  type="#_x0000_t75" style='position:absolute;margin-left:106.95pt;
+  margin-top:-.45pt;width:396.6pt;height:180.7pt;z-index:26;visibility:visible;
+  mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+  mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+  mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+  mso-position-vertical:absolute;mso-position-vertical-relative:text'
+  stroked="t" strokecolor="#4f81bd">
+  <v:imagedata src="CRUDMvcEntityF_archivos/image051.png" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'>
+ <table cellpadding=0 cellspacing=0 align=left>
+  <tr>
+   <td width=142 height=0></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width=530 height=243 src="CRUDMvcEntityF_archivos/image052.jpg"
+   v:shapes="_x0000_s1026"></td>
+  </tr>
+ </table>
+ </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ascii-theme-font:
+minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;
+mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:ES;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Para Editar
+:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>public ActionResult Editar(int Id)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>TablaViewModel model = new TablaViewModel();<span
+style='mso-spacerun:yes'>        </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>using
+(CrudEntities db = new CrudEntities())<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span></span>{</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>var otabla =
+db.tabla.Find(Id);</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>model.nombre =
+otabla.nombre;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>model.fecha_nacimiento
+= otabla.fecha_nacimiento;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>model.correo =
+otabla.correo;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>model.Id =
+otabla.id;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:4'>                                                               </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:1'>                </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>return
+View(model);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>[HttpPost]<span style='mso-tab-count:
+2'>                          </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>public ActionResult
+Editar(TablaViewModel model)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>try
+{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>if
+(ModelState.IsValid)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>using
+(CrudEntities db = new CrudEntities())<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span></span>{</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>var otabla =
+db.tabla.Find(Id);<span style='mso-tab-count:2'>                  </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>otabla.nombre =
+model.nombre;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>otabla.fecha_nacimiento
+= model.fecha_nacimiento;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>otabla.correo = model.correo;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>db.Entry(otabla).State
+= System.Data.Entity.EntityState.Modified;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>db.SaveChanges();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>return
+Redirect(&quot;~/Tabla/&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>return
+View(model);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>catch
+(Exception ex) {<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>throw
+new Exception(ex.Message);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>            </span>return View(lst);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif";
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Para
+Editar.cshtml<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>@model
+MVCCrud.Models.ViewModels.TablaViewModel<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>@{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>ViewBag.Title = &quot;Editar&quot;;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>&lt;h2&gt;@ViewBag.Title&lt;/h2&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>@using
+(Html.BeginForm(&quot;Editar&quot;, &quot;Tabla&quot;, FormMethod.Post))<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>{<span style='mso-spacerun:yes'>   
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>&lt;div class = &quot;row&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>&lt;div
+class = &quot;col-md-12&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span></span>&lt;div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-spacerun:yes'>        </span>@Html.LabelFor(d =&gt; d.Nombre)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-spacerun:yes'>        </span><span lang=EN-US style='mso-ansi-language:
+EN-US'>@Html.TextBoxFor(d =&gt; d.Nombre, &quot;&quot;,<span
+style='mso-spacerun:yes'>  </span>new { @class = &quot;form-control&quot; })<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>@Html.ValidationMessageFor(d
+=&gt; d.Nombre, null,<span style='mso-spacerun:yes'>  </span>new { @class =
+&quot;danger&quot; })<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span></span>&lt;/div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:1'>                </span>&lt;div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>@Html.LabelFor(d
+=&gt; d.Correo)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-spacerun:yes'>        </span><span lang=EN-US style='mso-ansi-language:
+EN-US'>@Html.TextBoxFor(d =&gt; d.Correo, &quot;&quot;,<span
+style='mso-spacerun:yes'>  </span>new { @class = &quot;form-control&quot; })<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span></span>&lt;/div&gt;</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>@Html.LabelFor(d
+=&gt; d.Fecha_Nacimiento)</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-spacerun:yes'>      </span><span
+style='mso-spacerun:yes'>  </span>@Html.EditFor(d =&gt; d.Fecha_Nacimiento,
+&quot;&quot;,<span style='mso-spacerun:yes'>  </span>new { @class =
+&quot;form-control&quot; })</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>&lt;br /&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>&lt;div
+style = &quot;text-align:right&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:3'>                                               </span>&lt;input
+type=&quot;submit&quot; value=&quot;Guardar&quot; class=&quot;btn
+btn-primary&quot; /&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:2'>                               </span>&lt;/div&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>&lt;/div&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>        </span>@Html.ActionLink(&quot;Add Product&quot;,
+&quot;AddProduct&quot;, new {<span style='mso-spacerun:yes'>  </span>} , new {
+@class=&quot;btn btn-primary&quot;} ) <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>        </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>            </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>&lt;/div&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<span lang=EN-US style='font-size:11.0pt;font-family:"Calibri","sans-serif";
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>Para Eliminar:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>[HttpGet]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>public ActionResult Eliminar(int Id)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>{<span style='mso-spacerun:yes'>   
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span>using
+(CrudEntities db = new CrudEntities())<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-tab-count:1'>                </span></span>{</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>var otabla =
+db.tabla.Find(Id);</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>db.tabla.Remove(otabla);</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:2'>                               </span>db.SaveChanges();<span
+style='mso-tab-count:2'>                        </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:1'>                </span>}</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='mso-tab-count:1'>                </span>return
+Redirect(&quot;~/Tabla/&quot;);</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'>}</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

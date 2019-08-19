@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//
+
+using ProductWebApi.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
+namespace ProductWebApi.Controllers
+{
+    public class TarjetaController : ApiController
+    {
+        // GET: api/Tarjeta
+        public Usuario Get()
+        {
+            clData oDAT = new clData();
+            return oDAT.GetUsuario("123");
+        }
+
+        // GET: api/Tarjeta/5
+        public Usuario Get(string id)
+        {
+            clData oDAT = new clData();
+            return oDAT.GetUsuario(id);
+        }
+
+        
+    }
+}
+
+
+</xmp>
+
+</body>
+</html>

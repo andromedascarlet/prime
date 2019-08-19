@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//
+
+namespace ProductWebApi.Models
+{
+    public class Cuenta
+    {
+        public int IDCuenta { get; set; }
+        
+        public int IDUsuario { get; set; }
+
+        public string FechaApertura { get; set; }
+
+        public List<Movimiento> Movimientos = new List<Movimiento>();
+    }
+}
+
+namespace ProductWebApi.Models
+{
+    public class Usuario
+    {
+        public int IDUsuario { get; set; }
+        
+        public string TipoDocumento { get; set; }
+        
+        public string Documento { get; set; }
+        
+        public int departamento { get; set; }
+
+        public string Nombre { get; set; }
+
+        public Cuenta CuentaUser { get; set; }
+
+    }
+}
+
+
+namespace ProductWebApi.Models
+{
+    public class Movimiento
+    {
+        public int IDMovimiento { get; set; }
+
+        public int IDCuenta { get; set; }
+
+        public double Cantidad  { get; set; }
+
+        public String TipoMovimiento { get; set; }
+
+        public string FechaMovimiento { get; set; }
+    }
+}
+
+namespace ProductWebApi.Models
+{
+    public class Material
+    {
+
+        public int ID { get; set; }
+        public string Nombre { get; set; }
+        public decimal Precio { get; set; }
+        public int UnidadesEnAlmacen { get; set; }
+
+    }
+
+    class ProductosDbContext : DbContext
+    {
+        public DbSet<Material> Materiales { get; set; }
+    }
+
+}
+
+</xmp>
+
+</body>
+</html>

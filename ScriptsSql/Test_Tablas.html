@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+
+USE [TestSQL]
+GO
+
+/****** Object:  Table [dbo].[Departamento]    Script Date: 02/26/2019 21:59:33 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Departamento](
+	[depto_no] [int] NOT NULL,
+	[nombre_depto] [varchar](50) NULL,
+	[localizacion] [varchar](50) NULL,
+ CONSTRAINT [PK_Departamento] PRIMARY KEY CLUSTERED 
+(
+	[depto_no] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+-------------
+
+USE [TestSQL]
+GO
+
+/****** Object:  Table [dbo].[Empleado]    Script Date: 02/26/2019 21:59:42 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Empleado](
+	[codigo_c] [varchar](20) NOT NULL,
+	[nombre] [varchar](50) NULL,
+	[edad] [int] NULL,
+	[oficio] [varchar](50) NULL,
+	[dir] [varchar](50) NULL,
+	[fecha_alt] [date] NULL,
+	[salario] [numeric](10, 2) NULL,
+	[comision] [numeric](10, 2) NULL,
+	[depto_no] [int] NULL,
+ CONSTRAINT [PK_Empleado] PRIMARY KEY CLUSTERED 
+(
+	[codigo_c] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[Empleado]  WITH CHECK ADD  CONSTRAINT [FK_Empleado_Departamento] FOREIGN KEY([depto_no])
+REFERENCES [dbo].[Departamento] ([depto_no])
+GO
+
+ALTER TABLE [dbo].[Empleado] CHECK CONSTRAINT [FK_Empleado_Departamento]
+GO
+
+
+
+
+</xmp>
+
+</body>
+</html>

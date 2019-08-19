@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>
+
+ DECLARE @p_date DATETIME
+ SET     @p_date = CONVERT( DATETIME, '2013-05-30')
+  --SET     @p_date = CONVERT( DATETIME, '14 AUG 2008', 113 )
+ PRINT @p_date
+ 
+ Select * from gestionPersonal where IDESTADO = 17 
+ AND fecha BETWEEN CONVERT( DATETIME, '2013-06-14 13:10:0') AND CONVERT( DATETIME, '2013-06-14 13:40:0')
+ 
+ Select * from gestionPersonal where IDESTADO = 17 
+ AND fecha < CONVERT( DATETIME, '2013-06-14 13:10:0')
+ 
+ select * from boleta where idedicion=88  AND idESTADO IN (17)
+ AND idboleta IN (
+ Select idboleta from gestionPersonal where IDESTADO = 17 
+ AND fecha < CONVERT( DATETIME, '2013-06-14 13:10:0'))
+ 
+ ------------------- MC
+
+   select  distinct  b.idboleta,valor1 FROM [DES].[dbo].[muestra] m 
+  inner join  [DES].[dbo].boleta b on m.idmuestra = b.idmuestra
+  inner join  [DES].[dbo].gestionpersonal  g on g.idboleta = b.idboleta
+  inner join  [DES].[dbo].dato  d on d.idboleta = b.idboleta
+  where m.año IN (2014,2015) 
+  and m.idencuesta = 87 
+  and g.fecha < CONVERT(datetime,'2015/03/01', 111)
+  and b.idestado= 20  
+  and idcelda = 143400
+  and valor1 <> '1'  
+
+
+</xmp>
+
+
+</body>
+</html>

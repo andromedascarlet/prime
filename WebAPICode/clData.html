@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//
+
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+
+namespace ProductWebApi.Models
+{
+    public class clData
+    {
+
+        string _sql;
+        clConeccion objConeccion = new clConeccion();
+        
+
+        public List<Product> GetProduct()
+        {
+            List<Product> productos = new List<Product>();            
+            productos.Add(new Product { ProductID = 1, Description = "Avena", Price = Convert.ToDecimal(35.2), LastBuy = Convert.ToDateTime("2019/03/07"), Stock = 12, Remarks = "Notas 1" });
+            productos.Add(new Product { ProductID = 2, Description = "Trigo", Price = Convert.ToDecimal(73.4), LastBuy = Convert.ToDateTime("2019/02/06"), Stock = 33, Remarks = "Notas 2" });
+            productos.Add(new Product { ProductID = 3, Description = "Oliva", Price = Convert.ToDecimal(82.8), LastBuy = Convert.ToDateTime("2019/05/09"), Stock = 55, Remarks = "Notas 3" });
+            return productos;
+        }
+
+        public DataTable fnDatosVitales(string material)
+        {
+            //_sql = "select '" +  fecha + "' Fecha, * FROM vwVitalNacVivos  ";
+            _sql = "select  ProductID , Description , Price , LastBuy , Stock , Remarks  "
+                 
+                 + "FROM Products where  ProductID = '" + material + "'";
+            DataTable oDT = new DataTable();
+            oDT = objConeccion.fnGetDT(_sql);
+            return oDT;
+        }
+
+        public Usuario GetUsuario(string id)
+        {
+            List<Movimiento> movimientos = new List<Movimiento>();
+            movimientos.Add(new Movimiento { IDMovimiento = 1, IDCuenta = 11, Cantidad = 25.50 , TipoMovimiento = "Abono" , FechaMovimiento = "21-05-2019" });
+            movimientos.Add(new Movimiento { IDMovimiento = 2, IDCuenta = 11, Cantidad = 15.25 , TipoMovimiento = "Cargo" , FechaMovimiento = "22-05-2019" });
+
+            Cuenta cta1 = new Cuenta { IDCuenta = 11, IDUsuario = 1, FechaApertura = "01-05-2019" };
+            cta1.Movimientos.Add(new Movimiento { IDMovimiento = 1, IDCuenta = 11, Cantidad = 25.50, TipoMovimiento = "Abono", FechaMovimiento = "21-05-2019" });
+            cta1.Movimientos.Add(new Movimiento { IDMovimiento = 2, IDCuenta = 11, Cantidad = 15.25, TipoMovimiento = "Cargo", FechaMovimiento = "22-05-2019" });
+
+            Usuario user1 = new Usuario { IDUsuario = 1, TipoDocumento = "DUI", Documento = "123", Nombre = "Luis", CuentaUser = cta1 };
+
+            Cuenta cta2 = new Cuenta { IDCuenta = 22, IDUsuario = 2, FechaApertura = "01-05-2019" };
+            cta2.Movimientos.Add(new Movimiento { IDMovimiento = 3, IDCuenta = 22, Cantidad = 48.50, TipoMovimiento = "Abono", FechaMovimiento = "21-05-2019" });
+            cta2.Movimientos.Add(new Movimiento { IDMovimiento = 4, IDCuenta = 22, Cantidad = 52.75, TipoMovimiento = "Cargo", FechaMovimiento = "22-05-2019" });
+
+            Usuario user2 = new Usuario { IDUsuario = 2, TipoDocumento = "DUI", Documento = "456", Nombre = "Susana", CuentaUser = cta2 };
+
+            List<Cuenta> cuentas = new List<Cuenta>();
+            
+            List<Usuario> usuarios = new List<Usuario>();
+            usuarios.Add(user1);
+            usuarios.Add(user2);
+
+            Usuario senduser = usuarios.FirstOrDefault(x => x.Documento.Contains(id) ) ;
+
+            return senduser;
+        }
+
+
+    }
+}
+
+</xmp>
+
+</body>
+</html>

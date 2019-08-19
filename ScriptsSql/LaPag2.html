@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>
+
+----------   Cursor_Valores_99
+
+USE [mmmmm] 
+GO
+DECLARE @celda VARCHAR(50) 
+DECLARE @IDCELDA int 
+DECLARE @path VARCHAR(256) 
+DECLARE @numero int 
+DECLARE @celdaactual VARCHAR(20) 
+DECLARE @idvalor int 
+SET @numero = 0
+SELECT  @idvalor =  MAX([IDVALOR])  FROM [PROYECTO].[dbo].[VALOR]
+SET @idvalor = @idvalor + 1
+DECLARE db_cursor CURSOR FOR 
+
+
+  SELECT IDCELDA FROM  [PROYECTO].[dbo].[CELDA]  
+  WHERE [IDTIPOVALORCELDA] = 1 
+  AND  [IDTIPOFORMATOCELDA] = 1 
+  AND  IDSECCION IN  (
+  SELECT IDSECCION FROM [PROYECTO].[dbo].SECCION WHERE IDEDICION IN (361)  )  
+  AND  IDCELDA NOT IN (
+  SELECT  C.IDCELDA  FROM [PROYECTO].[dbo].[CELDA] C
+  INNER JOIN  [PROYECTO].[dbo].SECCION S ON C.IDSECCION = S.IDSECCION
+  INNER JOIN [PROYECTO].[dbo].[VALOR] V  ON C.IDCELDA = V.IDCELDA
+  WHERE C.[IDTIPOVALORCELDA] = 1  
+  AND S.IDEDICION IN (361) 
+  AND V.VALOR LIKE '99'  )   
+
+OPEN db_cursor   
+FETCH NEXT FROM db_cursor INTO @IDCELDA 
+
+
+WHILE @@FETCH_STATUS = 0   
+BEGIN   
+	INSERT INTO [PROYECTO].[dbo].[VALOR] ([IDVALOR] ,[IDCELDA] ,[VALOR] ,[DESCRIPCION]) VALUES (@idvalor  ,@IDCELDA  ,'99' ,'Ignorado / No Dato')
+	SET @idvalor = @idvalor + 1
+
+FETCH NEXT FROM db_cursor INTO @IDCELDA   
+END   
+
+CLOSE db_cursor   
+DEALLOCATE db_cursor
+
+
+</xmp>
+
+
+</body>
+</html>

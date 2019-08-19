@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//Nuevo
+
+
+@model MVCCrud.Models.ViewModels.TablaViewModel
+
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Nuevo", "Personal", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                @Html.LabelFor(d => d.Nombre)
+                @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "danger" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.eMail)
+                @Html.TextBoxFor(d => d.eMail, "", new { @class = "form-control" })
+            </div>
+            @Html.LabelFor(d => d.Fecha_Nacimiento)
+            @Html.EditorFor(d => d.Fecha_Nacimiento, "", new { @class = "form-control" })
+
+            <br />
+            <div style="text-align:center">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+
+        </div>
+
+        @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
+
+
+    </div>
+}
+
+
+</xmp>
+
+</body>
+</html>

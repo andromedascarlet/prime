@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//Index
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
+using System.Web.Http;
+
+namespace ProductWebApi
+{
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            // Web API configuration and services
+            /*
+            config.Formatters.JsonFormatter.SupportedMediaTypes
+                .Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
+            config.Formatters.JsonFormatter.MediaTypeMappings
+                .Add(new System.Net.Http.Formatting.RequestHeaderMapping("Accept",
+                              "text/html",
+                              System.StringComparison.InvariantCultureIgnoreCase,
+                              true,
+                              "application/json"));
+                              */
+                              
+            config.Formatters.XmlFormatter.MediaTypeMappings
+                .Add( new QueryStringMapping("type", "xml", new MediaTypeHeaderValue("application/xml")));
+                
+
+            // Web API routes
+            config.MapHttpAttributeRoutes();
+
+            //http://localhost:49930/api/Granja
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "ApiUno",
+                routeTemplate: "api/{controller}/{material}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "ApiDos",
+                routeTemplate: "api/{controller}/{producto}/{medio}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "Servicio",
+                routeTemplate: "services/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+        }
+    }
+}
+
+
+</xmp>
+
+</body>
+</html>

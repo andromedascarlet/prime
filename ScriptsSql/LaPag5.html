@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>
+-----
+select  * from
+(
+  select
+    PS.Name, P.Color, PIn.Quantity
+  from Production.Product P
+  inner join Production.ProductSubcategory PS
+    on PS.ProductSubcategoryID = P.ProductSubcategoryID
+  left join Production.ProductInventory PIn
+    on P.ProductID = PIn.ProductID
+) DataTable
+PIVOT
+(
+  MAX(Quantity)
+  FOR Color
+  IN (
+    [Black],[Blue],[Grey],[Multi],[Red],
+    [Silver],[Silver/Black],[White],[Yellow]
+  )
+) PivotTable
+
+-------------------
+
+SELECT * FROM (
+  SELECT
+    YEAR(OrderDate) [Year],
+    MONTH(OrderDate) [Month],
+    SubTotal
+  FROM Sales.SalesOrderHeader
+) TableDate
+PIVOT (
+  SUM(SubTotal)
+  FOR [Month] IN (
+    [1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12]
+  )
+) PivotTable
+
+------------------------
+
+SELECT * FROM(
+  SELECT
+    YEAR(DueDate) [Year],
+    CASE MONTH(DueDate)
+      WHEN 1 THEN 'January'
+      WHEN 2 THEN 'February'
+      WHEN 3 THEN 'March'
+      WHEN 4 THEN 'April'
+      WHEN 5 THEN 'May'
+      WHEN 6 THEN 'June'
+      WHEN 7 THEN 'July'
+      WHEN 8 THEN 'August'
+      WHEN 9 THEN 'September'
+      WHEN 10 THEN 'October'
+      WHEN 11 THEN 'November'
+      WHEN 12 THEN 'December'
+    END as [Month],
+    ProductID,
+    OrderQty
+  FROM Production.WorkOrder
+) WorkOrders
+PIVOT
+(
+  SUM(OrderQty)
+  FOR [Month] IN (
+    [January],[February],[March],[April],
+    [May],[June],[July],[August],
+    [September],[October],[November],[December]
+  )
+) AS PivotTable
+ORDER BY [Year], ProductID
+
+-------------------------
+
+DECLARE @PivotColumnHeaders VARCHAR(MAX)
+
+SELECT @PivotColumnHeaders = 
+  COALESCE(
+    @PivotColumnHeaders + ',[' + cast(Name as varchar) + ']',
+    '[' + cast(Name as varchar)+ ']'
+  )
+FROM Sales.SalesTerritory
+
+PRINT 'MI' + @PivotColumnHeaders
+
+DECLARE @PivotTableSQL NVARCHAR(MAX)
+SET @PivotTableSQL = N'
+  SELECT *
+  FROM (
+    SELECT
+      YEAR(H.OrderDate) [Year],
+      T.Name,
+      H.TotalDue
+    FROM Sales.SalesOrderHeader H
+    LEFT JOIN Sales.SalesTerritory T
+      ON H.TerritoryID = T.TerritoryID
+  ) AS PivotData
+  PIVOT (
+    SUM(TotalDue)
+    FOR Name IN (
+      ' + @PivotColumnHeaders + '
+    )
+  ) AS PivotTable
+'
+
+EXECUTE(@PivotTableSQL)
+
+----------------------------
+
+
+</xmp>
+
+
+</body>
+</html>

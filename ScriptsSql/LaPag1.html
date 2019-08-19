@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>
+
+---------  Cursor_Actualiza_Base
+
+
+USE mmmmm 
+GO
+DECLARE @CELDA VARCHAR(50) 
+DECLARE @IDCELDA int 
+DECLARE @IDBOLETA int 
+DECLARE @celdaactual VARCHAR(20) 
+DECLARE @DATO_TEMP1 VARCHAR(100)
+DECLARE @DATO_TEMP2 VARCHAR(100)
+DECLARE @DATO_TABLA VARCHAR(100)
+DECLARE @MISTR nvarchar(MAX)
+DECLARE @ParmDefinition nvarchar(500);
+      
+SET @IDBOLETA =  16819
+
+DECLARE db_cursor CURSOR FOR 
+
+
+SELECT DISTINCT IDBOLETA FROM [ELPS].[dbo].ELPS_CAR    
+WHERE IDBOLETA =  @IDBOLETA
+
+OPEN db_cursor   
+FETCH NEXT FROM db_cursor INTO @IDBOLETA 
+
+
+WHILE @@FETCH_STATUS = 0   
+BEGIN  
+
+	DECLARE db_cursor_celda CURSOR FOR 
+
+	SELECT  C.IDCELDA,C.CELDA FROM [ELPS].[dbo].CELDA C  
+    WHERE    C.CELDA IN (SELECT   column_name from information_schema.columns 
+		WHERE  table_name = 'ELPS_CAR' 
+		AND  column_name NOT IN ('correlativo','listado','item','IDBOLETA') )
+	  
+	OPEN db_cursor_celda   
+	FETCH NEXT FROM db_cursor_celda INTO @IDCELDA,@CELDA 
+
+	WHILE @@FETCH_STATUS = 0   
+	BEGIN  
+
+		--SELECT @CORRELATIVO = CORRELATIVO FROM [PREVENCION_VIOLENCIA_GENERO].[dbo].MUESTRA WHERE IDMUESTRA = @IDMUESTRA 
+		--SELECT @CODIGOCE = CONVERT(VARCHAR(10),@CORRELATIVO) 
+		
+		SELECT @DATO_TEMP1 =  D.VALOR1 FROM [ELPS].[dbo].DATO  D 
+		   INNER JOIN [ELPS].[dbo].CELDA C  ON D.IDCELDA = C.IDCELDA 
+		   WHERE  D.IDBOLETA = @IDBOLETA     AND  D.IDCELDA =  @IDCELDA  
+
+		SELECT @DATO_TEMP2 =  D.VALOR2 FROM [ELPS].[dbo].DATO  D 
+		   INNER JOIN [ELPS].[dbo].CELDA C  ON D.IDCELDA = C.IDCELDA 
+		   WHERE  D.IDBOLETA = @IDBOLETA     AND  D.IDCELDA =  @IDCELDA  		   
+ 	    
+		--SELECT @DATO_TABLA = RCAR01 FROM [ELPS].[dbo].ELPS_CAR WHERE IDBOLETA = 16819
+		SET @MISTR = N'SELECT  @DATO_TABLAOUT  =  CONVERT(VARCHAR(100),' + @CELDA + N') FROM [ELPS].[dbo].ELPS_CAR WHERE IDBOLETA = @IDBOLETAOUT';			
+		SET @ParmDefinition = N'@IDBOLETAOUT INT, @DATO_TABLAOUT varchar(100) OUTPUT';
+		
+		EXECUTE sp_executesql @MISTR, @ParmDefinition, @IDBOLETAOUT = @IDBOLETA ,@DATO_TABLAOUT=@DATO_TABLA OUTPUT;
+		
+		IF (@DATO_TEMP1 <> @DATO_TABLA  OR @DATO_TEMP2 <> @DATO_TABLA) 
+		BEGIN		       
+			   UPDATE DATO   SET VALOR1 = @DATO_TABLA 
+			   WHERE IDCELDA = @IDCELDA 
+			   AND IDBOLETA = @IDBOLETA 
+		END	
+   
+	FETCH NEXT FROM db_cursor_celda INTO @IDCELDA,@CELDA    
+	END          
+       
+  FETCH NEXT FROM db_cursor INTO @IDBOLETA   
+END   
+
+CLOSE db_cursor_celda   
+DEALLOCATE db_cursor_celda
+
+CLOSE db_cursor   
+DEALLOCATE db_cursor
+
+
+</xmp>
+
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+
+--clasepractica2_sql_2011_solucion1.pdf
+
+-- 1
+Select * from Empleado
+order by nombre desc
+
+-- 2     
+Select nombre, oficio, localizacion from Empleado e
+inner join [Departamento] d on e.depto_no = d.depto_no
+where oficio= 'Vendedor'   
+
+-- 
+Select nombre from Empleado 
+Where nombre like '%o'
+
+-- 4
+Select nombre, oficio , salario , dir from Empleado 
+Where dir like '%leon'
+
+-- 5
+Select nombre, salario, localizacion from Empleado e
+inner join [Departamento] d on e.depto_no = d.depto_no
+where salario between 10000 and  13000
+   
+-- 6
+-- Visualizar los departamentos con mas de 2 empleados
+
+/*  Select [depto_no],  COUNT([depto_no]) from [Empleado] 
+group by [depto_no] having COUNT([depto_no]) > 2 
+*/ 
+Select [nombre_depto] from [Departamento] 
+where depto_no IN (  Select [depto_no]  from [Empleado] 
+group by [depto_no] having COUNT([depto_no]) > 2 )
+
+-- 7 
+-- Mostrar : nombre, salario, nombre_depto , nombre del departamento
+-- de los empleados que tengan el mismo oficio que "Leonel" 
+
+Select nombre, salario, nombre_depto from Empleado e
+inner join [Departamento] d on e.depto_no = d.depto_no 
+where  oficio in ( select oficio from Empleado where nombre like '%Leonel%' )
+
+-- 8 
+-- Mostrar : nombre, salario, nombre_depto , nombre del departamento
+-- de los empleados que tengan el mismo oficio que "Castillo"
+-- y que no tengan comision  
+
+Select nombre, salario, nombre_depto , comision from Empleado e
+inner join [Departamento] d on e.depto_no = d.depto_no 
+where  oficio in ( select oficio from Empleado where nombre like '%Castillo%' )
+and comision = 0 
+
+-- 9 
+-- Mostrar los datos de los empleados que trabajan en el departamneto de conatbilidad
+-- ordenados por nombre
+
+Select * from Empleado 
+where  depto_no = 30  
+order by nombre
+
+-- 11
+-- Calcular el salario medio de todos los empleados
+
+Select avg(salario) from Empleado 
+
+-- 11
+
+Select max(salario) from Empleado 
+
+-- 18
+--  Mostrar cuantos nombres de empleados empiezan por la letra 'C'
+
+Select count(nombre) from Empleado 
+where  nombre like 'c%' 
+ 
+-- 19 
+-- Visualizar el numero de empleados de cada departamento
+
+Select e.depto_no, nombre_depto , count( e.depto_no ) Cantidad from Empleado e
+inner join [Departamento] d on e.depto_no = d.depto_no 
+group by e.depto_no  , nombre_depto 
+
+-- 20
+--  Para cada oficio obtener la suma de salarios 
+
+Select oficio ,  salario   from Empleado 
+where  oficio like 'Analista' 
+ 
+Select oficio , Sum( salario ) Salario from Empleado 
+group by oficio
+
+--21
+-- Mostrar los datos de losempleados cuyo salario sea mayor
+-- que la media de  todos los salarios
+
+Select *   from Empleado 
+where  salario > ( Select AVG(salario) from Empleado ) 
+
+--25   
+--  Visualizar el depto con mas empleados
+
+Select  nombre,salario  from Empleado 
+where salario IN (
+Select  MAX(salario) As MxSal  from Empleado )
+
+Select  nombre,salario  from Empleado e
+inner join ( 
+Select  MAX(salario) As MxSal  from Empleado ) mm
+on e.salario = mm.MxSal
+ 
+select nombre,salario
+from
+(
+  select nombre,salario,
+    row_number() over(order by salario desc) rn
+  from Empleado
+) src
+where rn = 1
+
+
+Select  depto_no, COUNT(depto_no) ContEmp  from Empleado  e 
+group by  e.depto_no  
+
+Select   MAX( y.Conteo )  From (
+Select depto_no, COUNT(depto_no) Conteo  from Empleado 
+ group by  depto_no  ) y  
+
+
+Select e.* From (   
+Select  e1.depto_no, d1.nombre_depto , COUNT(e1.depto_no) ContEmp  from Empleado e1 
+inner join Departamento d1 on e1.depto_no = d1.depto_no 
+group by  e1.depto_no ,d1.nombre_depto  ) e
+inner join ( 
+Select   MAX( y.Conteo )  ContMax From ( 
+Select depto_no, COUNT(depto_no) Conteo  from Empleado 
+ group by  depto_no  ) y   ) mm 
+on e.ContEmp = mm.ContMax  
+
+
+Select   MAX( y.Conteo )  ContMax From ( 
+Select depto_no, COUNT(depto_no) Conteo  from Empleado 
+ group by  depto_no  ) y   
+
+
+-- 25
+-- Variante : Cantidad de empleados por departamento
+
+Select e.depto_no , d.nombre_depto  , COUNT([codigo_c]) mayor  from Empleado e  
+inner join Departamento d on e.depto_no = d.depto_no 
+ group by  e.depto_no ,d.nombre_depto  
+
+-- Variante : El mayor sueldo por departamento   
+Select  mm.depto_no , nombre , mm.nombre_depto  , mm.smayor from Empleado e 
+inner join (
+Select e.depto_no , d.nombre_depto  , MAX(salario) smayor  from Empleado e  
+inner join Departamento d on e.depto_no = d.depto_no 
+ group by  e.depto_no ,d.nombre_depto  ) mm
+ on e.salario = mm.smayor 
+ 
+-- 26  
+-- Visualizar el numero de depto que tenga mas empleados 
+-- cuyo oficio sea empleado  
+
+Select e.* From (   
+Select  e1.depto_no, d1.nombre_depto , COUNT(e1.depto_no) ContEmp  from Empleado e1 
+inner join Departamento d1 on e1.depto_no = d1.depto_no 
+where oficio like 'Vendedor'
+group by  e1.depto_no ,d1.nombre_depto  ) e
+inner join ( 
+Select   MAX( y.Conteo )  ContMax From ( 
+Select depto_no, COUNT(depto_no) Conteo  from Empleado 
+where oficio like 'Vendedor'
+ group by  depto_no  ) y   
+ ) mm 
+on e.ContEmp = mm.ContMax  
+
+
+
+-- 27  
+-- Mostrar el numero de oficios distintos de cada departamento
+
+Select  ee.depto_no , count(ee.depto_no) from (
+Select depto_no ,  oficio  from Empleado
+group by depto_no ,oficio 
+) ee
+group by ee.depto_no  
+
+-- 28
+--Mostrar los departamentos que tengasn mas de dos personas
+-- trabajando en la misma profesion
+
+Select depto_no ,  oficio , COUNT(depto_no)  from Empleado
+group by depto_no ,oficio 
+having COUNT(depto_no) > 2  
+
+
+-- 29 
+-- Primer y Segundo vendedor con mas salario
+
+SELECT * FROM (
+  SELECT
+    ROW_NUMBER() OVER (ORDER BY salario DESC) AS rownumber,
+    nombre ,
+    salario
+  FROM Empleado 
+) AS foo
+WHERE rownumber <= 2  
+ 
+ -- Otra Forma
+ SELECT  MAX(salario) AS salary
+ FROM Empleado  
+ WHERE salario < (SELECT MAX(salario)
+ FROM Empleado) 
+ 
+ Select nombre, salario from Empleado ee
+ inner join (
+ SELECT  MAX(salario) AS salary
+ FROM Empleado  
+ WHERE salario < (SELECT MAX(salario)
+ FROM Empleado) 
+ ) mm on  ee.salario = mm.salary
+ 
+ --  Otra Forma
+ 
+SELECT  MAX(salario) AS salary 
+FROM Empleado 
+WHERE salario IN 
+(  SELECT salario FROM Empleado MINUS  SELECT MAX(salario) Salario
+FROM Empleado  )  ; 
+
+
+SELECT  MAX(salario) AS salary 
+FROM Empleado 
+WHERE salario NOT IN 
+(  SELECT MAX(salario) Salario FROM Empleado  )  ; 
+
+-- Otra forma
+
+WITH T AS
+(   
+SELECT 
+   RANK() OVER ( order by Salario Desc) AS Rnk ,
+   depto_no ,
+   salario
+FROM Empleado    
+)
+SELECT Rnk,  depto_no ,   salario
+FROM T
+WHERE Rnk=2;  
+
+-- Otra forma
+
+select top 1 salario 
+from (
+    select top 2 salario 
+    from Empleado
+    order by salario desc ) topTwo
+order by salario asc 
+
+-- Otra Forma 
+
+SELECT MIN(salario) AS [column]
+FROM (
+    SELECT TOP 2 salario 
+    FROM Empleado 
+    GROUP BY salario 
+    ORDER BY salario DESC   
+) a   
+
+-- Segundo vendedor con mas salario X Depto
+  
+  WITH T AS
+(   
+SELECT 
+   RANK() OVER (partition by depto_no  order by Salario Desc) AS Rnk ,
+   depto_no ,
+   salario
+FROM Empleado    
+)
+SELECT Rnk,  depto_no ,   salario
+FROM T
+WHERE Rnk=2;  
+
+SELECT Rnk,  depto_no ,   salario FROM
+(   
+SELECT 
+   RANK() OVER (partition by depto_no  order by Salario Desc) AS Rnk ,
+   depto_no ,
+   salario
+FROM Empleado    
+) tt
+WHERE Rnk=2; 
+
+select * from Departamento
+
+-- Otra Forma 
+     
+DECLARE @depto_no int 
+DECLARE @TestTable TABLE (depto_no INT, nombre varchar(50), Salario Float ) 
+        
+DECLARE db_cursor CURSOR FOR 
+SELECT depto_no FROM Departamento 
+
+OPEN db_cursor   
+FETCH NEXT FROM db_cursor INTO @depto_no 
+
+WHILE @@FETCH_STATUS = 0   
+BEGIN  
+
+INSERT INTO @TestTable ( depto_no, nombre, Salario )               
+Select depto_no ,nombre , Salario  From Empleado ee
+Inner join (
+SELECT  MAX(salario)  AS salarySec 
+FROM Empleado 
+WHERE salario NOT IN 
+  (  SELECT MAX(salario) Salario FROM Empleado where depto_no = @depto_no ) 
+     And  depto_no = @depto_no 
+  ) mm
+  on ee.salario = mm.salarySec and ee.depto_no = @depto_no
+
+
+FETCH NEXT FROM db_cursor INTO @depto_no   
+END   
+
+CLOSE db_cursor   
+DEALLOCATE db_cursor
+
+Select * From @TestTable 
+  
+  
+  
+
+</xmp>
+
+</body>
+</html>

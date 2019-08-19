@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//PersonalController
+
+using MVCCrud.Models;
+using MVCCrud.Models.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace MVCCrud.Controllers
+{
+    public class PersonalController : Controller
+    {
+        // GET: Personal
+        public ActionResult Index()
+        {
+            List<ListTablaViewModel> lst;            
+            using (BaseMuestraEntities db = new BaseMuestraEntities())
+            {
+                lst = (from d in db.Suecia
+                       select new ListTablaViewModel
+                       {
+                           IdPersonal = d.id,
+                           Nombre = d.nombre,                           
+                           eMail = d.correo,
+                           Fecha_Nacimiento = d.fecha_nacimiento,
+                       }).ToList();
+            }
+                return View(lst);
+        }
+
+        public ActionResult Nuevo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Nuevo(TablaViewModel model )
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    using (BaseMuestraEntities db = new BaseMuestraEntities())
+                    {
+                        var oTabla = new Suecia();
+                        oTabla.nombre = model.Nombre;
+                        oTabla.fecha_nacimiento = model.Fecha_Nacimiento;
+                        oTabla.correo = model.eMail;
+
+                        db.Suecia.Add(oTabla);
+
+                        db.SaveChanges();
+                    }
+                    return Redirect("~/Personal/");
+                }
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            
+        }
+
+
+        public ActionResult Editar(int Id)
+        {
+            TablaViewModel model = new TablaViewModel();
+            using (BaseMuestraEntities db = new BaseMuestraEntities())
+            {
+                var otabla = db.Suecia.Find(Id);
+                model.Nombre = otabla.nombre;
+                model.Fecha_Nacimiento = otabla.fecha_nacimiento;
+                model.eMail = otabla.correo;
+                model.IdRegistro = otabla.id;
+
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(TablaViewModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    using (BaseMuestraEntities db = new BaseMuestraEntities())
+                    {
+                        var otabla = db.Suecia.Find(model.IdRegistro);
+                        otabla.nombre = model.Nombre;
+                        otabla.fecha_nacimiento = model.Fecha_Nacimiento;
+                        otabla.correo = model.eMail;
+
+                        db.Entry(otabla).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    return Redirect("~/Personal/");
+                }
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            
+        }
+
+        [HttpGet]
+        public ActionResult Eliminar(int Id)
+        {
+            using (BaseMuestraEntities db = new BaseMuestraEntities())
+            {
+                var otabla = db.Suecia.Find(Id);
+                db.Suecia.Remove(otabla);
+                db.SaveChanges();
+            }
+            return Redirect("~/Personal/");
+
+        }
+
+
+    }
+}
+
+
+</xmp>
+
+</body>
+</html>

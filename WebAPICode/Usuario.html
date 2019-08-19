@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Productos</title>
+</head>
+<body>
+
+    <div>
+        <h2>Digitar DUI</h2>
+
+        <br /><br />
+        ID : <input id="txtId" type="text" style="width:100px" />
+        <input type="button" id="btnGetTarjeta" value="Mostrar Datos" />
+        <br /><br />
+        <ul id="productos"></ul>
+    </div>
+
+    <br /><br />
+    <div id="lblMessage"></div>
+    
+
+    <!--<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>-->
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        var url = 'api/Tarjeta';
+        $(document).ready(function () {
+            $.getJSON(url)
+            .done(function (data) {
+                $.each(data, function (key, item) {
+                    $('<li>', { text: formatear(item) }).appendTo($('#productos'));
+                });
+            });
+
+            $('#btnGetTarjeta').click(function () {
+
+                var materialID = $('#txtId').val();
+                if (materialID == "") {
+                    $('#lblMessage').html('You must enter a category ID');
+                    return false;
+                }
+                $("li").remove();
+                $.ajax({
+                    url: 'services/Tarjeta/' + materialID,
+                    contentType: 'application/json;charset=utf-8',
+                    //data: JSON.stringify({ employeeId: empId }),
+                    method: 'get',
+                    dataType: 'json',
+                    success: function (data) {
+
+                        //$('<li>', { text: formatear(item) }).appendTo($('#productos'));
+                        $('<li>', { text: formato(data) }).appendTo($('#productos'));
+                    },
+                    error: function (err) {
+                        alert(err);
+                    }
+                });
+
+            });
+
+        });
+
+        function formato(data) {
+            var movimientos="";
+            $.each(data.CuentaUser.Movimientos, function (key, item) {
+                movimientos = movimientos + " Movimiento -> " + item.IDMovimiento + ' - ' + item.TipoMovimiento + ' - $ ' + item.Cantidad;
+            });
+            return data.Nombre + ' - DUI: ' + data.Documento + ' - Cuenta: ' + data.CuentaUser.IDCuenta + '  *Estado Cuenta*  ' + movimientos;
+        }
+
+        
+    </script>
+</body>
+</html>
+
+
+
+</xmp>
+
+</body>
+</html>
