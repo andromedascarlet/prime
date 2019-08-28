@@ -1,0 +1,607 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>
+
+
+package controlers;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import modelos.Usuarios;
+import modelos.UsuariosOperaciones;
+
+/**
+ *
+ * @author avalon
+ */
+public class Agregar extends HttpServlet {
+
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        
+        String accion = request.getParameter("accion");
+        if (accion.equals("edit"))
+        {
+            int id = Integer.parseInt(request.getParameter("id"));
+            UsuariosOperaciones op = new UsuariosOperaciones();
+            Usuarios usr = op.getUsuarioPorId(id);
+            request.setAttribute("dato", usr);            
+            request.getRequestDispatcher("editar.jsp").forward(request, response);
+        }
+        else
+        request.getRequestDispatcher("agregar.jsp").forward(request, response);
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}
+
+//**** File
+
+
+package controlers;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import modelos.Usuarios;
+import modelos.UsuariosOperaciones;
+
+/**
+ *
+ * @author avalon
+ */
+public class AgregarPost extends HttpServlet {
+
+    
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        //response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("charset=utf-8");
+        
+        UsuariosOperaciones op = new UsuariosOperaciones();
+        op.addUsuario(new Usuarios(request.getParameter("nombre") ,request.getParameter("correo") ));
+        response.sendRedirect(request.getContextPath()+"/user");
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}
+
+// ** File
+
+
+package controlers;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import modelos.Usuarios;
+import modelos.UsuariosOperaciones;
+
+/**
+ *
+ * @author avalon
+ */
+public class EditarPost extends HttpServlet {
+
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        
+        UsuariosOperaciones op = new UsuariosOperaciones();
+        int id = Integer.parseInt(request.getParameter("idusr"));
+        String nombre = request.getParameter("nombre");
+        String email = request.getParameter("correo");
+        op.updateUsuario(id,request.getParameter("nombre") ,request.getParameter("correo") );
+        response.sendRedirect(request.getContextPath()+"/user");
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}
+
+//  *** File
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */package controlers;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import modelos.Usuarios;
+import modelos.UsuariosOperaciones;
+
+/**
+ *
+ * @author avalon
+ */
+public class Eliminar extends HttpServlet {
+
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        
+        UsuariosOperaciones op = new UsuariosOperaciones();
+        int id = Integer.parseInt(request.getParameter("id"));
+        op.deleteUsuario(id);
+        response.sendRedirect(request.getContextPath()+"/user");
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}
+
+
+// **File
+
+package modelos;
+// Generated 11-03-2016 01:31:49 AM by Hibernate Tools 4.3.1
+
+
+
+/**
+ * Usuarios generated by hbm2java
+ */
+public class Usuarios  implements java.io.Serializable {
+
+
+     private Integer id;
+     private String nombre;
+     private String correo;
+
+    public Usuarios() {
+    }
+
+    public Usuarios(String nombre, String correo) {
+       this.nombre = nombre;
+       this.correo = correo;
+    }
+   
+    public Integer getId() {
+        return this.id;
+    }
+    
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    public String getNombre() {
+        return this.nombre;
+    }
+    
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getCorreo() {
+        return this.correo;
+    }
+    
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+
+
+
+}
+
+
+//*** File
+
+
+package modelos;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+
+public class UsuariosOperaciones {
+    
+        public ArrayList<Usuarios> getUsuarios() 
+    {
+        SessionFactory sesion = HibernateUtil.getSessionFactory();
+        Session session = sesion.openSession();
+        Transaction tx = session.beginTransaction();
+        ArrayList<Usuarios> arreglo = new ArrayList<Usuarios>();
+        Query q = session.createQuery("from Usuarios");
+        List<Usuarios> lista = q.list();
+        Iterator<Usuarios> iter = lista.iterator();
+        tx.commit();
+        session.close();
+        DefaultListModel dlm = new DefaultListModel();
+        while(iter.hasNext())
+        {
+            Usuarios noti = (Usuarios)iter.next();
+            arreglo.add(noti);
+        }
+
+        return arreglo;
+    }
+    
+    public Usuarios getUsuarioPorId(int id) 
+    {
+        SessionFactory sesion = HibernateUtil.getSessionFactory();
+        Session session = sesion.openSession();
+        Transaction tx = session.beginTransaction();
+        Usuarios usr = (Usuarios) session.get(Usuarios.class, id);
+        tx.commit();
+        session.close();
+        return usr;
+    }
+    
+    public void updateUsuario(int id, String nombre, String email) 
+    {
+        SessionFactory sesion = HibernateUtil.getSessionFactory();
+        Session session = sesion.openSession();
+        Transaction tx = session.beginTransaction();
+        Usuarios usr = (Usuarios) session.get(Usuarios.class, id);
+        usr.setNombre(nombre);
+        usr.setCorreo(email);
+        //usr.setCorreo("lala@lala.com");
+        session.update(usr);
+        tx.commit();
+        session.close();
+    }
+    
+    public void deleteUsuario(int id) 
+    {
+        SessionFactory sesion = HibernateUtil.getSessionFactory();
+        Session session = sesion.openSession();
+        Transaction tx = session.beginTransaction();
+        Usuarios usr = (Usuarios) session.get(Usuarios.class, id);        
+        session.delete(usr);
+        tx.commit();
+        session.close();
+    }
+    
+    public void addUsuario(Usuarios user) 
+    {
+        SessionFactory sesion = HibernateUtil.getSessionFactory();
+        Session session = sesion.openSession();
+        Transaction tx = session.beginTransaction();        
+        session.save(user);
+        tx.commit();
+        session.close();
+    }
+    
+}
+
+// ** agregar.jsp
+
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <%@include file="header.jsp"  %>
+        <title>Usuarios</title>
+    </head>
+    <body>
+        
+        <ol class="breadcrumb">
+            <li><a href="<%= request.getContextPath()%>/user">Home</a> </li> 
+            <li><a href="#">Library</a> </li> 
+            <li class="active" >Agregar Usuario</li> 
+        </ol>
+        <h1>Agregar Usuarios!</h1>
+        
+        <form name="form" action="<%= request.getContextPath()%>/agregar_post" method="post">
+            <div class="form-group">
+                <label for="exampleName">Nombre</label>
+                <input type="text" class="form-control" id="InputNombre" placeholder="Nombre" name="nombre" />
+            </div>
+            <div class="form-group">
+                <label for="exampleEmail">E-Mail</label>
+                <input type="text" class="form-control" id="InputEmail" placeholder="E-Mail" name="correo" />
+            </div>
+            <button type="submit" class="btn btn-default" >Enviar</button>
+        </form>
+        
+    </body>
+</html>
+
+// *** Editar.jsp
+
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <%@include file="header.jsp"  %>
+        <title>Editar Usuarios</title>
+    </head>
+    <body>
+        
+        <ol class="breadcrumb">
+            <li><a href="<%= request.getContextPath()%>/user">Home</a> </li> 
+            <li><a href="#">Library</a> </li> 
+            <li class="active" >Editar Usuario</li> 
+        </ol>
+        <h1>Editar Usuarios!</h1>
+        
+        <form name="form" action="<%= request.getContextPath()%>/editar_post" method="post">
+            <input type="hidden" name="idusr" value="<c:out value="${dato.getId()}" />" />
+            <div class="form-group">
+                <label for="exampleName">Nombre</label>
+                <input type="text" class="form-control" id="Text1" placeholder="Nombre" name="nombre" value="<c:out value="${dato.getNombre()}" />"/>
+            </div>
+            <div class="form-group">
+                <label for="exampleEmail">E-Mail</label>
+                <input type="text" class="form-control" id="Text2" placeholder="E-Mail" name="correo" value="<c:out value="${dato.getCorreo()}" />" />
+            </div>
+            <button type="submit" class="btn btn-default" >Enviar</button>
+        </form>
+        
+    </body>
+</html>
+
+
+// ** header.jsp
+
+<link href="<%= request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="scripts/jquery-1.8.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="<%= request.getContextPath()%>/resources/js/funciones.js" type="text/javascript"></script>
+
+//** Funciones.js
+
+function eliminar (url)
+{
+    if (confirm("Desea Eliminar registro"))
+        window.location= url;
+}
+
+//Web.Xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>User</servlet-name>
+        <servlet-class>controlers.User</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Agregar</servlet-name>
+        <servlet-class>controlers.Agregar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AgregarPost</servlet-name>
+        <servlet-class>controlers.AgregarPost</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Eliminar</servlet-name>
+        <servlet-class>controlers.Eliminar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarPost</servlet-name>
+        <servlet-class>controlers.EditarPost</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>User</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Agregar</servlet-name>
+        <url-pattern>/agregar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AgregarPost</servlet-name>
+        <url-pattern>/agregar_post</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Eliminar</servlet-name>
+        <url-pattern>/eliminar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarPost</servlet-name>
+        <url-pattern>/editar_post</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+	
+</web-app>
+
+//Hibernate.cfg.xml
+
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/curso_java?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <mapping resource="modelos/Usuarios.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
+
+
+
+
+
+</xmp>
+
+</body>
+</html>

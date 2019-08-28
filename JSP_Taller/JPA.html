@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>
+
+package sv.curso.intermedio.practica06.mantenimiento;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class JpaUtil {
+    
+    private static final EntityManagerFactory emf;
+    static {
+        try {
+            emf= Persistence.createEntityManagerFactory("Practica06PU");
+        } catch (Throwable ex) {
+            System.out.println("Initial SessionFactory creation Failed " + ex);
+            throw new ExceptionInInitializerError(ex);
+        }    
+    }
+    
+    //<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://edutech.c7v6km7prbns.us-east-1.rds.amazonaws.com:5432/proyectos"/>
+    //<property name="javax.persistence.jdbc.user" value="Edutech"/>
+    //<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+    //<property name="javax.persistence.jdbc.password" value="practicaEdu"/>
+
+    public static EntityManagerFactory getEntityManagerFactory() {
+        return emf;
+    }
+
+    
+
+    
+
+    
+    
+    
+}
+//Archivo
+
+
+package sv.curso.intermedio.practica06.mantenimiento;
+
+import java.math.BigDecimal;
+import javax.persistence.EntityManager;
+import sv.curso.intermedio.practica06.persistencia.RmContribuyentes;
+
+
+public class MantenimientoContribuyentesJpa {
+    
+    public static void main(String[] args) {
+        
+        MantenimientoContribuyentesJpa mantenimiento = new MantenimientoContribuyentesJpa();
+        //Eliminar        
+        //System.out.println("Respuesta :  " + mantenimiento.eliminarContribuyente("06143010901159") );
+        
+        //Modificar
+        //System.out.println("Respuesta :  " + mantenimiento.modificarContribuyente("06143010901159", 8500) );
+        //Consultar
+        
+        RmContribuyentes contribuyente = mantenimiento.consultarContribuyente("06143010901159");
+        if ( contribuyente == null ) {
+            System.out.println("El Registro No Existe en la tabla Contribuyente  ...");
+        } else {
+        System.out.println("No NIT               :" + contribuyente.getNoNit() );
+        System.out.println("Nombre Contribuyente :" + contribuyente.getNombreContribuyente());
+        System.out.println("Razon Social         :" + contribuyente.getRazonSocial());
+        System.out.println("Representante Legal  :" + contribuyente.getRepresentanteLegal());
+        System.out.println("Renta Anual          :" + contribuyente.getRentaAnual());
+        }
+        
+        //Guarda Contribuyente
+        /*
+        RmContribuyentes contribuyente = new RmContribuyentes();
+        
+        contribuyente.setNoNit("06143010901159");
+        contribuyente.setNombreContribuyente("Open Source Solutions");
+        contribuyente.setRazonSocial("Servicos de Capacitacion en Tecnologia");
+        contribuyente.setRepresentanteLegal("Josse Salvador Olivares");
+        contribuyente.setRentaAnual(new BigDecimal(5000) );
+        System.out.println("Respuesta :  " + mantenimiento.guardarContribuyente(contribuyente) );
+        */
+    }
+    
+    public int guardarContribuyente (RmContribuyentes contribuyente) {
+        System.out.println("--->> Contribuy  :  " + contribuyente.toString() );
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+        int flag = 0;
+        em.getTransaction().begin();
+        try {
+            em.persist(contribuyente);
+            em.getTransaction().commit();
+            flag=1;
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            flag=0;
+        }
+        return flag;
+    }
+    
+    public RmContribuyentes consultarContribuyente (String noNit)
+    {
+        System.out.println("--->> NIT  :  " + noNit );
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+        RmContribuyentes contribuyente = null;
+        em.getTransaction().begin();
+        try {
+            System.out.println("->> contribuyente 1 " + contribuyente.toString());
+            contribuyente = em.find(RmContribuyentes.class, noNit);
+            System.out.println("->> contribuyente 2 " + contribuyente.toString());
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println("->> contribuyente 3 Catch " + contribuyente.toString());
+            em.getTransaction().rollback();
+        }
+        System.out.println("->> contribuyente 4 " + contribuyente.toString());
+        return contribuyente;
+    }
+    
+    public int modificarContribuyente (String noNit, String nombreContribuyente, String razonSocial ,
+            String representanteLegal, Double rentaAnual)
+    {
+        System.out.println(" --> Antes Commit 1");
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+        RmContribuyentes contribuyente = null;
+        em.getTransaction().begin();
+        int flag = 0;
+        System.out.println(" --> Antes Commit 2");
+        try {
+            contribuyente = em.find(RmContribuyentes.class, noNit);
+            contribuyente.setNombreContribuyente(nombreContribuyente);
+            contribuyente.setRazonSocial(razonSocial);
+            contribuyente.setRepresentanteLegal(representanteLegal);            
+            contribuyente.setRentaAnual(new BigDecimal(rentaAnual));
+            em.getTransaction().commit();
+            System.out.println(" --> Modificar 3");
+            flag=1;
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            flag=0;
+        } finally {
+            em.close();
+        }
+        return flag;
+    }
+    
+    public int eliminarContribuyente (String noNit)
+    {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+        RmContribuyentes contribuyente = null;        
+        em.getTransaction().begin();
+        int flag = 0;
+        try {
+            contribuyente = em.find(RmContribuyentes.class, noNit);            
+            em.remove(contribuyente);
+            em.getTransaction().commit();
+            flag=1;
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            flag=0;
+        } finally {
+            em.close();
+        }
+        return flag;
+    }
+    
+}
+
+//Archivo
+
+
+<%@page import="java.math.BigDecimal"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Procesa Adicion de Contribuyentes</title>
+        <jsp:useBean id="beanContribuyentes" scope="request" 
+                     class="sv.curso.intermedio.practica06.mantenimiento.MantenimientoContribuyentesJpa" />
+    </head>
+    <body>
+        <h1>Procesa Adicion de Contribuyentes !</h1>
+        <%
+            String noNit = request.getParameter("no_nit");
+            String nombreContribuyente = request.getParameter("nombre_contribuyente");
+            String razonSocial = request.getParameter("razon_social");
+            String representanteLegal = request.getParameter("representante_legal");
+            String rentaAnual = request.getParameter("renta_anual");
+            
+                        
+            out.println("No Nit               :  " + noNit + "<br>");
+            out.println("Nombre Contribuyente :  " + nombreContribuyente + "<br>");
+            out.println("Razon Social         :  " + razonSocial + "<br>");
+            out.println("Representante Legal  :  " + representanteLegal + "<br>");
+            out.println("Renta Anual          :  " + rentaAnual + "<br>");
+            
+            sv.curso.intermedio.practica06.persistencia.RmContribuyentes contribuyente = new 
+                    sv.curso.intermedio.practica06.persistencia.RmContribuyentes();
+            
+            contribuyente.setNoNit(noNit);
+            contribuyente.setNombreContribuyente(nombreContribuyente);
+            contribuyente.setRazonSocial(razonSocial);
+            contribuyente.setRepresentanteLegal(representanteLegal);
+            contribuyente.setRentaAnual(new BigDecimal(rentaAnual));
+            
+            if (beanContribuyentes.consultarContribuyente(noNit) == null ) {
+                if (beanContribuyentes.guardarContribuyente(contribuyente) == 1) {
+                    out.println("Contribuyente Almacenado Satisfactoriamente ... ");
+                }
+            }else {
+                    out.println("Contribuyente Ya Se Encuentra Registrado ... ");
+                }            
+            %>
+    </body>
+</html>
+
+//Archivo
+
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Procesa Modificacion de Contribuyentes</title>
+        <jsp:useBean id="beanContribuyentes" scope="request" class="sv.curso.intermedio.practica06.mantenimiento.MantenimientoContribuyentesJpa" />
+    </head>
+    <body>
+        <h1>Procesa Modificacion de Contribuyentes!</h1>
+        
+        <%
+            String noNit = request.getParameter("no_nit");
+            String nombreContribuyente = request.getParameter("nombre_contribuyente");
+            String razonSocial = request.getParameter("razon_social");
+            String representanteLegal = request.getParameter("representante_legal");
+            String rentaAnual = request.getParameter("renta_anual");
+            
+                        
+            out.println("No Nit               :  " + noNit + "<br>");
+            out.println("Nombre Contribuyente :  " + nombreContribuyente + "<br>");
+            out.println("Razon Social         :  " + razonSocial + "<br>");
+            out.println("Representante Legal  :  " + representanteLegal + "<br>");
+            out.println("Renta Anual          :  " + rentaAnual + "<br>");
+                        
+            if (beanContribuyentes.consultarContribuyente(noNit) == null ) {
+                out.println("Contribuyente Ya Se Encuentra Registrado ... ");
+                }else {
+                if (beanContribuyentes.modificarContribuyente( noNit, nombreContribuyente,  razonSocial ,
+                    representanteLegal, Double.parseDouble(rentaAnual) ) == 1) {
+                    out.println("Contribuyente Modificado Satisfactoriamente ... ");
+                }
+            }
+            %>
+    </body>
+</html>
+
+//Archivo
+
+
+<%@page import="sv.curso.intermedio.practica06.persistencia.RmContribuyentes"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Mostrar Contribuyentes</title>
+        <jsp:useBean id="beanContribuyentes" scope="request" class="sv.curso.intermedio.practica06.mantenimiento.MantenimientoContribuyentesJpa" />
+    </head>
+    <body>
+        <h1>Mostrar Contribuyentes!</h1>
+        
+        <%
+            String noNit = request.getParameter("no_nit");
+            RmContribuyentes contribuyente = beanContribuyentes.consultarContribuyente(noNit) ;
+            if (contribuyente == null) {
+                out.println("No se encontro informacion del contribuyente...");
+            }
+        %>
+        
+        <form name="Form1" action="procesa_modificacion_contribuyentes.jsp" method="POST">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nit Contribuyente</td>
+                        <td> <input type="text" name="no_nit" size="18" 
+                             value="<%= contribuyente.getNoNit() %>" readonly /> </td>
+                    </tr>
+                    <tr>
+                        <td>Nombre Contribuyente</td>
+                        <td><input type="text" name="nombre_contribuyente"  size="65" 
+                             value="<%= contribuyente.getNombreContribuyente()%>" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Razon Social</td>
+                        <td><input type="text" name="razon_social"  size="200" 
+                             value="<%= contribuyente.getRazonSocial()%>" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Representante Legal</td>
+                        <td><input type="text" name="representante_legal"  size="65" 
+                             value="<%= contribuyente.getRepresentanteLegal()%>" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Renta Anual</td>
+                        <td><input type="text" name="renta_anual"  size="10" 
+                             value="<%= contribuyente.getRentaAnual()%>" /> </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" > 
+                        <center>
+                            <input type="submit" value="Guardar" name="Guardar" /> 
+                            <input type="reset" value="Limpiar" name="Limpiar" />
+                        </center>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>
+
+//Archivo
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Adicion De Contribuyentes</title>
+        
+        
+    </head>
+    <body>
+        <h1>Adicion De Contribuyentes</h1>
+        
+        <form name="Form1" action="procesa_contribuyentes.jsp" method="POST">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nit Contribuyente</td>
+                        <td> <input type="text" name="no_nit" value="" size="18" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Nombre Contribuyente</td>
+                        <td><input type="text" name="nombre_contribuyente" value="" size="65" /></td>
+                    </tr>
+                    <tr>
+                        <td>Razon Social</td>
+                        <td><input type="text" name="razon_social" value="" size="200" /></td>
+                    </tr>
+                    <tr>
+                        <td>Representante Legal</td>
+                        <td><input type="text" name="representante_legal" value="" size="65" /></td>
+                    </tr>
+                    <tr>
+                        <td>Renta Anual</td>
+                        <td><input type="text" name="renta_anual" value="" size="10" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" > 
+                        <center>
+                            <input type="submit" value="Guardar" name="Guardar" /> 
+                            <input type="reset" value="Limpiar" name="Limpiar" />
+                        </center>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+    </body>
+</html>
+
+//Archivo
+
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Modificacion de Contribuyentes</title>
+    </head>
+    <body>
+        <h1>Modificacion de Contribuyentes!</h1>
+        
+        <form name="Form1" action="form_mostrar_contribuyentes.jsp" method="POST">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nit Contribuyente</td>
+                        <td> <input type="text" name="no_nit" value="" size="18" /> </td>
+                    </tr>                    
+                    <tr>
+                        <td colspan="2" > 
+                        <center>
+                            <input type="submit" value="Consultar" name="Consultar" />                             
+                        </center>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+    </body>
+</html>
+
+
+</xmp>
+
+</body>
+</html>

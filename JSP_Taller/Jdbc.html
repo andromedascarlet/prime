@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>
+
+
+package sv.curso.intermedio.practica05.dtos;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
+public class MantenimientoContribuyentes {
+
+    public MantenimientoContribuyentes() {
+        cargarDriver();
+    }
+    
+    
+    
+    public void cargarDriver() {
+        try {
+            Class.forName("org.postgresql.Driver");
+            System.out.println("Driver Cargado Satisfactoriamente ...");
+        } catch (Exception e) {
+            System.out.println("Driver No pudo ser Cargado ...");
+        }
+    }
+    
+    public Connection conectarBaseDatos() {
+        //String url = "jdbc:postgresql://edutech.c7v6km7prbns.us-east-1.rds.amazonaws.com:5432/proyectos";
+        String url = "jdbc:postgresql://localhost:5432/Library";
+        
+        //String usuario = "Edutech";
+        //String password = "practicaEdu";
+        String usuario = "adminprodigy";
+        String password = "maximoff";
+        Connection conn = null;
+        
+        try {
+            conn = DriverManager.getConnection(url, usuario, password);
+            System.out.println("Conexion Satisfactoria a la Base de Datos ..,");
+            
+        } catch (Exception ex) {
+            System.out.println("Conexion a la Base de Datos no se pudo establecer ...");
+        }
+        return conn;
+    }
+    
+    public static void main(String[] args) {
+        MantenimientoContribuyentes mantenimiento = new MantenimientoContribuyentes();
+        
+        Contribuyentes contribuyente = new Contribuyentes();
+        
+        contribuyente = mantenimiento.consultarContribuyente("06143010901159");
+        if ( contribuyente == null ) {
+            System.out.println("Datos del Contribuyente No Encontrados ...");
+        } else {
+            System.out.println("No NIT               :" + contribuyente.getNoNit() );
+            System.out.println("Nombre Contribuyente :" + contribuyente.getNombreContribuyente());
+            System.out.println("Razon Social         :" + contribuyente.getRazonSocial());
+            System.out.println("Representante Legal  :" + contribuyente.getRepresentanteLegal());
+            System.out.println("Renta Anual          :" + contribuyente.getRentaAnual());
+            
+        }
+        
+        contribuyente.setNombreContribuyente("Portal java");
+        
+        System.out.println("Respuesta :  " + mantenimiento.modificarContribuyente(contribuyente) );
+        
+        contribuyente = mantenimiento.consultarContribuyente("06143010901159");
+        if ( contribuyente == null ) {
+            System.out.println("Datos del Contribuyente No Encontrados ...");
+        } else {
+            System.out.println("No NIT               :" + contribuyente.getNoNit() );
+            System.out.println("Nombre Contribuyente :" + contribuyente.getNombreContribuyente());
+            System.out.println("Razon Social         :" + contribuyente.getRazonSocial());
+            System.out.println("Representante Legal  :" + contribuyente.getRepresentanteLegal());
+            System.out.println("Renta Anual          :" + contribuyente.getRentaAnual());
+            
+        }
+    }
+    
+    public void anteriorMain() {
+        MantenimientoContribuyentes mantenimiento = new MantenimientoContribuyentes();
+        
+        //Eliminar Contribuyente
+        //System.out.println("Respuesta :  " + mantenimiento.eliminarContribuyente("06143010901159") );
+        
+        //Probar Conexion
+        //mantenimiento.conectarBaseDatos();
+        
+        //Agregar y Mostrar Contribuyente
+        Contribuyentes contribuyente = new Contribuyentes();
+        
+        //Agregar Contribuyente
+        
+        contribuyente.setNoNit("06143010901159");
+        contribuyente.setNombreContribuyente("Open Source Solutions");
+        contribuyente.setRazonSocial("Servicos de Capacitacion en Tecnologia");
+        contribuyente.setRepresentanteLegal("Josse Salvador Olivares");
+        contribuyente.setRentaAnual(5000);
+        System.out.println("Respuesta :  " + mantenimiento.guardarContribuyente(contribuyente) );
+
+        //Mostrar Contribuyente
+        /*
+        contribuyente = mantenimiento.consultarContribuyente("06143010901159");
+        if ( contribuyente == null ) {
+            System.out.println("Datos del Contribuyente No Encontrados ...");
+        } else {
+            System.out.println("No NIT               :" + contribuyente.getNoNit() );
+            System.out.println("Nombre Contribuyente :" + contribuyente.getNombreContribuyente());
+            System.out.println("Razon Social         :" + contribuyente.getRazonSocial());
+            System.out.println("Representante Legal  :" + contribuyente.getRepresentanteLegal());
+            System.out.println("Renta Anual          :" + contribuyente.getRentaAnual());
+            
+        }
+        */
+    
+    }
+    
+    public int guardarContribuyente (Contribuyentes contribuyentes) {
+        int flag = 0;
+        PreparedStatement ps = null;
+        Connection conn = conectarBaseDatos();
+        try {
+            String sSql = "";
+            sSql = sSql + "insert into public.rm_contribuyentes ";
+            sSql = sSql + "(no_nit , nombre_contribuyente, razon_social , ";
+            sSql = sSql + "representante_legal , renta_anual) ";
+            sSql = sSql + " VALUES "; 
+            sSql = sSql + " ( ?,?,?,?,?) ";
+            
+            ps = conn.prepareStatement(sSql);
+            ps.setString(1, contribuyentes.getNoNit());
+            ps.setString(2, contribuyentes.getNombreContribuyente());
+            ps.setString(3, contribuyentes.getRazonSocial());
+            ps.setString(4, contribuyentes.getRepresentanteLegal());
+            ps.setDouble(5, contribuyentes.getRentaAnual());
+            flag = ps.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ps != null ) ps.close();
+                if (conn != null ) conn.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return flag;
+    }
+    
+    public Contribuyentes consultarContribuyente (String noNit) {
+        Statement stmt = null;
+        ResultSet rs = null;
+        Contribuyentes contribuyentes = null;
+        Connection conn = conectarBaseDatos();
+        try {
+            String sql = "select * from public.rm_contribuyentes "
+                    + " where \"no_nit\"='"+ noNit + "'";
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            while ( rs.next() ) {
+                contribuyentes = new Contribuyentes();
+                contribuyentes.setNoNit(rs.getString(1));
+                contribuyentes.setNombreContribuyente(rs.getString(2));
+                contribuyentes.setRazonSocial(rs.getString(3));
+                contribuyentes.setRepresentanteLegal(rs.getString(4));
+                contribuyentes.setRentaAnual(rs.getDouble(5));
+            }
+            
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+        finally {
+            try {
+                if (rs != null ) rs.close();
+                if (stmt != null ) stmt.close();
+                if (conn != null ) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return contribuyentes;
+    }
+    
+    
+    public int eliminarContribuyente (String noNit) {
+        int flag = 0;
+        PreparedStatement ps = null;
+        Connection conn  =  conectarBaseDatos();
+        try {
+            String sSql = "";
+            sSql = sSql + "Delete from public.rm_contribuyentes where no_nit = ? ";
+            
+            ps = conn.prepareStatement(sSql);;
+            ps.setString(1, noNit);
+            flag = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ps != null ) ps.close();
+                if (conn != null ) conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+        return flag;
+    }
+    
+    public int modificarContribuyente (Contribuyentes contribuyente) {
+        int flag = 0;
+        PreparedStatement ps = null;
+        Connection conn = conectarBaseDatos();
+        try {
+            String sSql = "";
+            sSql = sSql + "Update public.rm_contribuyentes ";
+            sSql = sSql + "Set nombre_contribuyente = ?, razon_social = ? , ";
+            sSql = sSql + "representante_legal = ? , renta_anual = ? ";
+            sSql = sSql + " Where no_nit = ? ";             
+            
+            ps = conn.prepareStatement(sSql);            
+            ps.setString(1, contribuyente.getNombreContribuyente());
+            ps.setString(2, contribuyente.getRazonSocial());
+            ps.setString(3, contribuyente.getRepresentanteLegal());
+            ps.setDouble(4, contribuyente.getRentaAnual());
+            ps.setString(5, contribuyente.getNoNit());
+            flag = ps.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ps != null ) ps.close();
+                if (conn != null ) conn.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return flag;
+    }
+}
+
+//Archivo POJO
+
+package sv.curso.intermedio.practica05.dtos;
+
+
+public class Contribuyentes {
+    private String noNit;
+    private String nombreContribuyente;
+    private String razonSocial;
+    private String representanteLegal;
+    private double rentaAnual;
+
+    public String getNoNit() {
+        return noNit;
+    }
+
+    public void setNoNit(String noNit) {
+        this.noNit = noNit;
+    }
+
+    public String getNombreContribuyente() {
+        return nombreContribuyente;
+    }
+
+    public void setNombreContribuyente(String nombreContribuyente) {
+        this.nombreContribuyente = nombreContribuyente;
+    }
+
+    public String getRazonSocial() {
+        return razonSocial;
+    }
+
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
+    }
+
+    public String getRepresentanteLegal() {
+        return representanteLegal;
+    }
+
+    public void setRepresentanteLegal(String representanteLegal) {
+        this.representanteLegal = representanteLegal;
+    }
+
+    public double getRentaAnual() {
+        return rentaAnual;
+    }
+
+    public void setRentaAnual(double rentaAnual) {
+        this.rentaAnual = rentaAnual;
+    }
+    
+    
+}
+
+
+</xmp>
+
+</body>
+</html>
