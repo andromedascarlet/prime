@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+//Suplier
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace CoreVanillaJs.Models.Request
+{
+    public class PersonaEditRequest
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public int Edad { get; set; }
+    }
+}
+
+//A
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace CoreVanillaJs.Models.Request
+{
+    public class PersonaRequest
+    {
+        public string Nombre { get; set; }
+        public int Edad { get; set; }
+    }
+}
+
+//A
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+
+namespace CoreVanillaJs.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ValuesController : ControllerBase
+    {
+        public class A
+        {
+            public string Nombre { get; set; }
+        }
+        // GET api/values
+        [HttpGet]
+        public ActionResult Get()
+        {
+            using (Models.CrudVanillaJsContext db= new Models.CrudVanillaJsContext())
+            {
+                var lst = (from d in db.Persona
+                          select d).ToList();
+                      
+                return Ok(lst);
+            }
+
+           //return new string[] { "value1", "value2" };
+        }
+
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public ActionResult<string> Get(int id)
+        {
+            return "value";
+        }
+
+        // POST api/values
+        [HttpPost]
+        public void Post([FromBody] string value)
+        {
+        }
+
+        // PUT api/values/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
+        {
+        }
+
+        // DELETE api/values/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+        }
+    }
+}
+
+//A
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace CoreVanillaJs.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    [EnableCors("permitir")]
+    public class PersonaController : ControllerBase
+    {
+        [HttpGet]
+        public ActionResult Get()
+        {
+            using (Models.CrudVanillaJsContext db = new Models.CrudVanillaJsContext())
+            {
+                var lst = (from d in db.Persona
+                           select d).ToList();
+
+                return Ok(lst);
+            }
+
+        }
+
+        [HttpPost]
+        public ActionResult Post([FromBody] Models.Request.PersonaRequest model)
+        {
+            using (Models.CrudVanillaJsContext db = new Models.CrudVanillaJsContext())
+            {
+                Models.Persona oPersona = new Models.Persona();
+                oPersona.Nombre = model.Nombre;
+                oPersona.Edad = model.Edad;
+                db.Persona.Add(oPersona);
+                db.SaveChanges();
+            }
+
+            return Ok();
+        }
+
+        [HttpPut]
+        public ActionResult Put([FromBody] Models.Request.PersonaEditRequest model)
+        {
+            using (Models.CrudVanillaJsContext db = new Models.CrudVanillaJsContext())
+            {
+                Models.Persona oPersona = db.Persona.Find(model.Id);
+                oPersona.Nombre = model.Nombre;
+                oPersona.Edad = model.Edad;
+                db.Entry(oPersona).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                db.SaveChanges();
+            }
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        public ActionResult Delete([FromBody] Models.Request.PersonaEditRequest model)
+        {
+            using (Models.CrudVanillaJsContext db = new Models.CrudVanillaJsContext())
+            {
+                Models.Persona oPersona = db.Persona.Find(model.Id);
+                db.Persona.Remove(oPersona);
+                db.SaveChanges();
+            }
+
+            return Ok();
+        }
+    }
+}
+
+//A
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+
+namespace CoreVanillaJs
+{
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("permitir",
+                    builder =>
+                    {
+                        builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                    });
+            });
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseHsts();
+            }
+
+            app.UseHttpsRedirection();
+            app.UseMvc();
+
+
+            app.UseCors("permitir");
+        }
+    }
+}
+
+//
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <h1>Personas</h1>
+    <hr>
+    <form id="frm">
+        <input type="hidden" value="" name="Id" Id="Id">
+        <label>Nombre: </label>
+        <input type="text" name="Nombre" id="Nombre">
+        <br>
+        <label>Edad: </label>
+        <input type="text" name="Edad" id="Edad">
+        <br>
+        <input type="button" value="Guardar" onclick="Guardar();">
+    </form>
+    <hr>
+    <div id="divLista"></div>
+</body>
+</html>
+
+<script>
+var url="https://localhost:44320/api/persona";
+
+Get();
+
+function Guardar(){
+   if(document.getElementById("Id").value!=""){
+        Edit();
+   } else{
+       Post();
+   }
+}
+
+function Post(){
+   fetch(url, {
+       method: "POST",
+       body: JSON.stringify({
+           Nombre: document.getElementById("Nombre").value,
+           Edad: document.getElementById("Edad").value
+        }),
+        headers: {
+            'Accept':"application/json",
+            "Content-Type":"application/json"
+        }
+   }).then(function(response){
+       if(response.ok){
+           return response.text();
+       }else{
+           alert("Error al ejecutar solicitud");
+       }
+   }).then(function(Data){
+       console.log(Data);
+       Get();
+       document.getElementById("Id").value="";
+       document.getElementById("Nombre").value="";
+       document.getElementById("Edad").value="";
+   })
+}
+
+function Delete(id){
+    fetch(url, {
+       method: "DELETE",
+       body: JSON.stringify({
+           Id: id
+        }),
+        headers: {
+            'Accept':"application/json",
+            "Content-Type":"application/json"
+        }
+   }).then(function(response){
+       if(response.ok){
+           return response.text();
+       }else{
+           alert("Error al ejecutar solicitud");
+       }
+   }).then(function(Data){
+       console.log(Data);
+       Get();
+   })
+}
+
+function OpenEdit(Id,Nombre,Edad){
+    document.getElementById("Id").value=Id;
+    document.getElementById("Nombre").value=Nombre;
+    document.getElementById("Edad").value=Edad;
+}
+
+function Edit(){
+    fetch(url, {
+       method: "PUT",
+       body: JSON.stringify({
+           Id: document.getElementById("Id").value,
+           Nombre: document.getElementById("Nombre").value,
+           Edad: document.getElementById("Edad").value,
+        }),
+        headers: {
+            'Accept':"application/json",
+            "Content-Type":"application/json"
+        }
+   }).then(function(response){
+       if(response.ok){
+           return response.text();
+       }else{
+           alert("Error al ejecutar solicitud");
+       }
+   }).then(function(Data){
+       console.log(Data);
+       Get();
+       document.getElementById("Id").value="";
+       document.getElementById("Nombre").value="";
+       document.getElementById("Edad").value="";
+   })
+}
+
+
+function Get(){
+    fetch(url).then(function(response){
+        return response.json();
+    }).then(function(Data){
+        document.getElementById("divLista").innerHTML="";
+        for(i=0; i<Data.length; i++){
+            let divElement = document.createElement("div");
+            let divSpan = document.createElement("span");
+            let divButtonDelete = document.createElement("button");
+            let divButtonEdit = document.createElement("button");
+            divSpan.innerHTML = Data[i].nombre+" "+Data[i].edad;
+            divButtonDelete.innerHTML="Eliminar";
+            divButtonDelete.MiId=Data[i].id;
+            divButtonDelete.addEventListener("click",function(mibutton){
+                Delete(mibutton.target.MiId);
+            })
+            divButtonEdit.innerHTML="Editar";
+            divButtonEdit.MiId=Data[i].id;
+            divButtonEdit.MiNombre=Data[i].nombre;
+            divButtonEdit.MiEdad=Data[i].edad;
+            divButtonEdit.addEventListener("click",function(mibutton){
+                OpenEdit(
+                    mibutton.target.MiId,
+                    mibutton.target.MiNombre,
+                    mibutton.target.MiEdad
+                );
+            })
+            divElement.appendChild(divSpan);
+            divElement.appendChild(divButtonDelete);
+            divElement.appendChild(divButtonEdit);
+            document.getElementById("divLista").appendChild(divElement);
+
+        }
+       
+        
+    })
+}
+</script>
+
+//A
+USE [CrudVanillaJs]
+GO
+/****** Object:  Table [dbo].[persona]    Script Date: 25/08/2019 03:12:58 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[persona](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](50) NULL,
+	[edad] [int] NULL,
+ CONSTRAINT [PK_persona] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+USE [master]
+GO
+ALTER DATABASE [CrudVanillaJs] SET  READ_WRITE 
+GO
+
+</xmp>
+
+</body>
+</html>
