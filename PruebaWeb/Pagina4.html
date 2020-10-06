@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormDropDownList.aspx.cs" Inherits="PruebaWeb.FormDropDownList" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+<br />
+    <form id="form1" runat="server">
+    
+    <div align="center" style="height: 220px; width: 324px; margin-top: 0px">
+            <asp:DropDownList ID="ddlistCliente" runat="server"  
+                Width="111px" onselectedindexchanged="ddlistCliente_SelectedIndexChanged" >
+            </asp:DropDownList>
+            <br />
+            <br />
+            <table><tr><th>Valor:</th>
+            <td> <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td></tr>
+            <tr><th>Nombre:</th><td> <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td></tr></table>
+        </div>
+        <br />
+    <asp:Button ID="Button1" runat="server" Text="Obtener Clientes" 
+        onclick="Button1_Click" />
+    <asp:Button ID="Button2" runat="server" Text="Ver Datos" 
+        onclick="Button2_Click" />
+        <br />
+    <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
+    </form>        
+    
+    </body>
+</html>
+
+
+</xmp>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>
+
+using AplicaWeb.Clases;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace AplicaWeb
+{
+    public partial class DatosCliente : System.Web.UI.Page
+    {
+
+        coneccion procesosbase = new coneccion();
+        int indicegrid ;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            string nombre;
+            int edad;
+            string telefono;
+
+            nombre = TextBox1.Text;
+            edad = Convert.ToInt16(TextBox2.Text);
+            telefono = TextBox3.Text;
+
+            procesosbase.guardar(nombre, edad, telefono, "tablanombre");
+            Button6_Click( sender, e);
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            string nombre;
+            int edad;
+            string telefono;
+
+            nombre = TextBox1.Text;
+            edad = Convert.ToInt16(TextBox2.Text);
+            telefono = TextBox3.Text;
+            indicegrid = Convert.ToInt16(HiddenField1.Value);
+            procesosbase.modificar(nombre, edad, telefono, "tablanombre", indicegrid);
+            Button6_Click(sender, e);
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            SqlDataReader datostabla;
+
+            datostabla = procesosbase.cargar("tablanombre");
+
+            GridView1.DataSource = datostabla;
+            GridView1.DataBind();
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string valor;
+
+            //TextBox1.Text = GridView1.Rows[GridView1.SelectedRow.RowIndex].Cells[3].Text  ;
+            //TextBox2.Text = GridView1.Rows[GridView1.SelectedRow.RowIndex].Cells[4].Text.ToString() ;
+            //TextBox3.Text = GridView1.Rows[GridView1.SelectedRow.RowIndex].Cells[5].Text;
+
+            //TextBox4.Text = GridView1.Rows[GridView1.SelectedRow.RowIndex].Cells[1].Text;
+            HiddenField1.Value = GridView1.Rows[GridView1.SelectedRow.RowIndex].Cells[1].Text;
+            indicegrid =  Int32.Parse( GridView1.Rows[GridView1.SelectedRow.RowIndex].Cells[1].Text);
+            TextBox1.Text = GridView1.Rows[GridView1.SelectedRow.RowIndex].Cells[2].Text;
+            TextBox2.Text = GridView1.Rows[GridView1.SelectedRow.RowIndex].Cells[3].Text;
+            TextBox3.Text = GridView1.Rows[GridView1.SelectedRow.RowIndex].Cells[4].Text;
+
+            //dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[0].Value.ToString();
+            //TextBox2.Text = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["first_name"].Value.ToString();
+
+        }
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            /*  --Anterior codigo
+            SqlDataReader datostabla;
+
+            datostabla = procesosbase.cargar("tablanombre");
+
+            BoundField test = new BoundField();
+            test.DataField = "nombre";
+            test.HeaderText = "NombreZZ";
+            test.HeaderStyle.CssClass = "hiddencol";
+            test.ItemStyle.CssClass = "hiddencol";
+            //GridView1.Columns.Add(test);
+
+            while (datostabla.Read()) {
+                int midata = datostabla.GetInt32(0);
+                string miname = datostabla.GetString(1);
+            }
+
+            GridView1.DataSource = datostabla;
+            //GridView1.AutoGenerateColumns = false;
+            //AutoGenerateColumns="false"
+            GridView1.DataBind();
+            GridView1.Visible = true;
+    */
+
+            DataTable datostabla;
+
+            datostabla = procesosbase.cargarDataTable("tablanombre");
+
+            BoundField test = new BoundField();
+            test.DataField = "Nombre";
+            test.HeaderText = "NombreZZ";
+            test.HeaderStyle.CssClass = "hiddencol";
+            test.ItemStyle.CssClass = "hiddencol";
+            //GridView1.Columns.Add(test);
+
+           
+
+            GridView1.DataSource = datostabla;
+            //GridView1.AutoGenerateColumns = false;
+            //AutoGenerateColumns="false"
+            GridView1.DataBind();
+            
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            TextBox1.Text = "";
+            TextBox2.Text = "";
+            TextBox3.Text = "";
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+                        
+            indicegrid = Convert.ToInt16(HiddenField1.Value);
+            procesosbase.eliminar( "tablanombre", indicegrid);
+            Button6_Click(sender, e);
+        }
+    }
+}
+
+</xmp>
+
+</body>
+</html>

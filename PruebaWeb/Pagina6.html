@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace PruebaWeb
+{
+    public class ddlist_c
+    {
+        SqlConnection linkToDB;
+        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+
+        public ddlist_c()
+        {
+            builder.DataSource = @"PCREVELATION";
+            builder.InitialCatalog = "MiBase";
+            //builder.UserID = "osorio";
+            //builder.Password = "123";
+            builder.IntegratedSecurity = true;
+        }
+
+
+        public SqlDataReader cargar()
+        {
+            string mensaje = "";
+            linkToDB = new SqlConnection(builder.ConnectionString);
+
+            string sqlText = "Select identificacion,nombre from clientes";
+            SqlCommand command = new SqlCommand(sqlText, linkToDB);
+            try
+            {
+                linkToDB.Open();
+            } 
+            catch (Exception e)
+            {
+                mensaje = "NO HUBO CONEXION  ";
+            }
+            SqlDataReader reader = command.ExecuteReader();
+            return reader;
+        }
+
+        public void conectar()
+        {
+            string mensaje;
+            try
+            {
+                linkToDB = new SqlConnection(builder.ConnectionString);
+                linkToDB.Open();
+            }
+
+            catch (Exception e)
+            {
+                mensaje = "NO HUBO CONEXION:  ";
+
+            }
+        }
+
+        public void desconectar()
+        {
+            string mensaje;
+            try
+            {
+                linkToDB.Close();
+
+                linkToDB.Dispose();
+            }
+
+            catch (Exception e)
+            {
+                mensaje = "NO HUBO CONEXION:  \n";
+            }
+        }
+
+
+
+    }
+
+}
+
+</xmp>
+
+</body>
+</html>

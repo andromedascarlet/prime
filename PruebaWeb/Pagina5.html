@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace PruebaWeb
+{
+    public partial class FormDropDownList : System.Web.UI.Page
+    {
+        ddlist_c procesosCli = new ddlist_c();
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlDataReader datostabla;
+                datostabla = procesosCli.cargar();
+                
+                ddlistCliente.DataSource = datostabla;
+                ddlistCliente.DataValueField = "identificacion";
+                ddlistCliente.DataTextField = "nombre";
+                ddlistCliente.DataBind();
+                ddlistCliente.SelectedIndex = 0;
+            }
+            catch (Exception ee)
+            {
+                lblError.Text = ee.ToString();
+            }
+            finally
+            {
+                ddlistCliente.Dispose();
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            TextBox1.Text = ddlistCliente.SelectedValue.ToString();
+            TextBox2.Text = ddlistCliente.SelectedItem.Text;
+        }
+
+        protected void ddlistCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlistCliente.SelectedIndex == 1)
+            {
+                lblError.Text = "HOLA";
+            }
+        }
+    }
+
+
+
+
+}
+
+</xmp>
+
+</body>
+</html>

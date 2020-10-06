@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<xmp>   
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace AplicaWeb.Clases
+{
+    public class coneccion
+    {
+        SqlConnection linkToDB;
+        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+
+        public coneccion()
+        {
+            builder.DataSource = @"PCLEGION";
+            builder.InitialCatalog = "MiBase";
+            builder.UserID = "osbornuser";
+            builder.Password = "123";
+            builder.IntegratedSecurity = true;
+        }
+
+
+        public SqlDataReader cargar(string tabla)
+        {
+            string mensaje = "";
+            linkToDB = new SqlConnection(builder.ConnectionString);
+
+
+
+
+            string sqlText = "Select * from " + tabla;
+            SqlCommand command = new SqlCommand(sqlText, linkToDB);
+            try
+            {
+                linkToDB.Open();
+            }
+
+            catch (Exception e)
+            {
+                mensaje = "NO HUBO CONEXION  ";
+            }
+            SqlDataReader reader = command.ExecuteReader();
+            return reader;
+        }
+
+        public DataTable cargarDataTable(string tabla)
+        {
+            string mensaje = "";
+            linkToDB = new SqlConnection(builder.ConnectionString);
+
+
+            string sqlText = "Select * from " + tabla;
+
+            DataTable dt = new DataTable();
+
+            try { 
+            using (SqlConnection con = new SqlConnection(builder.ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(sqlText))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;                        
+                        sda.Fill(dt);                        
+                    }
+                }
+            }
+            }
+            catch (Exception e)
+            {
+                mensaje = "NO HUBO CONEXION  ";
+            }
+            
+            return dt;
+        }
+
+        public void conectar()
+        {
+            string mensaje;
+            try
+            {
+
+                linkToDB = new SqlConnection(builder.ConnectionString);
+                linkToDB.Open();
+            }
+
+            catch (Exception e)
+            {
+                mensaje = "NO HUBO CONEXION:  ";
+
+            }
+        }
+
+        public void desconectar()
+        {
+            string mensaje;
+            try
+            {
+                linkToDB.Close();
+
+                linkToDB.Dispose();
+            }
+
+            catch (Exception e)
+            {
+                mensaje = "NO HUBO CONEXION:  \n";
+            }
+        }
+
+
+        public void guardar(string nombre_f, int edad_f, string telefono_f, string tabla)
+        {
+            int maxCola;
+            int temp;
+            string mensaje;
+
+            maxCola = obtener_Max();
+            conectar();
+
+            string sqlText = @"INSERT INTO " + tabla + " (IdNombre ,Nombre ,Edad, Telefono ) VALUES ( @IdNombre, @Nombre, @Edad , @Telefono) ";
+            SqlCommand dataAction = new SqlCommand(sqlText, linkToDB);
+            dataAction.Parameters.Add("@IdNombre", SqlDbType.Int).Value = maxCola;
+            dataAction.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = nombre_f;
+            dataAction.Parameters.Add("@Edad", SqlDbType.Int).Value = edad_f;
+            dataAction.Parameters.Add("@Telefono", SqlDbType.VarChar).Value = telefono_f;
+            try
+            {
+                dataAction.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Failure: ";
+            }
+
+        }
+
+
+        public void modificar(string nombre_f, int edad_f, string telefono_f, string tabla , int indicegrid_f)
+        {            
+            int temp;
+            string mensaje;
+            
+            conectar();
+
+            string sqlText = @"update " + tabla + " set Nombre = @Nombre ,Edad =  @Edad, Telefono = @Telefono  "
+                + "where idNombre = @IdNombre ";
+            SqlCommand dataAction = new SqlCommand(sqlText, linkToDB);
+            dataAction.Parameters.Add("@IdNombre", SqlDbType.Int).Value = indicegrid_f;
+            dataAction.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = nombre_f;
+            dataAction.Parameters.Add("@Edad", SqlDbType.Int).Value = edad_f;
+            dataAction.Parameters.Add("@Telefono", SqlDbType.VarChar).Value = telefono_f;
+            try
+            {
+                dataAction.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Failure: ";
+            }
+
+        }
+
+        public void eliminar(string tabla, int indicegrid_f)
+        {
+            int temp;
+            string mensaje;
+
+            conectar();
+
+            string sqlText = @"delete from " + tabla 
+                + "  where idNombre = @IdNombre ";
+            SqlCommand dataAction = new SqlCommand(sqlText, linkToDB);
+            dataAction.Parameters.Add("@IdNombre", SqlDbType.Int).Value = indicegrid_f;            
+            try
+            {
+                dataAction.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Failure: ";
+            }
+
+        }
+
+        private int obtener_Max()
+        {
+            int maximo;
+            string mensaje;
+
+            conectar();
+            string sqlText = @"SELECT  ISNULL(MAX(IDNombre), 0) AS MAXCOLA FROM tablanombre ";
+            SqlCommand dataAction = new SqlCommand(sqlText, linkToDB);
+            maximo = 0;
+            try
+            {
+                maximo = (int)dataAction.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Failure: ";
+            }
+
+            maximo = maximo + 1;
+            desconectar();
+
+            return maximo;
+        }
+
+    }
+}
+</xmp>
+
+</body>
+</html>
